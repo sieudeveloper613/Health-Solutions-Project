@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Health Solutions Application</string>
     <string name="android_native_team">Welcome to my team! Health Solutions Project</string>
+    <string name="otp_email_string">Mã xác thực (OTP)  sẽ được gửi đến email này để xác minh email là của bạn</string>
 </resources>
