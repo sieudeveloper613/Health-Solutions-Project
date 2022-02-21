@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Địa chỉ Email"
+            android:text="Số điện thoại"
             android:textSize="18dp"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksand_semi_bold"
@@ -31,10 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:backgroundTint="@color/white"
             app:cardCornerRadius="6dp"
             app:cardElevation="3dp"
             app:contentPadding="4dp"
-            android:backgroundTint="@color/white"
             app:strokeColor="@color/deep_grey"
             app:strokeWidth="2dp">
 
@@ -45,11 +45,11 @@
                 android:weightSum="5">
 
                 <EditText
-                    android:id="@+id/ed_changeEmail"
+                    android:id="@+id/ed_changePhoneNumber"
                     android:layout_width="0dp"
                     android:layout_height="44dp"
                     android:layout_weight="4.5"
-                    android:hint="Nhập địa chỉ Email"
+                    android:hint="Nhập số điện thoại"
                     android:fontFamily="@font/quicksand_medium"
                     android:textSize="16dp"
                     android:inputType="text"
@@ -62,7 +62,7 @@
                     />
 
                 <ImageView
-                    android:id="@+id/img_deleteEmail"
+                    android:id="@+id/img_deletePhoneNumber"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
                     android:layout_height="24dp"
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/otp_email_string"
+            android:text="@string/otp_phone_number_string"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksand_medium"
             android:layout_marginLeft="20dp"
@@ -86,7 +86,7 @@
             android:layout_marginTop="10dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_saveEmail"
+            android:id="@+id/btn_savePhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:backgroundTint="@color/deep_blue"

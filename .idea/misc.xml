@@ -6,10 +6,17 @@
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic__arrow_back__24px.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_arrow_back_24px.xml" value="0.12604166666666666" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12604166666666666" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/round_border.xml" value="0.240625" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/font/font.xml" value="0.23055555555555557" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/font/font_size.xml" value="0.23055555555555557" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_email.xml" value="0.22" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_change_information.xml" value="0.25" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dob.xml" value="0.25" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_edit_information.xml" value="0.21965579710144928" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_email.xml" value="0.25" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_full_name.xml" value="0.21965579710144928" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_gender.xml" value="0.21965579710144928" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_phone_number.xml" value="0.21965579710144928" />
       </map>
     </option>
   </component>

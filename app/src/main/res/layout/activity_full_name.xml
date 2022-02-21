@@ -45,11 +45,11 @@
                 android:weightSum="5">
 
                 <EditText
-                    android:id="@+id/ed_changeEmail"
+                    android:id="@+id/ed_changeFullName"
                     android:layout_width="0dp"
                     android:layout_height="44dp"
                     android:layout_weight="4.5"
-                    android:hint="Nhập địa chỉ Email"
+                    android:hint="Nhập tên đầy đủ của bạn"
                     android:fontFamily="@font/quicksand_medium"
                     android:textSize="16dp"
                     android:inputType="text"
@@ -62,7 +62,7 @@
                     />
 
                 <ImageView
-                    android:id="@+id/img_deleteEmail"
+                    android:id="@+id/img_deleteFullName"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
                     android:layout_height="24dp"
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/otp_email_string"
+            android:text="Họ &amp; tên phải gồm 2 từ trở lên"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksand_medium"
             android:layout_marginLeft="20dp"
@@ -86,7 +86,7 @@
             android:layout_marginTop="10dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_saveEmail"
+            android:id="@+id/btn_saveFullName"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:backgroundTint="@color/deep_blue"

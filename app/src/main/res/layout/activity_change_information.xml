@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_grey"
+    tools:context=".ChangeInformationActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToFullName"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/white"
+        app:contentPadding="10dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_person_name_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Họ &amp; Tên"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đinh Thị Hoài Thu"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToDob"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/white"
+        app:contentPadding="10dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_dob_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày sinh"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm ngày tháng năm sinh"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/deep_grey"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToGender"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/white"
+        app:contentPadding="10dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_gender_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giới tính"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToPhoneNumber"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/white"
+        app:contentPadding="10dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_cell_phone_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Số điện thoại"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0123456789"
+                    android:letterSpacing="0.05"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToAddress"
+        android:layout_width="match_parent"
+        app:contentPadding="10dp"
+        android:backgroundTint="@color/white"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_address_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ nhận hàng"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivering_address"
+                    android:textSize="18dp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_moveToEmail"
+        android:layout_width="match_parent"
+        app:contentPadding="10dp"
+        android:backgroundTint="@color/white"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_email_24px"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ Email"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm địa chỉ Email"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/deep_grey"/>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_right_24dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

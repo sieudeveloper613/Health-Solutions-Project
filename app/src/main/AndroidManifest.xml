@@ -9,14 +9,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthSolutionsApplication">
+
         <activity
             android:name=".EmailActivity"
+            android:exported="true"
+            android:parentActivityName=".ChangeInformationActivity">
+        </activity>
+
+        <activity
+            android:name=".PhoneNumberActivity"
+            android:exported="true"
+            android:parentActivityName=".ChangeInformationActivity">
+
+        </activity>
+
+        <activity
+            android:name=".FullNameActivity"
+            android:exported="true"
+            android:parentActivityName=".ChangeInformationActivity">
+        </activity>
+
+        <activity
+            android:name=".GenderActivity"
+            android:exported="true"
+            android:parentActivityName=".ChangeInformationActivity">
+
+        </activity>
+
+        <activity
+            android:name=".ChangeInformationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DobActivity"
+            android:exported="true"
+            android:parentActivityName=".ChangeInformationActivity">
         </activity>
 
         <activity

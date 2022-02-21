@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Health Solutions Application</string>
     <string name="android_native_team">Welcome to my team! Health Solutions Project</string>
-    <string name="otp_email_string">Mã xác thực (OTP)  sẽ được gửi đến email này để xác minh email là của bạn</string>
+    <string name="otp_email_string">Mã xác thực (OTP) sẽ được gửi đến email này để xác minh email là của bạn</string>
+    <string name="otp_phone_number_string">Mã xác thực (OTP) sẽ được gửi đến số điện thoại
+                                            này để xác minh số điện thoại là của bạn</string>
+    <string name="delivering_address">Nhà thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Quận Gò Vấp, Hồ Chí Minh</string>
 </resources>
