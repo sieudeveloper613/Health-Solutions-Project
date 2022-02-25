@@ -5,4 +5,5 @@
     <string name="otp_phone_number_string">Mã xác thực (OTP) sẽ được gửi đến số điện thoại
                                             này để xác minh số điện thoại là của bạn</string>
     <string name="delivering_address">Nhà thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Quận Gò Vấp, Hồ Chí Minh</string>
+    <string name="password_string">Mật khẩu mới phải có từ 8-32 ký tự, bao gồm chữ và số</string>
 </resources>

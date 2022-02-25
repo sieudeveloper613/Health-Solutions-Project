@@ -1,4 +1,4 @@
-package com.example.healthsolutionsapplication;
+package com.example.healthsolutionsapplication.Activity;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.healthsolutionsapplication.R;
 
 import java.util.Collections;
 

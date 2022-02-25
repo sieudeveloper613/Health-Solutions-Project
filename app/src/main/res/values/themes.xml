@@ -19,4 +19,8 @@
         <item name="fontFamily">@font/quicksand_bold</item>
         <item name="android:textSize">18dp</item>
     </style>
+
+    <style name="circle_image">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

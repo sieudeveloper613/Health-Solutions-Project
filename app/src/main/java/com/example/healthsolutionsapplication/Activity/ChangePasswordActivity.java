@@ -1,4 +1,7 @@
-package com.example.healthsolutionsapplication;
+package com.example.healthsolutionsapplication.Activity;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -6,21 +9,18 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.healthsolutionsapplication.R;
 
-
-public class GenderActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gender);
+        setContentView(R.layout.activity_change_password);
 
         // setting status bar and action bar
         changeStatusBarColor();
         customActionBar();
-
     }
 
     private void changeStatusBarColor(){
@@ -33,7 +33,7 @@ public class GenderActivity extends AppCompatActivity {
 
     private void customActionBar(){
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Giới tính");
+        actionBar.setTitle("Đổi mật khẩu");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
 
         //actionBar.hide();
@@ -43,5 +43,4 @@ public class GenderActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
     }
-
 }

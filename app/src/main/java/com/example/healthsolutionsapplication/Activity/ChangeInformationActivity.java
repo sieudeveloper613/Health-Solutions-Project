@@ -1,4 +1,4 @@
-package com.example.healthsolutionsapplication;
+package com.example.healthsolutionsapplication.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.R;
 import com.google.android.material.card.MaterialCardView;
 
 

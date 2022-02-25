@@ -1,24 +1,23 @@
-package com.example.healthsolutionsapplication;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.healthsolutionsapplication.Activity;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.TypefaceSpan;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.healthsolutionsapplication.R;
 
 
-public class EmailActivity extends AppCompatActivity {
+public class PhoneNumberActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_email);
+        setContentView(R.layout.activity_phone_number);
 
         // setting status bar and action bar
         changeStatusBarColor();
@@ -36,7 +35,7 @@ public class EmailActivity extends AppCompatActivity {
 
     private void customActionBar(){
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Địa chỉ Email");
+        actionBar.setTitle("Số điện thoại");
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
 
         //actionBar.hide();

@@ -11,33 +11,11 @@
         android:theme="@style/Theme.HealthSolutionsApplication">
 
         <activity
-            android:name=".EmailActivity"
-            android:exported="true"
-            android:parentActivityName=".ChangeInformationActivity">
-        </activity>
-
+            android:name=".Activity.ChangePasswordActivity"
+            android:parentActivityName=".Activity.PersonalActivity"
+            android:exported="false" />
         <activity
-            android:name=".PhoneNumberActivity"
-            android:exported="true"
-            android:parentActivityName=".ChangeInformationActivity">
-
-        </activity>
-
-        <activity
-            android:name=".FullNameActivity"
-            android:exported="true"
-            android:parentActivityName=".ChangeInformationActivity">
-        </activity>
-
-        <activity
-            android:name=".GenderActivity"
-            android:exported="true"
-            android:parentActivityName=".ChangeInformationActivity">
-
-        </activity>
-
-        <activity
-            android:name=".ChangeInformationActivity"
+            android:name=".Activity.PersonalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,17 +23,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".DobActivity"
+            android:name=".Activity.EmailActivity"
             android:exported="true"
-            android:parentActivityName=".ChangeInformationActivity">
-        </activity>
-
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:name=".Activity.PhoneNumberActivity"
+            android:exported="true"
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
+        <activity
+            android:name=".Activity.FullNameActivity"
+            android:exported="true"
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
+        <activity
+            android:name=".Activity.GenderActivity"
+            android:exported="true"
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
+        <activity
+            android:name=".Activity.ChangeInformationActivity"
+            android:parentActivityName=".Activity.PersonalActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Activity.DobActivity"
+            android:exported="true"
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
