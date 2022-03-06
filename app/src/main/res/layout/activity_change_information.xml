@@ -26,7 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_person_name_24px"
+                android:src="@drawable/ic_person"
                 />
 
             <LinearLayout
@@ -79,7 +79,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_dob_24px"
+                android:src="@drawable/ic_date_of_birth"
                 />
 
             <LinearLayout
@@ -132,7 +132,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_gender_24px"
+                android:src="@drawable/ic_gender"
                 />
 
             <LinearLayout
@@ -185,7 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_cell_phone_24px"
+                android:src="@drawable/ic_phone"
                 />
 
             <LinearLayout
@@ -239,7 +239,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_address_24px"
+                android:src="@drawable/ic_address"
                 />
 
             <LinearLayout
@@ -293,7 +293,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_email_24px"
+                android:src="@drawable/ic_post_card"
                 />
 
             <LinearLayout

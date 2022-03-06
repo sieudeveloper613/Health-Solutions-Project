@@ -105,7 +105,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/ic_calendar_2_24px"/>
+                                android:src="@drawable/ic_calendar"/>
                             <TextView
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/ic_calendar_2_24px"/>
+                                android:src="@drawable/ic_quotes"/>
                             <TextView
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
