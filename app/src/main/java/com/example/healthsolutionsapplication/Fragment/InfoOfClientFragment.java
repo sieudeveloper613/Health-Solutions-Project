@@ -2,17 +2,16 @@ package com.example.healthsolutionsapplication.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.healthsolutionsapplication.Activity.ChangeInformationActivity;
-import com.example.healthsolutionsapplication.Activity.ChangePasswordActivity;
+
 import com.example.healthsolutionsapplication.R;
 
 public class InfoOfClientFragment extends Fragment {
@@ -43,7 +42,7 @@ public class InfoOfClientFragment extends Fragment {
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), ChangePasswordActivity.class));
+                startActivity(new Intent(getContext(), ChangeInformationActivity.class));
             }
         });
 

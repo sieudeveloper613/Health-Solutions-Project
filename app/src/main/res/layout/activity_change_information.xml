@@ -185,7 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_phone"
+                android:src="@drawable/ic_phone_1"
                 />
 
             <LinearLayout

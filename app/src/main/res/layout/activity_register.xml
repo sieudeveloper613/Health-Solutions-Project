@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="170dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/logo"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="80" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineHeight="16dp"
+        android:text="Đăng ký"
+        android:layout_marginTop="223dp"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:background="@drawable/bg_login_screen"
+        android:layout_marginTop="260dp"
+        >
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_name"
+            android:hint="Họ và tên"
+            android:padding="8dp"
+
+            android:drawablePadding="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_phone"
+            android:hint="Số điện thoại"
+            android:padding="8dp"
+            android:drawablePadding="18dp"
+            android:layout_marginTop="75dp"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_username"
+            android:hint="Tài khoản"
+            android:padding="8dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="130dp"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_password"
+            android:hint="Mật khẩu"
+            android:padding="8dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="185dp"
+            android:layout_gravity="center_horizontal" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_repassword"
+            android:hint="Nhập lại mật khẩu"
+            android:padding="8dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="240dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn_login_screen"
+            android:text="Đăng ký"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center|center_vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="300dp"/>
+        <TextView
+            android:id="@+id/tv_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Quay lại"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="360dp"/>
+
+
+    </FrameLayout>
+
+</FrameLayout>
