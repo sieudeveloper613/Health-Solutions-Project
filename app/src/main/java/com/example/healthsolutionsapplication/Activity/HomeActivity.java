@@ -32,6 +32,8 @@ public class HomeActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.action_type:
+                        startActivity(new Intent(getApplicationContext(),CatelogyActivity.class));
+                        overridePendingTransition(0,0);
                         Toast.makeText(HomeActivity.this, "Doanh mục", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.action_cart:

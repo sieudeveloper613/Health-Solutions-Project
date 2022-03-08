@@ -177,6 +177,6 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/nav_menu_basic" />
+        app:menu="@menu/menu_bottom_navi" />
 
 </FrameLayout>
