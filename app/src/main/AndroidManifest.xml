@@ -72,6 +72,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Activity.XacNhanDonHangActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Activity.diaChiNhanHangThemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.diaChiNhanHangActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Activity.thongTinHSScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.feedBackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.SanPhamDaMuaActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>
