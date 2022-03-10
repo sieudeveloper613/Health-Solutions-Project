@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.feedBackActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_backFromFeedBack"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="#0088FF"
+            android:src="@drawable/ic_arrow_left_24px"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="360dp"
+            android:layout_height="56dp"
+            android:background="#0088FF"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Feed Back"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_sender_24px" />
+
+        <TextView
+            android:id="@+id/tv_fromCustomer"
+            android:layout_width="327dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:text="Đinh Thị Hoài Thu"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="16dp"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dark_blue" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_line_right_24px" />
+
+        <TextView
+            android:id="@+id/tv_admin"
+            android:layout_width="327dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:text="BQL Health Solution"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="16dp"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F2F2F2" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:text="Tiêu đề"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/ed_titleFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:layout_marginLeft="20dp"
+        android:inputType="textPersonName"
+        android:text="Nhập tiêu đề" />
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:text="Nội Dung"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+
+    <EditText
+        android:id="@+id/ed_contentFeedBack"
+        android:layout_width="413dp"
+        android:layout_height="331dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#F2F2F2" />
+
+    <Button
+        android:id="@+id/btn_feedBackToUs"
+        android:layout_width="350dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#0088FF"
+        android:fontFamily="@font/quicksand_bold"
+        android:layout_gravity="center"
+        android:text="Feedback cho chúng tôi" />
+
+
+</LinearLayout>
