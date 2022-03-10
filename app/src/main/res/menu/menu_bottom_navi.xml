@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/action_home"
         android:title="@string/action_home"
-        android:icon="@drawable/ic_home_24px"/>
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/action_type"
         android:title="@string/action_type"
-        android:icon="@drawable/ic_catelogy_24px"/>
+        android:icon="@drawable/ic_dashboard"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/action_cart"
         android:title="@string/action_cart"
-        android:icon="@drawable/ic_cart_24px"/>
+        android:icon="@drawable/ic_shopping_cart"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/action_mess"
         android:title="@string/action_mess"
-        android:icon="@drawable/ic_chat_24px"/>
+        android:icon="@drawable/ic_chat_outline"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/action_user"
         android:title="@string/action_user"
-        android:icon="@drawable/ic_personal_24px"/>
+        android:icon="@drawable/ic_personal_outline"
+        app:showAsAction="always"/>
 </menu>

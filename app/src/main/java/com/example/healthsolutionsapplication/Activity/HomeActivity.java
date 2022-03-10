@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Fragment.CategoryFragment;
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.action_type:
-                        startActivity(new Intent(getApplicationContext(),CatelogyActivity.class));
+                        startActivity(new Intent(getApplicationContext(), CategoryFragment.class));
                         overridePendingTransition(0,0);
                         Toast.makeText(HomeActivity.this, "Doanh mục", Toast.LENGTH_SHORT).show();
                         return true;
