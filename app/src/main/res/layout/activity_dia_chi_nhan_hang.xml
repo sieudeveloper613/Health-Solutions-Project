@@ -7,43 +7,48 @@
     android:orientation="vertical"
     tools:context=".Activity.diaChiNhanHangActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
 
-        <ImageButton
-            android:id="@+id/btn_backFromAddress"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:background="#0088FF"
-            android:src="@drawable/ic_arrow_left_24px" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_backFromAddress"-->
+<!--            android:layout_width="56dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="#0088FF"-->
+<!--            android:src="@drawable/ic_arrow_left_24px" />-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="360dp"
-            android:layout_height="56dp"
-            android:background="#0088FF"
-            android:fontFamily="@font/quicksand_bold"
-            android:gravity="center"
-            android:text="Địa Chỉ Nhận Hàng"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="360dp"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="#0088FF"-->
+<!--            android:fontFamily="@font/quicksand_bold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Địa Chỉ Nhận Hàng"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20dp" />-->
 
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_deliveryAddress"
         android:layout_width="match_parent"
         android:layout_height="550dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_addAddress"
         android:layout_width="390dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="@color/red"
-        android:text="Thêm địa chỉ mới" />
+        android:text="Thêm địa chỉ mới"
+        android:textSize="18dp"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:cornerRadius="6dp"/>
 
 
 </LinearLayout>

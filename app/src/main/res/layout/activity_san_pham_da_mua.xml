@@ -7,33 +7,33 @@
     tools:context=".Activity.sanPhamDaMuaActivity">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="2dp"
-        android:background="#0088FF"
-        android:fontFamily="@font/quicksand_bold"
-        android:gravity="center"
-        android:text="Sản phẩm đã mua"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="56dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:background="#0088FF"-->
+<!--        android:fontFamily="@font/quicksand_bold"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Sản phẩm đã mua"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageButton
-        android:id="@+id/btn_backFromPurchased"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:background="#0088FF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_left_24px" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_backFromPurchased"-->
+<!--        android:layout_width="45dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:background="#0088FF"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/ic_arrow_left_24px" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_purchasedProduct"
