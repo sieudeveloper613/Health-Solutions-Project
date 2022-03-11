@@ -4,34 +4,31 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.button.MaterialButton;
 
-public class ConfigChangePassActivity extends AppCompatActivity {
-    EditText edNewPassword, edEnterNewPassword;
-    MaterialButton btnChangePassword;
-
+public class SplashActivity extends AppCompatActivity {
+    MaterialButton btnDiscover;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_config_change_pass);
+        setContentView(R.layout.activity_splash);
         changeStatusBarColor();
-
-        edNewPassword = findViewById(R.id.ed_newPassword);
-        edEnterNewPassword = findViewById(R.id.ed_enterNewPassword);
-        btnChangePassword = findViewById(R.id.btn_changePassword);
-
-        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+        btnDiscover = findViewById(R.id.btn_discover);
+        btnDiscover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfigChangePassActivity.this, LoginActivity.class));
+                Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+                startActivity(i);
                 finish();
             }
         });
+
+
     }
 
     private void changeStatusBarColor(){

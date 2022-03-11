@@ -11,7 +11,7 @@
         android:layout_width="170dp"
         android:layout_height="90dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/logo"
         tools:layout_editor_absoluteX="120dp"
         tools:layout_editor_absoluteY="80" />
@@ -21,93 +21,120 @@
         android:layout_height="wrap_content"
         android:lineHeight="16dp"
         android:text="Đăng ký"
-        android:layout_marginTop="223dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="180dp"
         android:textSize="24dp"
         android:textStyle="bold"
         android:layout_gravity="left"
         android:layout_marginLeft="20dp"
         />
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="500dp"
         android:background="@drawable/bg_login_screen"
-        android:layout_marginTop="260dp"
-        >
+        android:layout_marginTop="220dp"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
         <EditText
+            android:id="@+id/ed_resFullName"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:background="@drawable/bg_edit_text"
             android:drawableLeft="@drawable/ic_name"
             android:hint="Họ và tên"
+            android:fontFamily="@font/quicksand_medium"
+            android:textSize="16dp"
+            android:inputType="text"
             android:padding="8dp"
-
             android:drawablePadding="10dp"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"/>
+
         <EditText
+            android:id="@+id/ed_resPhoneNumber"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:background="@drawable/bg_edit_text"
-            android:drawableLeft="@drawable/ic_phone"
+            android:drawableLeft="@drawable/ic_phone_2"
             android:hint="Số điện thoại"
-            android:padding="8dp"
-            android:drawablePadding="18dp"
-            android:layout_marginTop="75dp"
-            android:layout_gravity="center_horizontal" />
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="44dp"
-            android:background="@drawable/bg_edit_text"
-            android:drawableLeft="@drawable/ic_username"
-            android:hint="Tài khoản"
+            android:fontFamily="@font/quicksand_medium"
+            android:textSize="16dp"
+            android:inputType="number"
             android:padding="8dp"
             android:drawablePadding="10dp"
-            android:layout_marginTop="130dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
         <EditText
+            android:id="@+id/ed_resAccount"
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_account"
+            android:hint="Tài khoảng"
+            android:fontFamily="@font/quicksand_medium"
+            android:textSize="16dp"
+            android:inputType="text"
+            android:padding="8dp"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/ed_resPassword"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:background="@drawable/bg_edit_text"
             android:drawableLeft="@drawable/ic_password"
             android:hint="Mật khẩu"
+            android:fontFamily="@font/quicksand_medium"
+            android:textSize="16dp"
+            android:inputType="textPassword"
             android:padding="8dp"
             android:drawablePadding="10dp"
-            android:layout_marginTop="185dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
         <EditText
+            android:id="@+id/ed_resRePassword"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:background="@drawable/bg_edit_text"
-            android:drawableLeft="@drawable/ic_repassword"
+            android:drawableLeft="@drawable/ic_re_password"
             android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
             android:padding="8dp"
             android:drawablePadding="10dp"
-            android:layout_marginTop="240dp"
-            android:layout_gravity="center_horizontal" />
-        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
             android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:background="@drawable/bg_btn_login_screen"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/dark_blue"
             android:text="Đăng ký"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:textStyle="bold"
-            android:gravity="center|center_vertical"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="300dp"/>
+            app:cornerRadius="30dp"
+            android:layout_marginTop="30dp"/>
+
         <TextView
             android:id="@+id/tv_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_semi_bold"
             android:textSize="20dp"
             android:text="Quay lại"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="360dp"/>
-
-
-    </FrameLayout>
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
 
 </FrameLayout>
