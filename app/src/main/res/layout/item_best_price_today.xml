@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="128dp"
         android:layout_height="200dp"
+
         app:cardCornerRadius="10dp">
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,15 +31,7 @@
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
             <TextView
-                android:id="@+id/tvProductPriceOld"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="56.000 đ"
-                android:textSize="14dp"
-                android:background="@drawable/text_sale"/>
-            <TextView
-                android:id="@+id/tvProductPriceNew"
+                android:id="@+id/tvProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25.000 đ"

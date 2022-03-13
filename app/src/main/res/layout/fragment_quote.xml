@@ -75,7 +75,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="tv_titleQuotes"
+                android:id="@+id/tv_titleQuotes"
                 android:layout_width="match_parent"
                 android:layout_height="161dp"
                 android:fontFamily="@font/quicksand_regular"

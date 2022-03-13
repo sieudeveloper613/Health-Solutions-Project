@@ -44,8 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         }
         holder.imgProduct.setImageResource(product.getImage());
         holder.tvProductName.setText(product.getName());
-        holder.tvProductPriceOld.setText(product.getPrice());
-        holder.tvProductPriceNew.setText(product.getPrice());
+        holder.tvProductPrice.setText(product.getPrice()+ " đ");
     }
 
     @Override
@@ -58,13 +57,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     public class ProductHolder extends RecyclerView.ViewHolder{
         private ImageView imgProduct;
-        private TextView tvProductName,tvProductPriceOld,tvProductPriceNew;
+        private TextView tvProductName,tvProductPrice;
         public ProductHolder(@NonNull View itemView) {
             super(itemView);
             imgProduct=itemView.findViewById(R.id.imgProductSale);
             tvProductName=itemView.findViewById(R.id.tvProductName);
-            tvProductPriceOld=itemView.findViewById(R.id.tvProductPriceOld);
-            tvProductPriceNew=itemView.findViewById(R.id.tvProductPriceNew);
+            tvProductPrice=itemView.findViewById(R.id.tvProductPrice);
         }
     }
 }

@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mProductAdapter=new ProductAdapter(this,mProducts);
         rcv.setAdapter(mProductAdapter);
-        rcv.setLayoutManager(new LinearLayoutManager(this));
+        rcv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         createProducts();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.action_type:
                         startActivity(new Intent(getApplicationContext(), CategoryFragment.class));
                         overridePendingTransition(0,0);
-                        Toast.makeText(HomeActivity.this, "Doanh mục", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivity.this, "Danh mục", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.action_cart:
                         Toast.makeText(HomeActivity.this, "Giỏ hàng", Toast.LENGTH_SHORT).show();
@@ -69,5 +69,8 @@ public class HomeActivity extends AppCompatActivity {
     }
     private void createProducts(){
         mProducts.add(new Product(R.drawable.img_item_sale,"Item 1",50000));
+        mProducts.add(new Product(R.drawable.img_item_sale,"Item 2",60000));
+        mProducts.add(new Product(R.drawable.img_item_sale,"Item 3",70000));
+
     }
 }
