@@ -112,12 +112,12 @@
                     android:background="@drawable/bg_item_home_screen"
                     android:orientation="horizontal"
                     android:padding="10dp">
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_bestPriceToday"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/rv_bestPriceToday"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
                 </LinearLayout>
             </LinearLayout>
 
