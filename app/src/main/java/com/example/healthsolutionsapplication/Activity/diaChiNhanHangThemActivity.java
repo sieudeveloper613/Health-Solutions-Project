@@ -1,7 +1,11 @@
 package com.example.healthsolutionsapplication.Activity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +21,7 @@ public class diaChiNhanHangThemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dia_chi_nhan_hang_them);
+        customActionBar();
         spinner_city = (findViewById(R.id.spinner_city));
         spinner_district = (findViewById(R.id.spinner_district));
         spinner_ward = (findViewById(R.id.spinner_ward));
@@ -66,5 +71,14 @@ public class diaChiNhanHangThemActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void customActionBar(){
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Địa Chỉ Nhận Hàng Thêm");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
+        Drawable drawable= getResources().getDrawable(R.drawable.ic_arrow_back_24px);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
     }
 }

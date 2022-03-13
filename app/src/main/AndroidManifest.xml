@@ -27,12 +27,16 @@
         <activity
             android:name=".Activity.diaChiNhanHangActivity"
             android:exported="false" />
-        <activity
-            android:name=".Activity.CatelogyActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Activity.HomeActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activity.ConfigChangePassActivity"
             android:exported="false" />
@@ -79,15 +83,7 @@
             android:name=".Activity.DobActivity"
             android:exported="true"
             android:parentActivityName=".Activity.ChangeInformationActivity" />
-        <activity
-            android:name=".Activity.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

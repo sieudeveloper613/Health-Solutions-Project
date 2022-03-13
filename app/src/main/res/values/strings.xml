@@ -6,9 +6,13 @@
                                             này để xác minh số điện thoại là của bạn</string>
     <string name="delivering_address">Nhà thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Quận Gò Vấp, Hồ Chí Minh</string>
     <string name="password_string">Mật khẩu mới phải có từ 8-32 ký tự, bao gồm chữ và số</string>
+    <string name="password_required">Vui lòng nhập chính xác số điện thoại mà bạn đã đăng ký tài khoản để lấy lại mật khẩu</string>
+    <string name="otp_required">Vui lòng nhập chính xác OTP được gửi vào tin nhắn thông báo qua số điện thoại của bạn</string>
     <string name="action_home">Trang chủ</string>
     <string name="action_type">Doanh mục</string>
     <string name="action_cart">Giỏ hàng</string>
     <string name="action_mess">Tin nhắn</string>
     <string name="action_user">Cá nhân</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

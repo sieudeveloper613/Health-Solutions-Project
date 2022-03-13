@@ -17,7 +17,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:background="#0088FF"
-            android:src="@drawable/ic_arrow_left_24px"/>
+            android:src="@drawable/ic_arrow_back_24px"/>
 
         <TextView
             android:id="@+id/textView"
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_sender_24px" />
+             />
 
         <TextView
             android:id="@+id/tv_fromCustomer"

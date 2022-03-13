@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/quote_tb"
+    android:background="#0088FF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:src="@drawable/ic_arrow_back_24px"
+        android:layout_width="20dp"
+        android:layout_height="20dp"/>
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:text="Quotes"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.appcompat.widget.Toolbar>
+<LinearLayout
+
+
+    android:id="@+id/ln_ly"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="22dp"
+            android:textColor="@color/white"
+            android:background="@color/deep_blue"
+            android:gravity="center"
+            android:text="Có thể Bạn Đã Biết ?"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            />
+        <ImageView
+            android:id="@+id/img_qoutes"
+            android:src="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="310dp"
+            android:layout_height="200dp"/>
+        <TextView
+            android:id="@+id/tv_titleQuotes"
+            android:text="nội dung"
+            android:fontFamily="@font/quicksand_medium"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="tv_titleQuotes"
+                android:layout_width="match_parent"
+                android:layout_height="161dp"
+                android:fontFamily="@font/quicksand_regular"
+                android:gravity="top"
+                android:text="nội dung"
+                android:textFontWeight="500"
+                android:textSize="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="@color/deep_blue"
+                android:layout_height="wrap_content"
+                android:text="Đã hiểu rồi nhé!" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+</RelativeLayout>
