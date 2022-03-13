@@ -23,7 +23,7 @@
 </androidx.appcompat.widget.Toolbar>
 <LinearLayout
 
-    android:layout_below="@id/tb"
+    android:layout_below="@+id/quote_tb"
     android:id="@+id/ln_ly"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -53,14 +53,14 @@
             android:layout_width="310dp"
             android:layout_height="200dp"/>
         <TextView
-            android:id="@+id/tv_titleQuotes"
-            android:text="nội dung"
+            android:id="@+id/tv_contentQuotes"
+            android:text="Kem chống nắng có thể chống nắng"
             android:fontFamily="@font/quicksand_medium"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <View
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:layout_height="161dp"
                 android:fontFamily="@font/quicksand_regular"
                 android:gravity="top"
-                android:text="nội dung"
+                android:text="Kem chống nắng hiệu quả"
                 android:textFontWeight="500"
                 android:textSize="20dp" />
 

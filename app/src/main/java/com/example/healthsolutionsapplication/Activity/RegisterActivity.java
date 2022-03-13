@@ -1,7 +1,9 @@
 package com.example.healthsolutionsapplication.Activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,7 +22,20 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         changeStatusBarColor();
+
+        tvReturn = findViewById(R.id.tv_return);
+
+        tvReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
+
+
 
     private void changeStatusBarColor(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
