@@ -46,7 +46,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                app:srcCompat="@drawable/hinh_logo" />
+                app:srcCompat="@drawable/logo" />
 
             <TextView
                 android:id="@+id/textView3"
