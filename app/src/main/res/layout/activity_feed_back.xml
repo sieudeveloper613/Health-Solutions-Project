@@ -76,7 +76,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_line_right_24px" />
+            app:srcCompat="@drawable/ic_arrow_right_line" />
 
         <TextView
             android:id="@+id/tv_admin"

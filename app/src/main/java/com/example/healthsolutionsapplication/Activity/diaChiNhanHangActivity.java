@@ -37,7 +37,7 @@ public class diaChiNhanHangActivity extends AppCompatActivity {
 
 
         // lay du lieu
-        list.add(new diaChiNhanHangModel("Đinh Thị Hoài Thu", "0912345678",R.drawable.ic_three_dot_24px,"38 Nhà Thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Gò Vấp TP.HCM", "Địa chỉ mặc định"));
+        list.add(new diaChiNhanHangModel("Đinh Thị Hoài Thu", "0912345678",R.drawable.ic_arrow_back_24px,"38 Nhà Thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Gò Vấp TP.HCM", "Địa chỉ mặc định"));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

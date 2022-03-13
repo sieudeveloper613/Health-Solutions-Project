@@ -24,11 +24,21 @@ public class ForgotPassActivity extends AppCompatActivity {
         changeStatusBarColor();
 
         btnConfirmPhoneNumber = findViewById(R.id.btn_confirmPhoneNumber);
+        tvReturn = findViewById(R.id.tv_return);
 
         btnConfirmPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ForgotPassActivity.this, OTPActivity.class));
+                finish();
+            }
+        });
+
+        tvReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ForgotPassActivity.this, LoginActivity.class);
+                startActivity(i);
                 finish();
             }
         });
