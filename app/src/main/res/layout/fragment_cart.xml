@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.appcompat.widget.Toolbar
+    android:background="#0088FF"
+    android:layout_width="match_parent"
+    android:layout_height="56dp">
+<TextView
+    android:textSize="25dp"
+    android:layout_gravity="center"
+    android:text="Giỏ Hàng"
+    android:textColor="#ffff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+</androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+<TextView
+    android:fontFamily="@font/quicksand_medium"
+    android:textFontWeight="600"
+    android:textColor="#0088FF"
+    android:textSize="18dp"
+    android:paddingLeft="20dp"
+    android:gravity="left|center_vertical"
+    android:text="Thông tin Vận Chuyển"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"/>
+        <View
+            android:background="#0088FF"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/vector"
+                android:layout_width="18dp"
+                android:layout_height="24dp"/>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:text="Đinh Thị Hoài Thu"
+                android:id="@+id/txt_name_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/black"
+                android:layout_width="2dp"
+                android:layout_height="18dp"/>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="18dp"
+                android:text="1234567890"
+                android:id="@+id/txt_phone_number_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textFontWeight="700"
+            android:fontFamily="@font/quicksand_regular"
+            android:textSize="14dp"
+            android:text="Nhà thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Quận Gò Vấp, Hồ Chí Minh"
+            android:id="@+id/txt_address_cart"
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:background="#dcdbdb"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <CheckBox
+                android:layout_marginLeft="25dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/check_all"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textFontWeight="600"
+                android:fontFamily="@font/quicksand_medium"
+                android:textSize="20dp"
+                android:lineHeight="20dp"
+                android:text="Tất cả 2 sản phẩm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/img_delete_all"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="130dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/trash" />
+
+        </LinearLayout>
+        <View
+            android:background="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="30dp"
+            tools:listitem="@layout/item_cart"
+            android:id="@+id/rcw_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>
