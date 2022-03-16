@@ -60,6 +60,7 @@
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/drawable/ic_arrow_right_24dp.xml" value="0.1515" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/drawable/ic_arrow_right_line.xml" value="0.1515" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/drawable/ic_arrow_right_red_24dp.xml" value="0.1515" />
+        <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/activity_change_information.xml" value="0.1" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/activity_dia_chi_nhan_hang.xml" value="0.2" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/activity_dia_chi_nhan_hang_them.xml" value="0.1" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/activity_dob.xml" value="0.17708333333333334" />
@@ -74,10 +75,14 @@
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/cart_layout.xml" value="0.264" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_bill.xml" value="0.136" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_cart.xml" value="0.24547101449275363" />
+        <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_category.xml" value="0.1" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_client_bill_of_person.xml" value="0.17708333333333334" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_info_of_client.xml" value="0.17708333333333334" />
+        <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_newest.xml" value="0.1" />
+        <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_other_of_person.xml" value="0.1" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_product.xml" value="0.2" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_quote.xml" value="0.17708333333333334" />
+        <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/fragment_suggest_today.xml" value="0.1" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/item_cart.xml" value="0.36036036036036034" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/item_product.xml" value="0.24547101449275363" />
         <entry key="..\:/Phuhy/Health-Solutions-Project/app/src/main/res/layout/items_dia_chi_nhan_hang.xml" value="0.24547101449275363" />
