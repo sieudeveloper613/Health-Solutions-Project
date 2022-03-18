@@ -13,23 +13,35 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.card.MaterialCardView;
 
 
-public class ChangeInformationActivity extends AppCompatActivity {
+public class ChangeInformationActivity extends AppCompatActivity implements View.OnClickListener{
     MaterialCardView cardFullName, cardDob, cardGender, cardPhoneNumber, cardAddress, cardEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_information);
-
         // setting status bar and action bar
         changeStatusBarColor();
-        customActionBar();
+        customToolBar("Thay đổi thông tin");
+        // define id for view
+        cardFullName = findViewById(R.id.card_moveToFullName);
+        cardDob = findViewById(R.id.card_moveToDob);
+        cardGender = findViewById(R.id.card_moveToGender);
+        cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
+        cardAddress = findViewById(R.id.card_moveToAddress);
+        cardEmail = findViewById(R.id.card_moveToEmail);
 
-        // id and clicked Event
-        moveToView();
+        // define event for view
+        cardFullName.setOnClickListener(this);
+        cardDob.setOnClickListener(this);
+        cardGender.setOnClickListener(this);
+        cardPhoneNumber.setOnClickListener(this);
+        cardAddress.setOnClickListener(this);
+        cardEmail.setOnClickListener(this);
 
     }
 
@@ -41,70 +53,48 @@ public class ChangeInformationActivity extends AppCompatActivity {
         }
     }
 
-    private void customActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Thay đổi thông tin");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
-
-        //actionBar.hide();
-        // hide actionBar if you want
-
-        Drawable drawable= getResources().getDrawable(R.drawable.ic_arrow_back_24px);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
+    private void customToolBar(String titleString){
+        MaterialToolbar materialToolbar = findViewById(R.id.mToolbar_changeInfo);
+        materialToolbar.setTitle(titleString);
+        materialToolbar.setTitleCentered(true);
+        materialToolbar.setTitleTextColor(Color.WHITE);
+        materialToolbar.setBackgroundColor(Color.parseColor("#0088FF"));
+        materialToolbar.setNavigationIcon(R.drawable.ic_arrow_back_24px);
+        materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
-    private void moveToView(){
-        cardFullName = findViewById(R.id.card_moveToFullName);
-        cardDob = findViewById(R.id.card_moveToDob);
-        cardGender = findViewById(R.id.card_moveToGender);
-        cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
-        cardAddress = findViewById(R.id.card_moveToAddress);
-        cardEmail = findViewById(R.id.card_moveToEmail);
 
-        cardFullName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.card_moveToFullName:
                 startActivity(new Intent(ChangeInformationActivity.this, FullNameActivity.class));
-            }
-        });
+                break;
 
-        cardDob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.card_moveToDob:
                 startActivity(new Intent(ChangeInformationActivity.this, DobActivity.class));
-            }
-        });
+                break;
 
-        cardGender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.card_moveToGender:
                 startActivity(new Intent(ChangeInformationActivity.this, GenderActivity.class));
-            }
-        });
+                break;
 
-        cardPhoneNumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.card_moveToPhoneNumber:
                 startActivity(new Intent(ChangeInformationActivity.this, PhoneNumberActivity.class));
-            }
-        });
-        // this is not my task...
-        cardAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //startActivity(new Intent(ChangeInformationActivity.this, null.class));
-                Toast.makeText(getApplicationContext(), "No Available Activity", Toast.LENGTH_SHORT).show();
-            }
-        });
+                break;
 
-        cardEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.card_moveToAddress:
+                startActivity(new Intent(ChangeInformationActivity.this, DeliveryAddressActivity.class));
+                break;
+
+            case R.id.card_moveToEmail:
                 startActivity(new Intent(ChangeInformationActivity.this, EmailActivity.class));
-            }
-        });
-
-
+                break;
+        }
     }
 }

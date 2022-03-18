@@ -5,11 +5,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.R;
+import com.google.android.material.appbar.MaterialToolbar;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
@@ -20,7 +22,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         // setting status bar and action bar
         changeStatusBarColor();
-        customActionBar();
+        customToolBar("Đổi mật khẩu");
     }
 
     private void changeStatusBarColor(){
@@ -31,16 +33,18 @@ public class ChangePasswordActivity extends AppCompatActivity {
         }
     }
 
-    private void customActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Đổi mật khẩu");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
-
-        //actionBar.hide();
-        // hide actionBar if you want
-
-        Drawable drawable= getResources().getDrawable(R.drawable.ic_arrow_back_24px);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
+    private void customToolBar(String titleString){
+        MaterialToolbar materialToolbar = findViewById(R.id.mToolbar_changePassword);
+        materialToolbar.setTitle(titleString);
+        materialToolbar.setTitleCentered(true);
+        materialToolbar.setTitleTextColor(Color.WHITE);
+        materialToolbar.setBackgroundColor(Color.parseColor("#0088FF"));
+        materialToolbar.setNavigationIcon(R.drawable.ic_arrow_back_24px);
+        materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_grey"
+    android:fillViewport="true"
+    tools:context=".Fragment.PersonFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mToolbar_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="5dp"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/blue_background"
+                android:padding="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1.8"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp">
+                        <TextView
+                            android:id="@+id/tv_nameCustomer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Đinh Thị Hoài Thu"
+                            android:textSize="22dp"
+                            android:textColor="@color/white"
+                            android:maxLines="2"
+                            android:layout_marginBottom="10dp"/>
+                        <TextView
+                            android:id="@+id/tv_voucherCustomer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="4.200 đ"
+                            android:textSize="22dp"
+                            android:textColor="@color/white"
+                            android:maxLines="2"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="128dp"
+                            android:layout_height="128dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/portrait_person"
+                            app:shapeAppearanceOverlay="@style/circle_image"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="3dp"
+                            android:padding="6dp"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="30dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_rollCallToday"
+                        android:layout_width="170dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:contentPadding="10dp"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginRight="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_calendar"/>
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Điểm danh hàng ngày"
+                                android:textSize="14dp"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_quoteToday"
+                        android:layout_width="170dp"
+                        android:layout_height="60dp"
+                        app:contentPadding="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginLeft="10dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_quotes"/>
+                            <TextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Quote hôm nay"
+                                android:textSize="14dp"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/container_billOfClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <FrameLayout
+                android:id="@+id/container_infoOfClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <FrameLayout
+                android:id="@+id/container_otherOfClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

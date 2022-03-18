@@ -15,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.R;
+import com.google.android.material.appbar.MaterialToolbar;
 
 
 public class DobActivity extends AppCompatActivity {
@@ -28,15 +29,16 @@ public class DobActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dob);
+        // setting status bar and action bar
+        changeStatusBarColor();
+        customToolBar("Ngày sinh");
+
         //set Id for view
         spinnerDay = findViewById(R.id.spinner_day);
         spinnerMonth = findViewById(R.id.spinner_month);
         spinnerYear = findViewById(R.id.spinner_year);
 
-        // setting status bar and action bar
-        changeStatusBarColor();
-        customActionBar();
-
+        // define event
         adapterSpinnerDay();
         adapterSpinnerMonth();
         adapterSpinnerYear();
@@ -51,17 +53,19 @@ public class DobActivity extends AppCompatActivity {
         }
     }
 
-    private void customActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Ngày sinh");
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0088FF")));
-
-        //actionBar.hide();
-        // hide actionBar if you want
-
-        Drawable drawable= getResources().getDrawable(R.drawable.ic_arrow_back_24px);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(drawable);
+    private void customToolBar(String titleString){
+        MaterialToolbar materialToolbar = findViewById(R.id.mToolbar_dob);
+        materialToolbar.setTitle(titleString);
+        materialToolbar.setTitleCentered(true);
+        materialToolbar.setTitleTextColor(Color.WHITE);
+        materialToolbar.setBackgroundColor(Color.parseColor("#0088FF"));
+        materialToolbar.setNavigationIcon(R.drawable.ic_arrow_back_24px);
+        materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void adapterSpinnerDay(){

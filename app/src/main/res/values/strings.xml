@@ -13,6 +13,9 @@
     <string name="action_cart">Giỏ hàng</string>
     <string name="action_mess">Tin nhắn</string>
     <string name="action_user">Cá nhân</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_quotes">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        In aenean eu tristique gravida lectus blandit etiam pulvinar massa.
+        Tortor arcu adipiscing felis nunc fermentum pellentesque ultricies eu vitae.
+        Nunc eget dignissim potenti eget nec nibh.
+        Accumsan pharetra quis sit in morbi quis scelerisque mi. Ultrices.</string>
 </resources>

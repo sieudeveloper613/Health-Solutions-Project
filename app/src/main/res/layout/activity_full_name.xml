@@ -8,6 +8,14 @@
     android:background="@color/light_grey"
     tools:context=".Activity.EmailActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mToolbar_fullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="5dp"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Địa chỉ Email"
+            android:text="Họ &amp; Tên"
             android:textSize="18dp"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksand_semi_bold"

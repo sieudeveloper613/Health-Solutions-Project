@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DashboardFragment">
+    android:layout_height="wrap_content"
+    tools:context=".Fragment.DashboardFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/bg_catelogy_home_screen"
+        android:background="@drawable/bg_category_home_screen"
         android:layout_height="150dp">
         <TextView
             android:layout_width="wrap_content"

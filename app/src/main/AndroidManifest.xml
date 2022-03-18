@@ -9,31 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthSolutionsApplication">
+
         <activity
-            android:name=".Activity.xacNhanDonHangActivity"
+            android:name=".Activity.BillActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Activity.ConfirmBillActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.thongTinHSScreenActivity"
+            android:name=".Activity.HealthSolutionsInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.sanPhamDaMuaActivity"
+            android:name=".Activity.PurchasedProductActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.feedBackActivity"
+            android:name=".Activity.FeedBackActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.diaChiNhanHangThemActivity"
-            android:exported="false" />
+            android:name=".Activity.DeliveryAddressAddingActivity"
+            android:exported="false"
+            android:parentActivityName=".Activity.DeliveryAddressActivity"/>
         <activity
-            android:name=".Activity.diaChiNhanHangActivity"
-            android:exported="false" />
+            android:name=".Activity.DeliveryAddressActivity"
+            android:exported="false"
+            android:parentActivityName=".Activity.ChangeInformationActivity"/>
 
         <activity
             android:name=".Activity.HomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -55,10 +60,7 @@
         <activity
             android:name=".Activity.ChangePasswordActivity"
             android:exported="false"
-            android:parentActivityName=".Activity.PersonalActivity" />
-        <activity
-            android:name=".Activity.PersonalActivity"
-            android:exported="true" />
+            android:parentActivityName=".Fragment.PersonFragment" />
         <activity
             android:name=".Activity.EmailActivity"
             android:exported="true"
@@ -78,11 +80,23 @@
         <activity
             android:name=".Activity.ChangeInformationActivity"
             android:exported="true"
-            android:parentActivityName=".Activity.PersonalActivity" />
+            android:parentActivityName=".Fragment.PersonFragment" />
         <activity
             android:name=".Activity.DobActivity"
             android:exported="true"
-            android:parentActivityName=".Activity.ChangeInformationActivity" />
+            android:parentActivityName=".Activity.ChangeInformationActivity"/>
+        <activity
+            android:name=".Activity.RollCallTodayActivity"
+            android:exported="true"
+            android:parentActivityName=".Fragment.PersonFragment"/>
+        <activity
+            android:name=".Activity.QuoteActivity"
+            android:exported="false"
+            android:parentActivityName=".Fragment.PersonFragment"/>
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

@@ -32,16 +32,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
+            android:background="@color/white"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:background="@color/sort_blue"
                 android:orientation="vertical">
                 <LinearLayout
-                    android:layout_width="100dp"
+                    android:id="@+id/linear_suggest"
+                    android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:orientation="vertical">
                     <ImageView
                         android:layout_width="48dp"
@@ -49,18 +53,21 @@
                         android:layout_gravity="center"
                         android:src="@drawable/ic_suggest_48px"/>
                     <TextView
-                        android:layout_width="70dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_semi_bold"
                         android:text="Gợi ý"
-
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
                         android:gravity="center"/>
-
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_width="100dp"
+                    android:id="@+id/linear_life"
+                    android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:orientation="vertical">
                     <ImageView
                         android:layout_width="48dp"
@@ -68,18 +75,21 @@
                         android:layout_gravity="center"
                         android:src="@drawable/ic_household_life_48px"/>
                     <TextView
-                        android:layout_width="70dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_semi_bold"
                         android:text="Gia dụng đời sống"
-
-                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
                         android:gravity="center"/>
-
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_width="100dp"
+                    android:id="@+id/linear_health"
+                    android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:orientation="vertical">
                     <ImageView
                         android:layout_width="48dp"
@@ -87,16 +97,21 @@
                         android:layout_gravity="center"
                         android:src="@drawable/ic_health_beauty_48px"/>
                     <TextView
-                        android:layout_width="70dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Làm đẹp sức khỏe"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand_semi_bold"
+                        android:text="Sức khỏe làm đẹp"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
                         android:gravity="center"/>
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_width="100dp"
+                    android:id="@+id/linear_baby"
+                    android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:orientation="vertical">
                     <ImageView
                         android:layout_width="48dp"
@@ -104,43 +119,47 @@
                         android:layout_gravity="center"
                         android:src="@drawable/ic_mom_baby_48px"/>
                     <TextView
-                        android:layout_width="70dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mẹ và bé"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/quicksand_semi_bold"
+                        android:text="Mẹ và Bé"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
                         android:gravity="center"/>
-
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="110dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_department_store_48px"/>
-                    <TextView
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bách hóa tổng hợp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linear_store"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_department_store_48px"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_semi_bold"
+                            android:text="Bách hóa tổng hợp"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:gravity="center"/>
+                    </LinearLayout>
             </LinearLayout>
-            <ScrollView
+
+            <FrameLayout
+                android:id="@+id/fragment_container_category"
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
-                android:layout_height="wrap_content">
-                <GridView
-                    android:layout_width="match_parent"
-                    android:numColumns="2"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:layout_height="wrap_content">
-                </GridView>
-            </ScrollView>
+                android:layout_height="match_parent"
+                android:padding="10dp">
+            </FrameLayout>
+
+
+
         </LinearLayout>
     </LinearLayout>
 

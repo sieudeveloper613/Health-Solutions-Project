@@ -25,10 +25,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         this.mProducts=list;
     }
 
-    public void setData(List<Product> list){
-        this.mProducts = list;
-        notifyDataSetChanged();
-    }
     @NonNull
     @Override
     public ProductHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,13 +34,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     @Override
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
-        Product product=mProducts.get(position);
-        if (product == null){
-            return;
+        Product product = mProducts.get(position);
+        if (product != null){
+            holder.imgProduct.setImageResource(product.getImage());
+            holder.tvProductName.setText(product.getName());
+            holder.tvProductPrice.setText(product.getPrice()+ " đ");
         }
-        holder.imgProduct.setImageResource(product.getImage());
-        holder.tvProductName.setText(product.getName());
-        holder.tvProductPrice.setText(product.getPrice()+ " đ");
     }
 
     @Override

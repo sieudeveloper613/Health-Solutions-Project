@@ -12,15 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.healthsolutionsapplication.Activity.ChangeInformationActivity;
 
+import com.example.healthsolutionsapplication.Activity.ChangePasswordActivity;
 import com.example.healthsolutionsapplication.R;
 
-public class InfoOfClientFragment extends Fragment {
+public class InfoOfClientFragment extends Fragment implements View.OnClickListener{
     ImageView imgEditCustomer;
     Button btnChangePassword;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,20 +29,23 @@ public class InfoOfClientFragment extends Fragment {
         btnChangePassword = view.findViewById(R.id.btn_changePassword);
 
         //set clicked event
-        imgEditCustomer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ChangeInformationActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnChangePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), ChangeInformationActivity.class));
-            }
-        });
+        imgEditCustomer.setOnClickListener(this);
+        btnChangePassword.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.img_editCustomer:
+                Intent intent = new Intent(getContext(), ChangeInformationActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btn_changePassword:
+                startActivity(new Intent(getContext(), ChangePasswordActivity.class));
+                break;
+        }
     }
 }
