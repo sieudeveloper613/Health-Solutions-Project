@@ -3,97 +3,90 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_btn_google.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_btn_loading_screen.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_btn_login_screen.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_btn_search.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_catelogy_home_screen.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_edt_search.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_header_home_screen.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_item_home_screen.xml" value="0.23692307692307693" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_login_screen.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/bg_text_health.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/gradient_background.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic__arrow_back__24px.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_arrow_back_24px.xml" value="0.12604166666666666" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_arrow_right_24dp.xml" value="0.240625" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_arrow_right_red_24dp.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_name.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_password_toggle.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/ic_person.xml" value="0.23692307692307693" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/round_border.xml" value="0.240625" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/drawable/selector.xml" value="0.240625" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/font/font.xml" value="0.23055555555555557" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/font/font_size.xml" value="0.23055555555555557" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_bill.xml" value="0.18" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_catelogy.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_change_information.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_config_change_pass.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_confirm_bill.xml" value="0.182518115942029" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_delivery_address.xml" value="0.67" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dia_chi_nhan_hang.xml" value="0.1716485507246377" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dia_chi_nhan_hang_them.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dob.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_edit_information.xml" value="0.21965579710144928" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_email.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_feed_back.xml" value="0.18704710144927536" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_forgot_pass.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_full_name.xml" value="0.21965579710144928" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_gender.xml" value="0.21965579710144928" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_health_solutions_info.xml" value="0.18704710144927536" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_otp.xml" value="0.18070652173913043" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_otpactivity.xml" value="0.25" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_personal.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_phone_number.xml" value="0.21965579710144928" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_purchased_product.xml" value="0.18704710144927536" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_quote.xml" value="0.22" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_roll_call_today.xml" value="0.1897644927536232" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_san_pham_da_mua.xml" value="0.16847826086956522" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_splash.xml" value="0.22" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_thong_tin_hsscreen.xml" value="0.16847826086956522" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_xac_nhan_don_hang.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_best_price_today.xml" value="0.75" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_best_sale.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_bill.xml" value="0.10989583333333333" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_category.xml" value="0.22" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_category_for_baby.xml" value="0.1897644927536232" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_category_for_health.xml" value="0.1897644927536232" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_category_for_store.xml" value="0.1897644927536232" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_category_for_suggest.xml" value="0.1897644927536232" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_chat.xml" value="0.16847826086956522" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_client_bill_of_person.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_dashboard.xml" value="0.18070652173913043" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_household_life.xml" value="0.1897644927536232" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_info_of_client.xml" value="0.18614130434782608" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_info_of_client_frament.xml" value="0.21041666666666667" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_newest.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_other_of_person.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_person.xml" value="0.21" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_quote.xml" value="0.25" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_suggest_today.xml" value="0.33" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_best_price_today.xml" value="0.18704710144927536" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_product.xml" value="0.18070652173913043" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/items_delivery_address.xml" value="0.33" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/items_dia_chi_nhan_hang.xml" value="0.32608695652173914" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/items_purchased_product.xml" value="0.33" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/items_sp_da_mua.xml" value="0.16847826086956522" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/items_xac_nhan_don_hang.xml" value="0.16847826086956522" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/menu/menu_bottom_navi.xml" value="0.10989583333333333" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/menu/nav_menu_basic.xml" value="0.22447916666666667" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12604166666666666" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12604166666666666" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/drawable/bg_btn_google.xml" value="0.20729166666666668" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/drawable/ic_more.xml" value="0.20729166666666668" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/drawable/ic_password_toggle.xml" value="0.20729166666666668" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/drawable/ic_phone.xml" value="0.20729166666666668" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/drawable/ic_search.xml" value="0.20729166666666668" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_catelogy.xml" value="0.2957427536231884" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_change_information.xml" value="0.17074275362318841" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_change_password.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_config_change_pass.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_dob.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_email.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_forgot_pass.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_full_name.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_gender.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_home.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_login.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_otpactivity.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_personal.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_phone_number.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/activity_register.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/fragment_info_of_client.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/layout/fragment_other_of_person.xml" value="0.3493975903614458" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/menu/menu_bottom_navi.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/menu/nav_menu_basic.xml" value="0.19114583333333332" />
+        <entry key="..\:/Health_Solutions/Health-Solutions-Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20729166666666668" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/drawable/bg_btn_google.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/drawable/bg_btn_loading_screen.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/drawable/bg_btn_login_screen.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_dia_chi_nhan_hang.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_dia_chi_nhan_hang_them.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_feed_back.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_feed_back1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_forgot_pass.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_otp.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_san_pham_da_mua.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_thong_tin_hsscreen.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_thong_tin_hsscreen1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_xac_nhan_don_hang.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/activity_xac_nhan_don_hang1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/fragment_product.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/fragment_quote.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/item_best_price_today.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/item_cart.xml" value="0.115625" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/item_product.xml" value="0.115625" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/items_dia_chi_nhan_hang.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/items_sp_da_mua.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/items_sp_da_mua1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/items_xac_nhan_don_hang.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Health-Solutions-Project/app/src/main/res/layout/sp_da_mua1.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

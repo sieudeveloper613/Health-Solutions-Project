@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -115,12 +116,14 @@
                     android:background="@drawable/bg_item_home_screen"
                     android:orientation="vertical"
                     android:padding="10dp">
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_bestPriceToday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_product" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -128,34 +131,160 @@
                 android:id="@+id/container_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:padding="20dp"
                 android:background="@drawable/bg_category_home_screen">
-
-                <FrameLayout
-                    android:id="@+id/container_newest"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_title_home_screen"
+                        android:orientation="horizontal"
+                        android:weightSum="4"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:textColor="@color/black"
+                            android:text="Mới nhất"
+                            android:textSize="18dp"/>
+                    </LinearLayout>
+                    <View
+                        android:background="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_category_home_screen"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
-                <FrameLayout
-                    android:id="@+id/container_bestSale"
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_container_newest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_product" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_category_home_screen">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_title_home_screen"
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:text="Bán Chạy Nhất"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                        <View
+                            android:background="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_category_home_screen"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
-                <FrameLayout
-                    android:id="@+id/container_suggestToday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_container_bestSale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/item_product" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/bg_category_home_screen">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_title_home_screen"
+                                android:orientation="horizontal"
+                                android:weightSum="4"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="3"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="Gợi ý hôm nay"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"/>
+                            </LinearLayout>
+                            <View
+                                android:background="@color/black"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_category_home_screen"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_container_suggestToday"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    tools:listitem="@layout/item_product" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>
