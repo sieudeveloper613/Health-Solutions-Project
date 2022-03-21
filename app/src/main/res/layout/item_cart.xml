@@ -21,7 +21,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp">
         <ImageView
-            android:src="@drawable/product_pic"
+            android:src="@drawable/product_pic_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </androidx.cardview.widget.CardView>

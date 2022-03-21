@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
         rcv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         createProducts();
         return view;
+
     }
 
     private void createProducts(){
@@ -56,19 +57,19 @@ public class HomeFragment extends Fragment {
         transaction.add(R.id.container_dashboard, dashboardFragment);
 
 
-        // Best Sale Fragment
-        BestSaleFragment bestSaleFragment = new BestSaleFragment();
-        transaction.add(R.id.container_bestSale, bestSaleFragment);
-
-
-        // Newest Fragment
-        NewestFragment newestFragment = new NewestFragment();
-        transaction.add(R.id.container_newest, newestFragment);
-
-
-        // Suggest Today Fragment
-        SuggestTodayFragment suggestTodayFragment = new SuggestTodayFragment();
-        transaction.add(R.id.container_suggestToday, suggestTodayFragment);
-        transaction.commit();
+//        // Best Sale Fragment
+//        BestSaleFragment bestSaleFragment = new BestSaleFragment();
+//        transaction.add(R.id.container_bestSale, bestSaleFragment);
+//
+//
+//        // Newest Fragment
+//        NewestFragment newestFragment = new NewestFragment();
+//        transaction.add(R.id.container_newest, newestFragment);
+//
+//
+//        // Suggest Today Fragment
+//        SuggestTodayFragment suggestTodayFragment = new SuggestTodayFragment();
+//        transaction.add(R.id.container_suggestToday, suggestTodayFragment);
+//        transaction.commit();
     }
 }
