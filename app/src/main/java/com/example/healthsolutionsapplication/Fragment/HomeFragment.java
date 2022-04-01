@@ -2,74 +2,109 @@ package com.example.healthsolutionsapplication.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.healthsolutionsapplication.Adapter.HomeAdapter;
 import com.example.healthsolutionsapplication.Adapter.ProductAdapter;
+import com.example.healthsolutionsapplication.Constant.Constants;
 import com.example.healthsolutionsapplication.Model.Product;
+import com.example.healthsolutionsapplication.Model.RequestInterface;
+import com.example.healthsolutionsapplication.Model.ServerResponse;
 import com.example.healthsolutionsapplication.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
     RecyclerView rcv;
     List<Product> mProducts;
-    ProductAdapter mProductAdapter;
+    HomeAdapter mHomeAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        setUpAllFragment();
-
-        //ánh xạ
-        rcv = view.findViewById(R.id.rv_bestPriceToday);
-        mProducts=new ArrayList<>();
-        mProductAdapter=new ProductAdapter(getContext(),mProducts);
-        rcv.setAdapter(mProductAdapter);
-        rcv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
-        createProducts();
+        rcv =  view.findViewById(R.id.rv_bestPriceToday);
+        getall_product();
         return view;
 
     }
-
-    private void createProducts(){
-        mProducts.add(new Product(R.drawable.img_item_sale,"Item 1",50000));
-        mProducts.add(new Product(R.drawable.img_item_sale,"Item 2",60000));
-        mProducts.add(new Product(R.drawable.img_item_sale,"Item 3",70000));
-    }
-
-    private void setUpAllFragment(){
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-        // Dashboard Fragment
-        DashboardFragment dashboardFragment = new DashboardFragment();
-        transaction.add(R.id.container_dashboard, dashboardFragment);
+    private void  getall_product(){
+        OkHttpClient builder = new OkHttpClient.Builder()
+                .readTimeout(5000, TimeUnit.MILLISECONDS)
+                .writeTimeout(5000, TimeUnit.MILLISECONDS)
+                .connectTimeout(10000, TimeUnit.MILLISECONDS)
+                .retryOnConnectionFailure(true)
+                .build();
 
 
-//        // Best Sale Fragment
-//        BestSaleFragment bestSaleFragment = new BestSaleFragment();
-//        transaction.add(R.id.container_bestSale, bestSaleFragment);
-//
-//
-//        // Newest Fragment
-//        NewestFragment newestFragment = new NewestFragment();
-//        transaction.add(R.id.container_newest, newestFragment);
-//
-//
-//        // Suggest Today Fragment
-//        SuggestTodayFragment suggestTodayFragment = new SuggestTodayFragment();
-//        transaction.add(R.id.container_suggestToday, suggestTodayFragment);
-//        transaction.commit();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+        Retrofit retrofit = new Retrofit.Builder()
+
+                .baseUrl(Constants.BASE_URL)
+                .client(builder)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        RequestInterface requestInterface =
+                retrofit.create(RequestInterface.class);
+
+
+        Call<ServerResponse> response = requestInterface.getall_product();
+        response.enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call,
+                                   Response<ServerResponse> response) {
+                ServerResponse resp = response.body();
+                if(resp.getResult().equals("true")){
+                    mProducts = new ArrayList<>();
+                    mProducts = resp.getProduct();
+                    rcv.setHasFixedSize(true);
+                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                    linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+                    mHomeAdapter = new HomeAdapter(getContext(), mProducts);
+                    rcv.setLayoutManager(linearLayoutManager);
+                    rcv.setAdapter(mHomeAdapter);
+                    Toast.makeText(getContext(), mProducts.size()+"", Toast.LENGTH_SHORT).show();
+                }
+                else {
+//                    Toast.makeText(getContext(), "Không lấy được dữ liệu", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+
+
+                Toast.makeText(getContext(), "Không lấy được dữ liệu", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+
+
     }
 }
