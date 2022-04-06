@@ -71,7 +71,7 @@
             android:layout_marginBottom="16dp"/>
 
         <EditText
-            android:id="@+id/ed_account"
+            android:id="@+id/ed_getAccount"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:layout_gravity="center"
@@ -86,7 +86,7 @@
             android:textColor="@color/deep_grey" />
 
         <EditText
-            android:id="@+id/ed_password"
+            android:id="@+id/ed_getPassword"
             android:layout_width="300dp"
             android:layout_height="44dp"
             android:layout_gravity="center"

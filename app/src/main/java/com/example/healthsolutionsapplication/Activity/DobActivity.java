@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,15 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
+
+import java.util.Calendar;
 
 
-public class DobActivity extends AppCompatActivity {
-    Spinner spinnerDay, spinnerMonth, spinnerYear;
-    String[] day = {"1","2","3","4","5","6","7","8","9","10"};
-    String[] month = {"1","2","3","4","5","6","7","8","9","10","11","12"};
-    String[] year = {"2000","2001","2002","2003","2004","2005"};
-
-
+public class DobActivity extends AppCompatActivity implements View.OnClickListener{
+    DatePicker datePickerSpinner;
+    MaterialButton btnSaveDob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +34,10 @@ public class DobActivity extends AppCompatActivity {
         customToolBar("Ngày sinh");
 
         //set Id for view
-        spinnerDay = findViewById(R.id.spinner_day);
-        spinnerMonth = findViewById(R.id.spinner_month);
-        spinnerYear = findViewById(R.id.spinner_year);
+        initView();
 
-        // define event
-        adapterSpinnerDay();
-        adapterSpinnerMonth();
-        adapterSpinnerYear();
+        // define method
+
 
     }
 
@@ -68,61 +64,37 @@ public class DobActivity extends AppCompatActivity {
         });
     }
 
-    private void adapterSpinnerDay(){
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                android.R.layout.simple_spinner_item, day);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDay.setAdapter(adapter);
+    private void initView(){
+        // define id here
+        datePickerSpinner = findViewById(R.id.date_picker);
+        btnSaveDob = findViewById(R.id.btn_saveDob);
 
-        spinnerDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), day[position], Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+        // define event here
+        btnSaveDob.setOnClickListener(this::onClick);
     }
 
-    private void adapterSpinnerMonth(){
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                android.R.layout.simple_spinner_item, month);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerMonth.setAdapter(adapter);
-
-        spinnerMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), month[position], Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+    private void getCalendar(){
+        Calendar calendar = Calendar.getInstance();
+        datePickerSpinner.init(calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH),
+                new DatePicker.OnDateChangedListener() {
+                    @Override
+                    public void onDateChanged(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                        monthOfYear += 1;
+                        String getDate = dayOfMonth + "/" + monthOfYear + "/" + year;
+                        Toast.makeText(DobActivity.this, "You clicked : " + getDate, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
-    private void adapterSpinnerYear(){
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(),
-                android.R.layout.simple_spinner_item, year);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerYear.setAdapter(adapter);
 
-        spinnerYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), year[position], Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_saveDob:
+                getCalendar();
+                break;
+        }
     }
-
 }

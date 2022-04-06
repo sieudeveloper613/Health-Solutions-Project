@@ -52,6 +52,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Đinh Thị Hoài Thu"
@@ -211,6 +212,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="0123456789"
@@ -319,6 +321,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Thêm địa chỉ Email"

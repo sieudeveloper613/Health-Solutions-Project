@@ -49,7 +49,7 @@ public class BillActivity extends AppCompatActivity implements View.OnClickListe
 //            }
 //        });
     }
-    
+
     private void init(){
         tvMoveTo = findViewById(R.id.tv_moveTo);
         tvMoveTo.setOnClickListener(this);
