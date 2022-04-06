@@ -36,8 +36,8 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.action_home:
-                       HomeFragment homeFragment = new HomeFragment();
-                       loadFragment(homeFragment);
+                        HomeFragment homeFragment = new HomeFragment();
+                        loadFragment(homeFragment);
                         return true;
 
                     case R.id.action_type:

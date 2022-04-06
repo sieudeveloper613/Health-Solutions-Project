@@ -11,6 +11,9 @@ public interface RequestInterface {
 //                                 @Query("image") String image, @Query("price") double price,
 //                                 @Query("locatedOfBird") String locatedOfBird, @Query("whereProduct") String whereProduct,
 //                                 @Query("branchProduct") String branchProduct );
-    @GET("test/getall_product.php")
+    @GET("DUAN/config/getall_product.php")
     Call<ServerResponse> getall_product();
+
+    @GET("DUAN/config/getIdProduct.php")
+    Call<ServerResponse> getIdProduct(@Query("Ids") int ids);
 }

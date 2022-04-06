@@ -1,23 +1,22 @@
 package com.example.healthsolutionsapplication.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.healthsolutionsapplication.Activity.DetailProductActivity;
 import com.example.healthsolutionsapplication.Adapter.HomeAdapter;
-import com.example.healthsolutionsapplication.Adapter.ProductAdapter;
 import com.example.healthsolutionsapplication.Constant.Constants;
 import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.Model.RequestInterface;
@@ -41,15 +40,27 @@ public class HomeFragment extends Fragment {
     RecyclerView rcv;
     List<Product> mProducts;
     HomeAdapter mHomeAdapter;
+    DetailProductActivity detailProduct;
+    CardView item_prodcut;
+    @SuppressLint("ResourceType")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         rcv =  view.findViewById(R.id.rv_bestPriceToday);
+        item_prodcut = (CardView) view.findViewById(R.layout.item_product);
         getall_product();
         return view;
 
+
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+    }
+
+
     private void  getall_product(){
         OkHttpClient builder = new OkHttpClient.Builder()
                 .readTimeout(5000, TimeUnit.MILLISECONDS)

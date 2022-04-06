@@ -1,34 +1,51 @@
 package com.example.healthsolutionsapplication.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Product {
-    private int categoryId,image;
+    @SerializedName("Ids")
+    @Expose
+    private String ids;
+    @SerializedName("categoryId")
+    @Expose
+    private String categoryId;
+    @SerializedName("name")
+    @Expose
     private String name;
-    private int price;
+    @SerializedName("price")
+    @Expose
+    private String price;
+    @SerializedName("categoryName")
+    @Expose
+    private String categoryName;
+    @SerializedName("typeProduct")
+    @Expose
+    private String typeProduct;
+    @SerializedName("whereProduct")
+    @Expose
+    private String whereProduct;
+    @SerializedName("branchProduct")
+    @Expose
+    private String branchProduct;
+    @SerializedName("image")
+    @Expose
+    private String image;
 
-    public Product(int image, String name, int price) {
-        this.categoryId = categoryId;
-        this.image = image;
-        this.name = name;
-        this.price = price;
+    public String getIds() {
+        return ids;
     }
 
-    public Product() {
+    public void setIds(String ids) {
+        this.ids = ids;
     }
 
-    public int getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
     }
 
     public String getName() {
@@ -39,11 +56,51 @@ public class Product {
         this.name = name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getTypeProduct() {
+        return typeProduct;
+    }
+
+    public void setTypeProduct(String typeProduct) {
+        this.typeProduct = typeProduct;
+    }
+
+    public String getWhereProduct() {
+        return whereProduct;
+    }
+
+    public void setWhereProduct(String whereProduct) {
+        this.whereProduct = whereProduct;
+    }
+
+    public String getBranchProduct() {
+        return branchProduct;
+    }
+
+    public void setBranchProduct(String branchProduct) {
+        this.branchProduct = branchProduct;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

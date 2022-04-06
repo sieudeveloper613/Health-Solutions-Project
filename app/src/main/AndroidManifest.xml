@@ -2,12 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.healthsolutionsapplication">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +16,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HealthSolutionsApplication">
+        android:theme="@style/Theme.HealthSolutionsApplication"
+        android:usesCleartextTraffic="true">
 
         <activity
+            android:name=".Activity.DetailProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.BillActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Activity.ConfirmBillActivity"
             android:exported="false" />
@@ -35,16 +40,19 @@
         <activity
             android:name=".Activity.DeliveryAddressAddingActivity"
             android:exported="false"
-            android:parentActivityName=".Activity.DeliveryAddressActivity"/>
+            android:parentActivityName=".Activity.DeliveryAddressActivity" />
         <activity
             android:name=".Activity.DeliveryAddressActivity"
             android:exported="false"
-            android:parentActivityName=".Activity.ChangeInformationActivity"/>
-
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
         <activity
             android:name=".Activity.HomeActivity"
-            android:exported="true" >
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.ConfigChangePassActivity"
@@ -88,24 +96,20 @@
         <activity
             android:name=".Activity.DobActivity"
             android:exported="true"
-            android:parentActivityName=".Activity.ChangeInformationActivity"/>
+            android:parentActivityName=".Activity.ChangeInformationActivity" />
         <activity
             android:name=".Activity.RollCallTodayActivity"
             android:exported="true"
-            android:parentActivityName=".Fragment.PersonFragment"/>
+            android:parentActivityName=".Fragment.PersonFragment" />
         <activity
             android:name=".Activity.QuoteActivity"
             android:exported="false"
-            android:parentActivityName=".Fragment.PersonFragment"/>
+            android:parentActivityName=".Fragment.PersonFragment" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
+        </activity>
     </application>
 
 </manifest>

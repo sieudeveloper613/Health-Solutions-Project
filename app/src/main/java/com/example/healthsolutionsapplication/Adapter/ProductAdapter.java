@@ -36,7 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
         Product product = mProducts.get(position);
         if (product != null){
-            holder.imgProduct.setImageResource(product.getImage());
+            //holder.imgProduct.setImageResource(product.getImage());
             holder.tvProductName.setText(product.getName());
             holder.tvProductPrice.setText(product.getPrice()+ " đ");
         }

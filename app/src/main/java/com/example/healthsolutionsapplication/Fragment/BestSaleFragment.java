@@ -42,9 +42,9 @@ public class BestSaleFragment extends Fragment {
     }
 
     private void createProducts(){
-        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 1",50000));
-        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 2",60000));
-        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 3",70000));
+//        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 1",50000));
+//        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 2",60000));
+//        mListProduct.add(new Product(R.drawable.img_item_sale,"Item 3",70000));
     }
 
 }
