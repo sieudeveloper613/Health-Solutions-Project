@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/light_grey"
     tools:context=".Activity.FeedBackActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -15,131 +15,156 @@
         android:elevation="5dp"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="82dp">
+            <!--  sender and receiver  -->
+            <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-             />
+            android:background="@color/white"
+            android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_label"/>
+            <TextView
+                android:id="@+id/tv_fromCustomer"
+                android:layout_width="0dp"
+                android:layout_weight="1.8"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Đinh Thị Hoài Thu"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:gravity="left"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_fromCustomer"
-            android:layout_width="327dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="10dp"
-            android:ems="10"
-            android:text="Đinh Thị Hoài Thu"
-            android:fontFamily="@font/quicksand_bold"
-            android:textSize="16dp"
-            android:gravity="center"
-            />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark_blue" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_right_line" />
+
+                <TextView
+                    android:id="@+id/tv_admin"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.8"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="BQL Health Solutions Application"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:gravity="left"
+                    android:paddingLeft="10dp"/>
+            </LinearLayout>
     </LinearLayout>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/dark_blue" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/bg_category_home_screen"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="Tiêu đề"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="6dp"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <EditText
+                android:id="@+id/ed_titleFeedBack"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:background="@color/transparent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:maxLines="3"
+                android:inputType="text"
+                android:hint="nhập tiêu đề"
+                android:textColorHint="@color/deep_grey"
+                android:textColor="@color/black"/>
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_arrow_right_line" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/deep_grey"
+                android:layout_marginTop="6dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="Nội dung"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="6dp"/>
+            <EditText
+                android:id="@+id/ed_contentFeedBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:background="@color/transparent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:maxLines="10"
+                android:inputType="text"
+                android:hint="nội dung feedback"
+                android:textColorHint="@color/deep_grey"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_admin"
-            android:layout_width="327dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="10dp"
-            android:ems="10"
-            android:text="BQL Health Solution"
-            android:fontFamily="@font/quicksand_bold"
-            android:textSize="16dp"
-            android:gravity="center"
-            />
     </LinearLayout>
 
-    <View
-        android:id="@+id/view2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#F2F2F2" />
-
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/quicksand_semi_bold"
-        android:text="Tiêu đề"
-        android:layout_marginLeft="30dp"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
-
-    <EditText
-        android:id="@+id/ed_titleFeedBack"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:layout_marginLeft="20dp"
-        android:inputType="textPersonName"
-        android:text="Nhập tiêu đề" />
-
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/quicksand_semi_bold"
-        android:text="Nội Dung"
-        android:layout_marginLeft="30dp"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
-
-
-    <EditText
-        android:id="@+id/ed_contentFeedBack"
-        android:layout_width="413dp"
-        android:layout_height="331dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#F2F2F2" />
-
-    <Button
-        android:id="@+id/btn_feedBackToUs"
-        android:layout_width="350dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#0088FF"
-        android:fontFamily="@font/quicksand_bold"
-        android:layout_gravity="center"
-        android:text="Feedback cho chúng tôi" />
-
-
-</LinearLayout>
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:padding="16dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_feedBackToUs"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#0088FF"
+            app:cornerRadius="12dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_gravity="center"
+            android:text="Feedback cho chúng tôi"
+            android:textColorHint="@color/white"/>
+    </LinearLayout>
+</FrameLayout>

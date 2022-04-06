@@ -53,7 +53,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/quicksand_medium"
                 app:buttonTint="@color/deep_blue"
-                android:checked="true"/>
+                />
 
             <RadioButton
                 android:id="@+id/rb_female"

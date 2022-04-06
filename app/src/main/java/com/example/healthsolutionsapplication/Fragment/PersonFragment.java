@@ -1,6 +1,8 @@
 package com.example.healthsolutionsapplication.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -29,6 +31,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class PersonFragment extends Fragment implements View.OnClickListener{
     MaterialCardView cardRollCallToday, cardQuoteToday;
+    TextView tvNameCustomer;
 
     @Nullable
     @Override
@@ -39,6 +42,13 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         // define id for view
         cardRollCallToday = view.findViewById(R.id.card_rollCallToday);
         cardQuoteToday = view.findViewById(R.id.card_quoteToday);
+        tvNameCustomer = view.findViewById(R.id.tv_nameCustomer);
+
+        SharedPreferences sharedPref = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        String getNameCustomer = sharedPref.getString("getName", "");
+//        String name = sharedPref.getString("name", "");
+//        boolean active = sharedPref.getBoolean("active", false);
+        tvNameCustomer.setText(getNameCustomer);
 
         // define event
         cardRollCallToday.setOnClickListener(this);

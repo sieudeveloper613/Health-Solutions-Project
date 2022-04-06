@@ -1,25 +1,31 @@
 package com.example.healthsolutionsapplication.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
+import com.example.healthsolutionsapplication.Service.ServerResponse;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.card.MaterialCardView;
 
 
 public class ChangeInformationActivity extends AppCompatActivity implements View.OnClickListener{
     MaterialCardView cardFullName, cardDob, cardGender, cardPhoneNumber, cardAddress, cardEmail;
-
+    TextView tvShowEditName, tvShowEditEmail, tvShowEditPhone;
+    ServerResponse response;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,24 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
         cardAddress = findViewById(R.id.card_moveToAddress);
         cardEmail = findViewById(R.id.card_moveToEmail);
+
+        tvShowEditName = findViewById(R.id.tv_showEditName);
+        tvShowEditEmail = findViewById(R.id.tv_showEditEmail);
+        tvShowEditPhone = findViewById(R.id.tv_showEditPhoneNumber);
+
+            Customer customer = new Customer();
+            SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+            String getNameCustomer = sharedPref.getString("getName", customer.getName());
+            String getEmailCustomer = sharedPref.getString("getEmail", customer.getEmail());
+            String getPhoneCustomer = sharedPref.getString("getPhone", customer.getPhone());
+            Toast.makeText(ChangeInformationActivity.this, "Success : " + getNameCustomer, Toast.LENGTH_SHORT).show();
+            tvShowEditName.setText(getNameCustomer);
+            tvShowEditEmail.setTextColor(Color.BLACK);
+            tvShowEditEmail.setText(getEmailCustomer);
+            tvShowEditPhone.setText(getPhoneCustomer);
+
+
+
 
         // define event for view
         cardFullName.setOnClickListener(this);
