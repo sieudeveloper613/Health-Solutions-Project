@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -20,11 +21,12 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:id="@+id/card_backPressed"
+                    android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    app:cardCornerRadius="5dp">
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -34,47 +36,52 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/img_back"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_arrow_left_24px" />
-
-                        <TextView
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/quicksand_medium"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand_semi_bold"
                             android:text="Trở Lại"
-                            android:textSize="16dp" />
+                            android:textSize="16dp"
+                            android:textColor="@color/black"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
-                android:background="#43A0F1"
+                android:background="@color/deep_blue"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
                 <LinearLayout
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/tv_PriceOfProduct"
-                        android:textColor="@color/red"
-                        android:layout_marginLeft="20dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textColor="@color/white"
                         android:textSize="22dp"
                         android:text="15.000.000 đ"
                         android:layout_width="157dp"
                         android:layout_height="30dp"/>
                     <TextView
-                        android:layout_marginLeft="20dp"
+                        android:id="@+id/tv_salePriceOfProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:text="15.00 đ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/deep_grey"
+                        android:layout_marginTop="6dp"/>
                 </LinearLayout>
+
                 <androidx.cardview.widget.CardView
                     android:layout_marginLeft="40dp"
                     android:layout_gravity="center_vertical"
@@ -95,16 +102,19 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
             <TextView
                 android:id="@+id/tv_NameOfProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:fontFamily="@font/quicksand_semi_bold"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_margin="16dp"
                 android:text="Máy đo nhịp tim cao cấp Nhật Bản..."
-                android:layout_width="match_parent"
-                android:layout_height="70dp"/>
+                android:textColor="@color/black"
+                android:maxLines="3"
+                />
+
             <LinearLayout
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -155,10 +165,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
             <View
                 android:background="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"/>
+
             <LinearLayout
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -171,17 +183,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:src="@drawable/stars"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
+                        android:src="@drawable/ic_re_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                     <TextView
-                        android:textSize="14dp"
+                        android:layout_width="90dp"
+                        android:layout_height="44dp"
                         android:fontFamily="@font/quicksand_regular"
-                        android:gravity="center"
-                        android:text="  Hoàn tiền
-                    nếu hàng giả"
-                        android:layout_width="89dp"
-                        android:layout_height="36dp"/>
+                        android:text="Hoàn tiền nếu hàng giả"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
                     android:gravity="center"
@@ -190,17 +202,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:src="@drawable/info"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"/>
+                        android:src="@drawable/ic_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                     <TextView
-                        android:textSize="14dp"
-                        android:fontFamily="@font/quicksand_regular"
-                        android:gravity="center"
-                        android:textColor="#0088FF"
-                        android:text=" Thông tin bảo hành"
-                        android:layout_width="70dp"
-                        android:layout_height="36dp"/>
+                        android:layout_width="90dp"
+                        android:layout_height="44dp"
+                        android:fontFamily="@font/quicksand_semi_bold"
+                        android:text="6 tháng"
+                        android:textSize="16dp"
+                        android:textColor="@color/deep_blue"
+                        android:gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
                     android:gravity="center"
@@ -209,125 +221,135 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:src="@drawable/repeat_one"
+                        android:src="@drawable/ic_import"
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:textSize="14dp"
+                        android:layout_width="90dp"
+                        android:layout_height="44dp"
                         android:fontFamily="@font/quicksand_regular"
-                        android:gravity="center"
-                        android:text="  Đổi trả
-                     nếu hàng lỗi"
-                        android:layout_width="89dp"
-                        android:layout_height="36dp"/>
+                        android:text="Hoàn tiền nếu hàng giả"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
                 </LinearLayout>
             </LinearLayout>
             <View
                 android:background="#d2d1d1"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="16dp">
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
-                    android:text="Thông tin chi tiết"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textSize="18dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:text="Thông tin chi tiết"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="20dp"/>
                 <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:weightSum="3">
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="14dp"
                         android:fontFamily="@font/quicksand_semi_bold"
+                        android:textSize="14dp"
                         android:text="Danh Mục"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/deep_grey"/>
                     <TextView
-                        android:id="@+id/tv_catelogyProduct"
+                        android:id="@+id/tv_categoryProduct"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:layout_marginLeft="61dp"
+                        android:fontFamily="@font/quicksand_semi_bold"
                         android:text="Máy đo tim nhật bản"
                         android:textSize="14dp"
-                        android:fontFamily="@font/quicksand_semi_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/black" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:weightSum="3">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:textSize="14dp"
+                    android:text="Kiểu loại"
+                    android:textColor="@color/deep_grey"/>
+                <TextView
+                    android:id="@+id/tv_typeProduct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/quicksand_semi_bold"
+                    android:text="Thiết bị điện tử"
+                    android:textSize="14dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+                <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:weightSum="3">
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="14dp"
                         android:fontFamily="@font/quicksand_semi_bold"
-                        android:text="Kiểu Loại"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginLeft="42dp"
-                        android:layout_weight="2"
-                        android:id="@+id/tv_typeProduct"
-                        android:text="Thiết Bị Điện Tử"
                         android:textSize="14dp"
-                        android:fontFamily="@font/quicksand_semi_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:text="Xuất xứ"
+                        android:textColor="@color/deep_grey"/>
                     <TextView
-                        android:layout_weight="1"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/quicksand_semi_bold"
-                        android:text="Xuất Xứ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_marginLeft="26dp"
-                        android:layout_weight="2"
                         android:id="@+id/tv_originProduct"
-                        android:text="nhật bản"
-                        android:textSize="14dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
                         android:fontFamily="@font/quicksand_semi_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:text="Nhật Bản"
+                        android:textSize="14dp"
+                        android:textColor="@color/black" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:weightSum="3">
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="14dp"
                         android:fontFamily="@font/quicksand_semi_bold"
-                        android:text="Thương Hiệu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textSize="14dp"
+                        android:text="Thương hiệu"
+                        android:textColor="@color/deep_grey"/>
                     <TextView
-                        android:id="@+id/tv_BranchOfProduct"
+                        android:id="@+id/tv_branchProduct"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:fontFamily="@font/quicksand_semi_bold"
                         android:text="ANOVINA"
                         android:textSize="14dp"
-                        android:fontFamily="@font/quicksand_semi_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
             <View
@@ -337,47 +359,77 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="16dp">
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Mô tả sản phẩm"
                     android:fontFamily="@font/quicksand_bold"
                     android:textSize="18dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="16dp"/>
                 <TextView
-                    android:fontFamily="@font/quicksand_medium"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:text="ubcdushifuhifhnsdufdisufsildubfusdbhyukafyhdbdfsbdbdsansjasdsandisuandsabndshbdjsahbdksndksandsandsainbdsnsakjbdsakbnsakbdsakbskdnsadnaidunakbwihnwjniuasinskasbiasnasbasihnasdasndasbdiasundisaubdsaidnsakdhbsajdbsadhbsadbsadbsaidusadhbsvadiusabsaybdsaybdsjydvbasybsaubdasidnsaknsakjbd"
                     android:id="@+id/tv_descriptionProduct"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textSize="16dp"
+                    android:text="null"
+                    android:textColor="@color/black"/>
             </LinearLayout>
-            <LinearLayout
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="60dp">
-                <ImageView
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/chat_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <Button
-                    android:fontFamily="@font/quicksand_regular"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp"
-                    android:text="Thêm vào giỏ hàng"
-                    android:backgroundTint="#C12626"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="280dp"
-                    android:layout_height="44dp"/>
-            </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_outline_chat"
+        android:layout_gravity="bottom"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
-</LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/deep_blue"
+            app:strokeWidth="1dp"
+            app:contentPadding="3dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_chat_with_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="Chat"
+                    android:textSize="14dp"
+                    android:textColor="@color/deep_blue"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_addProduct"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:text="Thêm vào giỏ hàng"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            app:cornerRadius="6dp"
+            android:layout_marginLeft="30dp"/>
+    </LinearLayout>
+</FrameLayout>

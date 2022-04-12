@@ -36,7 +36,7 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
     MaterialButton btnSaveGender;
 
     // Object and Reference
-    int idCustomer;
+    int idCustomer, gender;
     Customer customer;
     SharedPreferences sharedPref;
 
@@ -103,7 +103,7 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
         customer = new Customer();
         idCustomer = sharedPref.getInt("getId", customer.getId());
 //        selectedGender = rgGender.getCheckedRadioButtonId();
-        int gender = radioButton.getId();
+
 
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                                         .performGender(idCustomer, gender);
@@ -113,17 +113,29 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
                 if(response.code() == 200){
                     if (response.body().getStatus().equals("success")){
                         if(response.body().getResult() == 1){
-                            String getGenderType = String.valueOf(gender);
-                                if (rbMale.isChecked()) {
-                                   getGenderType = rbMale.getText().toString();
-
-                                } else if (rbFemale.isChecked()) {
-                                    getGenderType = rbFemale.getText().toString();
-
-                                } else if (rbOther.isChecked()) {
-                                    getGenderType = rbOther.getText().toString();
-                                }
-                            Toast.makeText(GenderActivity.this, "Successful - " + getGenderType, Toast.LENGTH_SHORT).show();
+                            //int getGender = 0;
+//                            radioButton = (RadioButton) findViewById(gender);
+                            if (rbOther.isChecked() == true){
+                                gender = 0;
+                            }else if (rbMale.isChecked() == true){
+                                gender = 1;
+                            }else if(rbFemale.isChecked() == true){
+                                gender = 2;
+                            }
+//                            String getGenderType = String.valueOf(gender);
+//                                if (rbMale.isChecked() == true) {
+//                                    getGender = 1;
+//                                   getGenderType = rbMale.getText().toString();
+//
+//                                } else if (rbFemale.isChecked() == true) {
+//                                    getGender = 2;
+//                                    getGenderType = rbFemale.getText().toString();
+//
+//                                } else if (rbOther.isChecked() == true) {
+//                                    getGender = 0;
+//                                    getGenderType = rbOther.getText().toString();
+//                                }
+                            Toast.makeText(GenderActivity.this, "Successful - " + gender , Toast.LENGTH_SHORT).show();
                         
                         }else{
                             Toast.makeText(GenderActivity.this, "Change Gender Failed", Toast.LENGTH_SHORT).show();

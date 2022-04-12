@@ -41,22 +41,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = mProducts.get(position);
         if (product != null){
-            holder.txt_1.setText(product.getName());
-            holder.txt_2.setText(product.getPrice()+ " đ");
+            holder.tvNameProduct.setText(product.getName());
+            holder.tvPriceProduct.setText(String.valueOf(product.getPrice()) + " đ");
             Glide.with(context).load(product.getImage()).into(holder.img_Product);
         }
-        holder.item_prodcut.setOnClickListener(new View.OnClickListener() {
+        holder.cardProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailProductActivity.class);
                 intent.putExtra("product_Ids", product.getIds());
-                intent.putExtra("product_name", product.getName());
-                intent.putExtra("product_price", product.getPrice());
-                intent.putExtra("product_category", product.getCategoryName());
-                intent.putExtra("product_branch", product.getBranchProduct());
-                intent.putExtra("product_where", product.getWhereProduct());
-                intent.putExtra("product_img", product.getImage());
-                intent.putExtra("product_type", product.getTypeProduct());
                 context.startActivity(intent);
 
             }
@@ -70,14 +63,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView img_Product;
-        private TextView txt_1,txt_2;
-        CardView item_prodcut;
+        private TextView tvNameProduct, tvPriceProduct;
+        CardView cardProduct;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            img_Product = itemView.findViewById(R.id.img_item_product);
-            txt_1 = itemView.findViewById(R.id.txt_view_product_1);
-            txt_2 = itemView.findViewById(R.id.txt_view_product_2);
-            item_prodcut = (CardView) itemView.findViewById(R.id.item_product);
+            img_Product = itemView.findViewById(R.id.img_product);
+            tvNameProduct = itemView.findViewById(R.id.tv_nameProduct);
+            tvPriceProduct = itemView.findViewById(R.id.tv_priceProduct);
+            cardProduct = itemView.findViewById(R.id.card_product);
         }
     }
 }

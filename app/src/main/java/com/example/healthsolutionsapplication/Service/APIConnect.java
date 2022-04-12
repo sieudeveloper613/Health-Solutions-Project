@@ -45,5 +45,24 @@ public interface APIConnect {
     @GET("HealthSolutionsDB/updatePassword.php")
     Call<ServerResponse> performPassword(@Query("id") int id, @Query("password") String password);
 
+    @GET("HealthSolutionsDB/updateDob.php")
+    Call<ServerResponse> performDob(@Query("id") int id, @Query("dob") String dob);
+
+    @GET("HealthSolutionsDB/ProductList.php")
+    Call<ServerResponse> performGetList();
+
+    @GET("HealthSolutionsDB/insertAddress.php")
+    Call<ServerResponse> performAddress(@Query("id") int id, @Query("_address") String address,
+                                        @Query("_isDefault") boolean isDefault);
+
+    @GET("HealthSolutionsDB/updateAddress.php")
+    Call<ServerResponse> updateAddress(@Query("id") int id, @Query("_address") String address,
+                                        @Query("_isDefault") boolean isDefault);
+
+    @GET("HealthSolutionsDB/getListAddress.php")
+    Call<ServerResponse> performGetAddressList(@Query("id") int id);
+
+    @GET("HealthSolutionsDB/getIdProduct.php")
+    Call<ServerResponse> performGetIdProduct(@Query("Ids") int Ids);
 
 }

@@ -6,16 +6,16 @@ import com.google.gson.annotations.SerializedName;
 public class Product {
     @SerializedName("Ids")
     @Expose
-    private String ids;
+    private int ids;
     @SerializedName("categoryId")
     @Expose
-    private String categoryId;
+    private int categoryId;
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("price")
     @Expose
-    private String price;
+    private double price;
     @SerializedName("categoryName")
     @Expose
     private String categoryName;
@@ -32,19 +32,19 @@ public class Product {
     @Expose
     private String image;
 
-    public String getIds() {
+    public int getIds() {
         return ids;
     }
 
-    public void setIds(String ids) {
+    public void setIds(int ids) {
         this.ids = ids;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -56,11 +56,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

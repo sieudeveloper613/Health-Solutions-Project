@@ -14,12 +14,15 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.healthsolutionsapplication.Constant.Constants;
 import com.example.healthsolutionsapplication.Model.Product;
-import com.example.healthsolutionsapplication.Model.RequestInterface;
-import com.example.healthsolutionsapplication.Model.ServerResponse;
 import com.example.healthsolutionsapplication.R;
+import com.example.healthsolutionsapplication.Service.APIConnect;
+import com.example.healthsolutionsapplication.Service.RetrofitClient;
+import com.example.healthsolutionsapplication.Service.ServerResponse;
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -29,65 +32,110 @@ import com.squareup.picasso.Target;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-public class DetailProductActivity extends AppCompatActivity {
+public class DetailProductActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
+    String getNameProduct, getPriceProduct, getImageProduct, getCategoryProduct,
+            getBranchProduct, getOriginProduct, getTypeProduct;
+    TextView tvNameProduct, tvPriceProduct, tvCategoryProduct,
+            tvTypeProduct, tvOriginProduct, tvBranchProduct;
+    LinearLayout imgProduct;
+    CardView cardBackPressed;
+    MaterialButton btnAdProduct;
+
+
+    // Object and Reference here
     Product product;
     int ids;
-    String product_name, product_price, product_category, product_branch, product_img, product_where, product_type;
-    TextView tv_NameOfProduct, tv_PriceOfProduct, tv_catelogyProduct, tv_typeProduct, tv_originProduct, tv_BranchOfProduct;
-    LinearLayout imgProduct;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_product);
 
-        tv_NameOfProduct = findViewById(R.id.tv_NameOfProduct);
-        tv_PriceOfProduct = findViewById(R.id.tv_PriceOfProduct);
-        tv_catelogyProduct = findViewById(R.id.tv_catelogyProduct);
-        tv_typeProduct = findViewById(R.id.tv_typeProduct);
-        tv_originProduct = findViewById(R.id.tv_originProduct);
-        tv_BranchOfProduct = findViewById(R.id.tv_BranchOfProduct);
-        imgProduct = findViewById(R.id.img_detail);
+        // define id for view
+            initView();
+
+        // set method
         Intent intent = getIntent();
         ids = intent.getIntExtra("product_Ids", 0);
-        product_name = intent.getStringExtra("product_name");
-        product_price = intent.getStringExtra("product_price");
-        product_category = intent.getStringExtra("product_category");
-        product_branch = intent.getStringExtra("product_branch");
-        product_img = intent.getStringExtra("product_img");
-        product_where = intent.getStringExtra("product_where");
-        product_type = intent.getStringExtra("product_type");
+
         if(ids != 0){
             getDetail();
-
         }
+//        Intent intent = getIntent();
+//        ids = intent.getIntExtra("product_Ids", 0);
+//        getNameProduct = intent.getStringExtra("product_name");
+//        getPriceProduct = String.valueOf(intent.getDoubleExtra("product_price", 0));
+//        getCategoryProduct = intent.getStringExtra("product_category");
+//        getBranchProduct = intent.getStringExtra("product_branch");
+//        getImageProduct = intent.getStringExtra("product_img");
+//        getOriginProduct = intent.getStringExtra("product_where");
+//        getTypeProduct = intent.getStringExtra("product_type");
+
     }
     private void getDetail() {
-        tv_NameOfProduct.setText(product_name);
-        tv_PriceOfProduct.setText(String.valueOf(product_price));
-        tv_catelogyProduct.setText(product_category);
-        tv_typeProduct.setText(product_type);
-        tv_originProduct.setText(product_where);
-        tv_BranchOfProduct.setText(product_branch);
-        Picasso.get().load(product_img).into(new Target() {
+        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
+                                        .performGetIdProduct(ids);
+        callback.enqueue(new Callback<ServerResponse>() {
             @Override
-            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                imgProduct.setBackground(new BitmapDrawable(bitmap));
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                if(response.code() == 200){
+                    if(response.body().getStatus().equals("success")){
+                        if (response.body().getResult() == 1){
+                            product = response.body().getProduct1();
+                            tvNameProduct.setText(product.getName());
+                            tvPriceProduct.setText(String.valueOf(product.getPrice()));
+                            //tvCategoryProduct.setText(product.getCategoryId());
+                            tvTypeProduct.setText(product.getTypeProduct());
+                            tvOriginProduct.setText(product.getWhereProduct());
+                            tvBranchProduct.setText(product.getBranchProduct());
+                            Picasso.get().load(product.getImage()).into((Target) imgProduct);
+                        }
+                    }
+                }
             }
 
             @Override
-            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-
-            }
-
-            @Override
-            public void onPrepareLoad(Drawable placeHolderDrawable) {
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
 
             }
         });
 
+    }
 
+    private void initView(){
+        tvNameProduct = findViewById(R.id.tv_NameOfProduct);
+        tvPriceProduct = findViewById(R.id.tv_PriceOfProduct);
+        tvCategoryProduct = findViewById(R.id.tv_categoryProduct);
+        tvTypeProduct = findViewById(R.id.tv_typeProduct);
+        tvOriginProduct = findViewById(R.id.tv_originProduct);
+        tvBranchProduct = findViewById(R.id.tv_branchProduct);
+        imgProduct = findViewById(R.id.img_detail);
+        cardBackPressed = findViewById(R.id.card_backPressed);
+        btnAdProduct = findViewById(R.id.btn_addProduct);
+
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.card_backPressed:
+                onBackPressed();
+                finish();
+            break;
+
+            case R.id.btn_addProduct:
+                Toast.makeText(DetailProductActivity.this, "updating...", Toast.LENGTH_SHORT).show();
+                break;
+
+            default:
+                Toast.makeText(DetailProductActivity.this, "Wrong Clicked", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -2,16 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.healthsolutionsapplication">
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET"/>
-=======
+
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
->>>>>>> 9120dc3ad3f990237618a98e0798fc968cbef9b2
 
     <application
         android:allowBackup="true"
@@ -49,11 +47,11 @@
         <activity
             android:name=".Activity.HomeActivity"
             android:exported="true" >
-<<<<<<< HEAD
-=======
-
->>>>>>> 9120dc3ad3f990237618a98e0798fc968cbef9b2
         </activity>
+
+        <activity android:name=".Activity.DetailProductActivity"
+                    android:exported="false"/>
+
         <activity
             android:name=".Activity.ConfigChangePassActivity"
             android:exported="false" />

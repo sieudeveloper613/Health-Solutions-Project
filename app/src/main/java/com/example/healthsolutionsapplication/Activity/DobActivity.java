@@ -1,5 +1,6 @@
 package com.example.healthsolutionsapplication.Activity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -15,16 +16,34 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Model.Customer;
+import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.R;
+import com.example.healthsolutionsapplication.Service.APIConnect;
+import com.example.healthsolutionsapplication.Service.RetrofitClient;
+import com.example.healthsolutionsapplication.Service.ServerResponse;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Calendar;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 
 public class DobActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     DatePicker datePickerSpinner;
     MaterialButton btnSaveDob;
+
+    // Object and Reference
+    Customer customer;
+    SharedPreferences sharedPref;
+    int idCustomer, mYear, mMonth, mDay;
+    String getDob = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,13 +107,69 @@ public class DobActivity extends AppCompatActivity implements View.OnClickListen
                 });
     }
 
+    private void performDob(){
+//        getCalendar();
+        SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        customer = new Customer();
+        idCustomer = sharedPref.getInt("getId", customer.getId());
+        final Calendar calendar = Calendar.getInstance();
+        mYear = calendar.get(Calendar.YEAR);
+        mMonth = calendar.get(Calendar.MONTH);
+        mDay = calendar.get(Calendar.DAY_OF_MONTH);
+//        getDob = String.valueOf(mYear + mMonth + mDay);
+
+        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
+                                        .performDob(idCustomer, getDob);
+        callback.enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                if (response.code() == 200){
+                    if (response.body().getStatus().equals("success")){
+                        if (response.body().getResult() == 1) {
+                            datePickerSpinner.init(mYear, mMonth, mDay,
+                                    new DatePicker.OnDateChangedListener() {
+                                        @Override
+                                        public void onDateChanged(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                                            getDob = mDay + "-" + mMonth + "-" + mYear;
+                                        }
+                                    });
+
+                            getDob = mYear + "-" + mMonth + "-" + mDay;
+                            Toast.makeText(DobActivity.this, "Success - You clicked : " + getDob, Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(DobActivity.this, "Get Dob Failed", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }else{
+                        Toast.makeText(DobActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(DobActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_saveDob:
-                getCalendar();
+                performDob();
                 break;
         }
     }
 }
+
+
+

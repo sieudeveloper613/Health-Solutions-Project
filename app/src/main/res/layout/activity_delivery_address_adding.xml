@@ -23,51 +23,15 @@
         android:layout_marginTop="56dp"
         android:padding="20dp"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_semi_bold"
             android:text="Nhập địa chỉ mới"
             android:textColor="@color/black"
-            android:textSize="18dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_regular"
-            android:text="Tên người nhận"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/ed_fullNameReceiver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:inputType="text"
-            android:hint="Nhập họ &amp; tên người nhận"
             android:textSize="18dp"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_regular"
-            android:text="Số điện thoại"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="10dp"/>
-
-        <EditText
-            android:id="@+id/ed_phoneNumberReceiver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:inputType="number"
-            android:hint="Nhập số điện thoại nhận hàng"
-            android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:layout_marginBottom="30dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -79,52 +43,15 @@
             android:layout_marginTop="10dp"/>
 
         <EditText
-            android:id="@+id/ed_addressReceiver"
+            android:id="@+id/ed_houseNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_medium"
             android:inputType="text"
             android:hint="Nhập số nhà, số đường"
             android:textSize="18dp"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_regular"
-            android:text="Tỉnh/Thành phố"
             android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="10dp"/>
-
-        <EditText
-            android:id="@+id/ed_city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:inputType="text"
-            android:hint="Nhập tỉnh/thành phố"
-            android:textSize="18dp"
-            android:textColor="@color/black"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_regular"
-            android:text="Quận/Huyện"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="10dp"/>
-
-        <EditText
-            android:id="@+id/ed_district"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:inputType="text"
-            android:hint="Nhập quận/huyện"
-            android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -143,7 +70,48 @@
             android:inputType="text"
             android:hint="Nhập phường/xã"
             android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="Quận/Huyện"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ed_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:inputType="text"
+            android:hint="Nhập quận/huyện"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="Tỉnh/Thành phố"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ed_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:inputType="text"
+            android:hint="Nhập tỉnh/thành phố"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="30dp"/>
 
         <CheckBox
             android:id="@+id/cb_addressDefault"
@@ -161,6 +129,7 @@
         android:minHeight="72dp"
         android:background="@color/white"
         android:layout_gravity="bottom">
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_addAddress"
             android:layout_width="match_parent"

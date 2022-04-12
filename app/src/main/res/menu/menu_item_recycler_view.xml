@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item   android:id="@+id/action_selectAddress"
+            android:title="Địa chỉ gốc"
+            android:icon="@drawable/ic_baseline_check"
+            app:showAsAction="always"/>
+
+    <item   android:id="@+id/action_updateAddress"
+        android:title="Cật nhật"
+        android:icon="@drawable/ic_baseline_edit_note"
+        app:showAsAction="always"/>
+
+    <item   android:id="@+id/action_deleteAddress"
+        android:title="Xóa địa chỉ"
+        android:icon="@drawable/ic_baseline_cancel_address"
+        app:showAsAction="always"/>
+
+</menu>

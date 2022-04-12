@@ -3,58 +3,75 @@ package com.example.healthsolutionsapplication.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.healthsolutionsapplication.Adapter.DeliveryAddressAdapter;
-import com.example.healthsolutionsapplication.Model.DeliveryAddress;
+import com.example.healthsolutionsapplication.Adapter.HomeAdapter;
+import com.example.healthsolutionsapplication.Model.Address;
+import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
+import com.example.healthsolutionsapplication.Service.APIConnect;
+import com.example.healthsolutionsapplication.Service.RetrofitClient;
+import com.example.healthsolutionsapplication.Service.ServerResponse;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.internal.BaselineLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeliveryAddressActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+public class DeliveryAddressActivity extends AppCompatActivity implements View.OnClickListener{
+    // view and view group
     MaterialButton btnAddAddress;
     RecyclerView recyclerView;
-    List<DeliveryAddress> list = new ArrayList<>();
+    SwipeRefreshLayout refreshLayout;
+
+    // Object and Reference
+    List<Address> list;
+    DeliveryAddressAdapter addressAdapter;
+    int idCustomer;
+    Customer customer;
+    Address address;
+    SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_address);
         changeStatusBarColor();
         customToolBar("Địa chỉ nhận hàng");
-        recyclerView = findViewById(R.id.rv_deliveryAddress);
-        btnAddAddress = findViewById(R.id.btn_addAddress);
 
+        // define id for view
+        initView();
 
-        // lay du lieu
-        String addressDemo = "Nhà thờ Bến Cát, đường Hải Thượng Lãn Ông, phường 14, Quận Gò Vấp, Hồ Chí Minh";
-        String addressDemo2 = "80/2, Dương Quảng Hàm, phường 05, Quận Gò Vấp, Hồ Chí Minh";
-        list.add(new DeliveryAddress(-1, "Đinh Thị Hoài Thu", "0123456789",
-                addressDemo, false));
+        //define method and event
 
-        list.add(new DeliveryAddress(-1, "Hà Khởi Siêu", "0336574407",
-                addressDemo2, true));
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        DeliveryAddressAdapter adapter = new DeliveryAddressAdapter(list,this);
-        recyclerView.setAdapter(adapter);
-
-        btnAddAddress.setOnClickListener(new View.OnClickListener() {
+        getAddressById();
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DeliveryAddressActivity.this, DeliveryAddressAddingActivity.class);
-                startActivity(intent);
+            public void onRefresh() {
+
+                getAddressById();
+                refreshLayout.setRefreshing(false);
+//
             }
         });
+
+
 
 
     }
@@ -82,4 +99,83 @@ public class DeliveryAddressActivity extends AppCompatActivity {
         });
     }
 
+    private void initView(){
+        recyclerView = findViewById(R.id.rv_deliveryAddress);
+        btnAddAddress = findViewById(R.id.btn_addAddress);
+        refreshLayout = findViewById(R.id.refresh_layout);
+
+        // set event for view
+        btnAddAddress.setOnClickListener(this::onClick);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.btn_addAddress:
+                Intent intent = new Intent(DeliveryAddressActivity.this,
+                                                        DeliveryAddressAddingActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+    private void getAddressById(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        idCustomer = sharedPref.getInt("getId", customer.getId());
+        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
+                                        .performGetAddressList(idCustomer);
+        callback.enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                if (response.code() == 200){
+                    if (response.body().getStatus().equals("success")){
+                        if(response.body().getResult() == 1){
+                            list = new ArrayList<>();
+                            list = response.body().getAddressList();
+                            if (list.size() > 0){
+                                recyclerView.setHasFixedSize(true);
+                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DeliveryAddressActivity.this);
+                                linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+                                recyclerView.setLayoutManager(linearLayoutManager);
+
+                                addressAdapter = new DeliveryAddressAdapter(list, DeliveryAddressActivity.this);
+                                recyclerView.setAdapter(addressAdapter);
+
+                                Toast.makeText(getApplicationContext(), "Id Client : " + customer.getId() + " - total :" + list.size(), Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "get Address Failed", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Get Address Failed...", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }else{
+                        Toast.makeText(getApplicationContext(), response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+                Log.d("Err", t.getMessage());
+            }
+        });
+    }
+
+
+
+    private void reloadList(){
+        list = new ArrayList<>();
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DeliveryAddressActivity.this);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        addressAdapter = new DeliveryAddressAdapter(list, DeliveryAddressActivity.this);
+        recyclerView.setAdapter(addressAdapter);
+    }
 }
