@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.example.healthsolutionsapplication.Adapter.DeliveryAddressAdapter;
 import com.example.healthsolutionsapplication.Adapter.HomeAdapter;
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.PreLoadingLinearLayoutManager;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Address;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
@@ -47,6 +50,8 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
     Customer customer;
     Address address;
     SharedPreferences sharedPref;
+    ToastGenerate toastGenerate;
+    PreLoadingLinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,19 +60,21 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
         changeStatusBarColor();
         customToolBar("Địa chỉ nhận hàng");
 
+        // define Reference
+        toastGenerate = new ToastGenerate(DeliveryAddressActivity.this);
+
         // define id for view
         initView();
 
         //define method and event
-
         getAddressById();
+
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
                 getAddressById();
                 refreshLayout.setRefreshing(false);
-//
             }
         });
 
@@ -123,46 +130,44 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
         customer = new Customer();
         sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         idCustomer = sharedPref.getInt("getId", customer.getId());
+
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                                         .performGetAddressList(idCustomer);
         callback.enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 if (response.code() == 200){
-                    if (response.body().getStatus().equals("success")){
-                        if(response.body().getResult() == 1){
+                    if (response.body().getStatus().equals(Constants.SUCCESS)){
+                        if(response.body().getResult() == Constants.RESULT_1){
+
                             list = new ArrayList<>();
                             list = response.body().getAddressList();
-                            if (list.size() > 0){
-                                recyclerView.setHasFixedSize(true);
-                                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DeliveryAddressActivity.this);
-                                linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-                                recyclerView.setLayoutManager(linearLayoutManager);
 
+
+                                recyclerView.setHasFixedSize(true);
+                                // VERTICAL = 1 ------ HORIZONTAL = 0
+                                linearLayoutManager = new PreLoadingLinearLayoutManager(DeliveryAddressActivity.this, 1, false);
+                                recyclerView.setLayoutManager(linearLayoutManager);
                                 addressAdapter = new DeliveryAddressAdapter(list, DeliveryAddressActivity.this);
                                 recyclerView.setAdapter(addressAdapter);
 
-                                Toast.makeText(getApplicationContext(), "Id Client : " + customer.getId() + " - total :" + list.size(), Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(getApplicationContext(), "get Address Failed", Toast.LENGTH_SHORT).show();
-                            }
 
                         }else{
-                            Toast.makeText(getApplicationContext(), "Get Address Failed...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Lấy địa chỉ thất bại", 2);
                         }
 
                     }else{
-                        Toast.makeText(getApplicationContext(), response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    toastGenerate.createToastMessage("System Error", 0);
                 }
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                Log.d("Err", t.getMessage());
+                Log.d(Constants.ERR, t.getMessage());
             }
         });
     }
@@ -172,8 +177,7 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
     private void reloadList(){
         list = new ArrayList<>();
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(DeliveryAddressActivity.this);
-        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        linearLayoutManager = new PreLoadingLinearLayoutManager(DeliveryAddressActivity.this, 1, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         addressAdapter = new DeliveryAddressAdapter(list, DeliveryAddressActivity.this);
         recyclerView.setAdapter(addressAdapter);

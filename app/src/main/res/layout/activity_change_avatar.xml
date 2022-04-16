@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.UploadAvatarActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/mToolbar_rollCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="5dp"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/light_grey"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="72dp">
+        <ImageView
+            android:id="@+id/img_showAvatar"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:src="@drawable/ic_baseline_camera"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_getAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:text="Thiết lập ảnh"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:cornerRadius="6dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="72dp"
+        android:background="@color/white"
+        android:layout_gravity="bottom">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_saveAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/deep_blue"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:text="Xác nhận ảnh đại diện"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:cornerRadius="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+</FrameLayout>

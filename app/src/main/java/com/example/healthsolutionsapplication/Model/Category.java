@@ -1,7 +1,15 @@
 package com.example.healthsolutionsapplication.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Category {
+    @SerializedName("idCategory")
+    @Expose
     private int categoryId;
+
+    @SerializedName("nameCategory")
+    @Expose
     private String categoryName;
 
     public Category() {

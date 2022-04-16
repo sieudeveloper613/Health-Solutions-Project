@@ -12,6 +12,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.example.healthsolutionsapplication.Adapter.xacNhanDonHangAdapter;
 import com.example.healthsolutionsapplication.Model.xacNhanDonHangModel;
@@ -25,6 +27,7 @@ import java.util.List;
 public class ConfirmBillActivity extends AppCompatActivity implements View.OnClickListener {
     MaterialButton btnPayTheBill;
     RecyclerView recyclerView;
+    CheckBox cbAddVoucher;
     List<xacNhanDonHangModel> list = new ArrayList<xacNhanDonHangModel>();
 
     @Override
@@ -69,7 +72,15 @@ public class ConfirmBillActivity extends AppCompatActivity implements View.OnCli
 
     private void init(){
         btnPayTheBill = findViewById(R.id.btn_payTheBill);
+        cbAddVoucher = findViewById(R.id.cb_addVoucher);
+
         btnPayTheBill.setOnClickListener(this);
+        cbAddVoucher.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+            }
+        });
     }
 
     @Override

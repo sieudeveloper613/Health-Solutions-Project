@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Fragment.PersonFragment;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -24,16 +26,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     MaterialButton btnLogin, btnGoogle;
     TextView tvForgotPassword, tvRegister;
     EditText edGetAccount, edGetPassword;
+
+    // Object and Reference
+    ToastGenerate toastGenerate;
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         changeStatusBarColor();
-
+        toastGenerate = new ToastGenerate(LoginActivity.this);
         // set id from view
         initView();
 
@@ -56,17 +63,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edGetAccount = findViewById(R.id.ed_getAccount);
         edGetPassword = findViewById(R.id.ed_getPassword);
 
-        // get String extra
-        String account = getIntent().getStringExtra("account");
-        edGetAccount.setText(account);
-
         // set event for view
         btnGoogle.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
     }
-
 
     private void performLogin(){
         String getAccount = edGetAccount.getText().toString();
@@ -78,40 +80,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 if (getAccount.isEmpty() && getPassword.isEmpty()){
-                    Toast.makeText(LoginActivity.this, "Please fill Info", Toast.LENGTH_SHORT).show();
-
+                        toastGenerate.createToastMessage("Vui lòng nhập đủ thông tin", 2);
                 }else{
                     if (response.code() == 200){
-                        if (response.body().getStatus().equals("success")){
-                            if (response.body().getResult() == 1){
+                        if (response.body().getStatus().equals(Constants.SUCCESS)){
+                            if (response.body().getResult() == Constants.RESULT_1){
 
-                                SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+                                sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();
                                 int id = response.body().getCustomer().getId();
                                 String name = response.body().getCustomer().getName();
                                 String email = response.body().getCustomer().getEmail();
                                 String phone = response.body().getCustomer().getPhone();
+                                int gender = response.body().getCustomer().getGender();
+                                String dob = response.body().getCustomer().getDob();
+                                int idAddress = response.body().getCustomer().getIdAddress();
                                 String password = response.body().getCustomer().getPassword();
+                                String avatar = response.body().getCustomer().getAvatar();
                                 editor.putInt("getId", id);
                                 editor.putString("getName", name);
                                 editor.putString("getEmail", email);
                                 editor.putString("getPhone", phone);
+                                editor.putInt("getGender", gender);
+                                editor.putString("getDob", dob);
+                                editor.putInt("getIdAddress", idAddress);
                                 editor.putString("getPassword", password);
+                                editor.putString("getAvatar", avatar);
                                 editor.commit();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
                                 finish();
                             }else{
-                                Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-
+                                toastGenerate.createToastMessage("Vui lòng kiểm tra lại", 2);
                             }
+
                         }else{
-                            Toast.makeText(LoginActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Đăng nhập thất bại", 2);
 
                         }
                     }else{
-                        Toast.makeText(LoginActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("System Error...", 2);
 
                     }
                 }

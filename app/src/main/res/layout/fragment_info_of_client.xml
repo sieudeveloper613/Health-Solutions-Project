@@ -211,6 +211,7 @@
                 android:textColor="@color/deep_blue"
                 android:layout_marginBottom="6dp"/>
             <TextView
+                android:id="@+id/tv_showAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/quicksand_semi_bold"

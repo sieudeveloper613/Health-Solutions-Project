@@ -4,34 +4,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.healthsolutionsapplication.Activity.QuoteActivity;
-import com.example.healthsolutionsapplication.Activity.RollCallTodayActivity;
+import com.example.healthsolutionsapplication.Activity.UploadAvatarActivity;
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.imageview.ShapeableImageView;
 
 public class PersonFragment extends Fragment implements View.OnClickListener{
     MaterialCardView cardRollCallToday, cardQuoteToday;
     TextView tvNameCustomer;
+    ShapeableImageView imgAvatarCustomer;
 
     @Nullable
     @Override
@@ -40,9 +35,10 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         customToolBar(view, "Thông tin cá nhân");
 
         // define id for view
-        cardRollCallToday = view.findViewById(R.id.card_rollCallToday);
+        cardRollCallToday = view.findViewById(R.id.card_uploadAvatar);
         cardQuoteToday = view.findViewById(R.id.card_quoteToday);
         tvNameCustomer = view.findViewById(R.id.tv_nameCustomer);
+        imgAvatarCustomer = view.findViewById(R.id.img_avatarCustomer);
 
         SharedPreferences sharedPref = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         String getNameCustomer = sharedPref.getString("getName", "");
@@ -57,6 +53,23 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         // set up fragment in PersonFragment
         setUpAllFragment();
         return view;
+    }
+
+
+
+    private void customToolBar(View view, String titleString){
+        MaterialToolbar materialToolbar = view.findViewById(R.id.mToolbar_person);
+        materialToolbar.setTitle(titleString);
+        materialToolbar.setTitleCentered(true);
+        materialToolbar.setTitleTextColor(Color.WHITE);
+        materialToolbar.setBackgroundColor(Color.parseColor("#0088FF"));
+//        materialToolbar.setNavigationIcon(R.drawable.ic_arrow_back_24px);
+//        materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onBackPressed();
+//            }
+//        });
     }
 
     private void setUpAllFragment(){
@@ -79,26 +92,11 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         transaction.commit();
     }
 
-    private void customToolBar(View view, String titleString){
-        MaterialToolbar materialToolbar = view.findViewById(R.id.mToolbar_person);
-        materialToolbar.setTitle(titleString);
-        materialToolbar.setTitleCentered(true);
-        materialToolbar.setTitleTextColor(Color.WHITE);
-        materialToolbar.setBackgroundColor(Color.parseColor("#0088FF"));
-//        materialToolbar.setNavigationIcon(R.drawable.ic_arrow_back_24px);
-//        materialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.card_rollCallToday:
-                startActivity(new Intent(getContext(), RollCallTodayActivity.class));
+            case R.id.card_uploadAvatar:
+                startActivity(new Intent(getContext(), UploadAvatarActivity.class));
                 break;
 
             case R.id.card_quoteToday:

@@ -37,8 +37,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         Product product = mProducts.get(position);
         if (product != null){
             //holder.imgProduct.setImageResource(product.getImage());
-            holder.tvProductName.setText(product.getName());
-            holder.tvProductPrice.setText(product.getPrice()+ " đ");
+            holder.tvProductName.setText(product.getNameProduct());
+            holder.tvProductPrice.setText(product.getPriceProduct()+ " đ");
         }
     }
 

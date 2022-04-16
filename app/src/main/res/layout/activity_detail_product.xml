@@ -13,12 +13,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/img_detail"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/product_pic_0"
                 android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_detailProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/product_pic_0"/>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_backPressed"
@@ -49,7 +53,7 @@
                             android:textColor="@color/black"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-            </LinearLayout>
+            </FrameLayout>
 
             <LinearLayout
                 android:background="@color/deep_blue"
@@ -146,7 +150,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"/>
                 <TextView
-                    android:id="@+id/txt_ponit_number"
+                    android:id="@+id/txt_point_number"
                     android:textSize="18dp"
                     android:layout_marginLeft="20dp"
                     android:text="100"
@@ -395,6 +399,7 @@
         android:paddingBottom="10dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_chat"
             android:layout_width="56dp"
             android:layout_height="wrap_content"
             app:strokeColor="@color/deep_blue"

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:paddingBottom="100dp"
+    android:paddingTop="100dp">
+
+    <TextView
+        android:id="@+id/nothingPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableTint="@android:color/secondary_text_light"
+        android:drawableTop="@drawable/ic_baseline_add_address"
+        android:enabled="false"
+        android:fontFamily="@font/quicksand_semi_bold"
+        android:text="Địa chỉ trống"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/deep_grey"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:id="@+id/nothingSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/quicksand_medium"
+        android:enabled="false"
+        android:text="Nhấn nút phía dưới để thêm địa chỉ mới"
+        android:textSize="16dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/deep_grey"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

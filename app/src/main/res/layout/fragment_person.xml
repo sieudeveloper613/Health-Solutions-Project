@@ -73,6 +73,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/img_avatarCustomer"
                             android:layout_width="128dp"
                             android:layout_height="128dp"
                             android:scaleType="centerCrop"
@@ -94,7 +95,7 @@
                     android:layout_marginTop="30dp">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card_rollCallToday"
+                        android:id="@+id/card_uploadAvatar"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
                         android:layout_weight="1"
@@ -108,12 +109,12 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/ic_calendar"/>
+                                android:src="@drawable/ic_baseline_image"/>
                             <TextView
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/quicksand_medium"
-                                android:text="Điểm danh hàng ngày"
+                                android:text="Đổi ảnh đại diện"
                                 android:textSize="14dp"
                                 android:textColor="@color/black"
                                 android:layout_marginLeft="16dp"/>

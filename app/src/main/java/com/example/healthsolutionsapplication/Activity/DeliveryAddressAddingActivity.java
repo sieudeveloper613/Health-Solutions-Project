@@ -19,6 +19,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
+import com.example.healthsolutionsapplication.Model.Address;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -42,6 +45,7 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
     boolean isDefault;
     Customer customer;
     SharedPreferences sharedPref;
+    ToastGenerate toastGenerate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +54,14 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
         changeStatusBarColor();
         customToolBar("Thêm địa chỉ nhận hàng");
 
+        // define reference
+        toastGenerate = new ToastGenerate(DeliveryAddressAddingActivity.this);
+
         // define id for view
         initView();
-        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        customer = new Customer();
-        idCustomer = sharedPref.getInt("getId", customer.getId());
-        Toast.makeText(getApplicationContext(), "id :" + idCustomer, Toast.LENGTH_SHORT).show();
 
+        // define method
 
-        // define
-       // getId();
-    }
-
-    private void initView() {
-        edHouseNumber = findViewById(R.id.ed_houseNumber);
-        edWard = findViewById(R.id.ed_ward);
-        edDistrict = findViewById(R.id.ed_district);
-        edCity = findViewById(R.id.ed_city);
-        cbAddressDefault = findViewById(R.id.cb_addressDefault);
-        btnSaveAddress = findViewById(R.id.btn_addAddress);
-
-        // set event for view
-        btnSaveAddress.setOnClickListener(this::onClick);
     }
 
     private void changeStatusBarColor(){
@@ -106,6 +96,18 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
         }
     }
 
+    private void initView() {
+        edHouseNumber = findViewById(R.id.ed_houseNumber);
+        edWard = findViewById(R.id.ed_ward);
+        edDistrict = findViewById(R.id.ed_district);
+        edCity = findViewById(R.id.ed_city);
+        cbAddressDefault = findViewById(R.id.cb_addressDefault);
+        btnSaveAddress = findViewById(R.id.btn_addAddress);
+
+        // set event for view
+        btnSaveAddress.setOnClickListener(this::onClick);
+    }
+
     private void performAddress() {
         String getAddress = edHouseNumber.getText().toString() + ", ";
         getAddress += edWard.getText().toString() + ", ";
@@ -113,9 +115,11 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
         getAddress += edCity.getText().toString();
         String finalGetAddress = getAddress;
         isDefault = cbAddressDefault.isChecked();
+
         sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        customer = new Customer();
         idCustomer = sharedPref.getInt("getId", customer.getId());
-        //Toast.makeText(getApplicationContext(), "get : " + getAddress + " - " + isDefault, Toast.LENGTH_SHORT).show();
+
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                                         .performAddress(idCustomer, finalGetAddress, isDefault);
 
@@ -124,64 +128,51 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 ServerResponse serverResponse = response.body();
                 if (response.code() == 200){
-                    if (serverResponse.getStatus().equals("success")){
-                        if (serverResponse.getResult() == 1){
+                    if (serverResponse.getStatus().equals(Constants.SUCCESS)){
+                        if (serverResponse.getResult() == Constants.RESULT_1){
                             if (cbAddressDefault.isChecked() == true){
                                 isDefault = true;
-                                Toast.makeText(getApplicationContext(), "Adding Address successful" + isDefault, Toast.LENGTH_SHORT).show();
+                                sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+
+                                int idAddress = response.body().getAddress().getIdAddress();
+                                editor.putInt("getIdCustomerAddress", idCustomer);
+                                editor.putInt("getIdAddress", idAddress);
+                                editor.commit();
+
+                                toastGenerate.createToastMessage("Thêm thành công", 1);
                                 Intent intent = new Intent(getApplicationContext(), DeliveryAddressActivity.class);
                                 startActivity(intent);
-                            }else{
+
+                            }else if(cbAddressDefault.isChecked() == false){
                                 isDefault = false;
-                                Toast.makeText(getApplicationContext(), "Adding Address successful" + isDefault, Toast.LENGTH_SHORT).show();
+
+                                toastGenerate.createToastMessage("Thêm thành công", 1);
                                 Intent intent = new Intent(getApplicationContext(), DeliveryAddressActivity.class);
                                 startActivity(intent);
                             }
 
                         }else{
-                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Thêm thất bại", 2);
                         }
 
                     }else{
-                        Toast.makeText(getApplicationContext(), "Adding Address Failed", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    toastGenerate.createToastMessage("System Error", 0);
 
                 }
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-                Log.d("Err", t.getMessage());
+                Log.d(Constants.ERR, t.getMessage());
             }
         });
     }
 
-    private void getId(){
-        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        customer = new Customer();
-        idCustomer = sharedPref.getInt("getId", customer.getId());
 
-        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
-                                        .getIdCustomer(idCustomer);
-        callback.enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if (response.code() == 200){
-                    if (response.body().getStatus().equals("success")){
-                        if (response.body().getResult() == 1){
-                            Toast.makeText(getApplicationContext(), "id :" + idCustomer, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-
-            }
-        });
-    }
 }

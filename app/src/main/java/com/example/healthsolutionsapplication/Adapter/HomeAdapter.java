@@ -41,15 +41,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = mProducts.get(position);
         if (product != null){
-            holder.tvNameProduct.setText(product.getName());
-            holder.tvPriceProduct.setText(String.valueOf(product.getPrice()) + " đ");
-            Glide.with(context).load(product.getImage()).into(holder.img_Product);
+            holder.tvNameProduct.setText(product.getNameProduct());
+            holder.tvPriceProduct.setText(String.valueOf(product.getPriceProduct()) + " đ");
+            Glide.with(context).load(product.getImageProduct()).into(holder.img_Product);
         }
         holder.cardProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailProductActivity.class);
-                intent.putExtra("product_Ids", product.getIds());
+                intent.putExtra("idProduct", product.getIdProduct());
                 context.startActivity(intent);
 
             }

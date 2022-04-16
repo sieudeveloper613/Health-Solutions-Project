@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -39,11 +42,15 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
     int idCustomer, gender;
     Customer customer;
     SharedPreferences sharedPref;
+    ToastGenerate toastGenerate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender);
+
+        // Define Reference
+        toastGenerate = new ToastGenerate(GenderActivity.this);
 
         // setting status bar and action bar
         changeStatusBarColor();
@@ -51,6 +58,7 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
 
         // define id from view
         initView();
+        getEditGender();
 
     }
 
@@ -98,6 +106,20 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    private void getEditGender(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        int getGenderCustomer = sharedPref.getInt("getGender", customer.getGender());
+
+        if (getGenderCustomer == 0){
+            rbMale.setChecked(true);
+        }else if(getGenderCustomer == 1){
+            rbMale.setChecked(true);
+        }else if (getGenderCustomer == 2){
+            rbMale.setChecked(true);
+        }
+    }
+
     private void performGender(){
         sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         customer = new Customer();
@@ -111,48 +133,37 @@ public class GenderActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 if(response.code() == 200){
-                    if (response.body().getStatus().equals("success")){
-                        if(response.body().getResult() == 1){
+                    if (response.body().getStatus().equals(Constants.SUCCESS)){
+                        if(response.body().getResult() == Constants.RESULT_1){
                             //int getGender = 0;
 //                            radioButton = (RadioButton) findViewById(gender);
-                            if (rbOther.isChecked() == true){
+                            if (rbMale.isChecked()){
                                 gender = 0;
-                            }else if (rbMale.isChecked() == true){
+
+                            }else if (rbFemale.isChecked()){
                                 gender = 1;
-                            }else if(rbFemale.isChecked() == true){
+
+                            }else if(rbOther.isChecked()){
+//                              gender = rbMale.isChecked() == true ? 0 : -1;
                                 gender = 2;
                             }
-//                            String getGenderType = String.valueOf(gender);
-//                                if (rbMale.isChecked() == true) {
-//                                    getGender = 1;
-//                                   getGenderType = rbMale.getText().toString();
-//
-//                                } else if (rbFemale.isChecked() == true) {
-//                                    getGender = 2;
-//                                    getGenderType = rbFemale.getText().toString();
-//
-//                                } else if (rbOther.isChecked() == true) {
-//                                    getGender = 0;
-//                                    getGenderType = rbOther.getText().toString();
-//                                }
-                            Toast.makeText(GenderActivity.this, "Successful - " + gender , Toast.LENGTH_SHORT).show();
-                        
+                            toastGenerate.createToastMessage("Cập nhật thành công", 1);
                         }else{
-                            Toast.makeText(GenderActivity.this, "Change Gender Failed", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Cập nhật thất bại", 2);
                         }
                         
                     }else{
-                        Toast.makeText(GenderActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                     }
                     
                 }else{
-                    Toast.makeText(GenderActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    toastGenerate.createToastMessage("System Error", 0);
                 }
             }
 
             @Override
             public void onFailure(Call<ServerResponse> call, Throwable t) {
-
+                Log.d(Constants.ERR, t.getMessage());
             }
         });
     }

@@ -4,72 +4,80 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Product {
-    @SerializedName("Ids")
+    @SerializedName("idProduct")
     @Expose
-    private int ids;
-    @SerializedName("categoryId")
+    private int idProduct;
+
+    @SerializedName("idCategory")
     @Expose
-    private int categoryId;
-    @SerializedName("name")
+    private int idCategory;
+
+    @SerializedName("nameProduct")
     @Expose
-    private String name;
-    @SerializedName("price")
+    private String nameProduct;
+
+    @SerializedName("priceProduct")
     @Expose
-    private double price;
-    @SerializedName("categoryName")
+    private double priceProduct;
+
+    @SerializedName("nameCategory")
     @Expose
-    private String categoryName;
+    private String nameCategory;
+
     @SerializedName("typeProduct")
     @Expose
     private String typeProduct;
-    @SerializedName("whereProduct")
+
+    @SerializedName("originProduct")
     @Expose
-    private String whereProduct;
+    private String originProduct;
+
     @SerializedName("branchProduct")
     @Expose
     private String branchProduct;
-    @SerializedName("image")
+
+    @SerializedName("imageProduct")
     @Expose
-    private String image;
+    private String imageProduct;
 
-    public int getIds() {
-        return ids;
+    public int getIdProduct() {
+        return idProduct;
     }
 
-    public void setIds(int ids) {
-        this.ids = ids;
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public int getIdCategory() {
+        return idCategory;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public String getName() {
-        return name;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
     }
 
-    public double getPrice() {
-        return price;
+    public double getPriceProduct() {
+        return priceProduct;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPriceProduct(double priceProduct) {
+        this.priceProduct = priceProduct;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 
     public String getTypeProduct() {
@@ -80,12 +88,12 @@ public class Product {
         this.typeProduct = typeProduct;
     }
 
-    public String getWhereProduct() {
-        return whereProduct;
+    public String getOriginProduct() {
+        return originProduct;
     }
 
-    public void setWhereProduct(String whereProduct) {
-        this.whereProduct = whereProduct;
+    public void setOriginProduct(String originProduct) {
+        this.originProduct = originProduct;
     }
 
     public String getBranchProduct() {
@@ -96,11 +104,11 @@ public class Product {
         this.branchProduct = branchProduct;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageProduct() {
+        return imageProduct;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageProduct(String imageProduct) {
+        this.imageProduct = imageProduct;
     }
 }

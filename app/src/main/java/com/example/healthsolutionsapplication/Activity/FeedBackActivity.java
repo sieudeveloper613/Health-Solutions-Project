@@ -9,9 +9,10 @@ import android.view.View;
 
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 
 public class FeedBackActivity extends AppCompatActivity {
-
+    MaterialButton btnFeedbackToUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

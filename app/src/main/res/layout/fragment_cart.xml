@@ -117,7 +117,7 @@
                 android:textSize="16dp"
                 android:textColor="@color/black"/>
             <ImageView
-                android:id="@+id/removeAllProduct"
+                android:id="@+id/img_removeAllProduct"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"

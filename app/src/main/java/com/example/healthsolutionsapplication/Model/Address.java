@@ -6,15 +6,15 @@ import com.google.gson.annotations.SerializedName;
 public class Address {
     private Customer customer;
 
-    @SerializedName("_idAddress")
+    @SerializedName("idAddress")
     @Expose
     private int idAddress;
 
-    @SerializedName("_address")
+    @SerializedName("contentAddress")
     @Expose
-    private String address;
+    private String contentAddress;
 
-    @SerializedName("_isDefault")
+    @SerializedName("isDefault")
     @Expose
     private boolean isDefault;
 
@@ -34,19 +34,15 @@ public class Address {
         this.idAddress = idAddress;
     }
 
-    public String getAddress() {
-        return address;
+    public String getContentAddress() {
+        return contentAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setContentAddress(String contentAddress) {
+        this.contentAddress = contentAddress;
     }
 
     public boolean isDefault() {
         return isDefault;
-    }
-
-    public void setDefault(boolean isDefault) {
-        isDefault = isDefault;
     }
 }

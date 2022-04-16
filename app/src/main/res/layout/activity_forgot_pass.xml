@@ -39,35 +39,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_semi_bold"
-            android:text="Xác nhận số điện thoại"
+            android:text="Xác nhận Email của bạn"
             android:textSize="18dp"
             android:textColor="@color/white"/>
 
         <EditText
-            android:id="@+id/ed_enterPhoneNumber"
+            android:id="@+id/ed_enterEmail"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/bg_edit_text"
-            android:drawableLeft="@drawable/ic_phone"
+            android:drawableLeft="@drawable/ic_post_card"
             android:fontFamily="@font/quicksand_medium"
-            android:hint="Nhập số điện thoại"
+            android:hint="Nhập địa chỉ Email"
             android:paddingLeft="10dp"
             android:drawablePadding="16dp"
             android:layout_marginTop="10dp"
-            android:inputType="number"
+            android:inputType="text"
             android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_medium"
-            android:text="@string/password_required"
+            android:text="@string/email_required"
             android:textSize="14dp"
             android:textColor="@color/white"
             android:layout_marginTop="10dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_confirmPhoneNumber"
+            android:id="@+id/btn_confirmEmail"
             android:layout_width="180dp"
             android:layout_height="56dp"
             android:fontFamily="@font/quicksand_semi_bold"

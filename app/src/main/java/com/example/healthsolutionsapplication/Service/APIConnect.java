@@ -20,49 +20,61 @@ public interface APIConnect {
     Call<String> UploadPhoto(@Part MultipartBody.Part photo);
 
     @GET("HealthSolutionsDB/Register.php")
-    Call<ServerResponse> performRegister(@Query("name") String name, @Query("account") String account,
-                                         @Query("password") String password, @Query("phone") String phone);
+    Call<ServerResponse> performRegister(@Query("nameCustomer") String name, @Query("accountCustomer") String account,
+                                         @Query("passwordCustomer") String password, @Query("phoneCustomer") String phone);
 
 
     @GET("HealthSolutionsDB/Login.php")
-    Call<ServerResponse> performLogin(@Query("account") String account, @Query("password") String password);
+    Call<ServerResponse> performLogin(@Query("accountCustomer") String account, @Query("passwordCustomer") String password);
 
     @GET("HealthSolutionsDB/UpdateName.php")
-    Call<ServerResponse> performName(@Query("id") int id, @Query("name") String name);
+    Call<ServerResponse> performName(@Query("idCustomer") int id, @Query("nameCustomer") String name);
 
     @GET("HealthSolutionsDB/updateEmail.php")
-    Call<ServerResponse> performEmail(@Query("id") int id, @Query("email") String email);
+    Call<ServerResponse> performEmail(@Query("idCustomer") int id, @Query("emailCustomer") String email);
 
     @GET("HealthSolutionsDB/updatePhone.php")
-    Call<ServerResponse> performPhone(@Query("id") int id, @Query("phone") String phone);
+    Call<ServerResponse> performPhone(@Query("idCustomer") int id, @Query("phoneCustomer") String phone);
 
     @GET("HealthSolutionsDB/updateGender.php")
-    Call<ServerResponse> performGender(@Query("id") int id, @Query("gender") int gender);
+    Call<ServerResponse> performGender(@Query("idCustomer") int id, @Query("genderCustomer") int gender);
 
     @GET("HealthSolutionsDB/getIdCustomer.php")
-    Call<ServerResponse> getIdCustomer(@Query("id") int id);
+    Call<ServerResponse> getIdCustomer(@Query("idCustomer") int id);
 
     @GET("HealthSolutionsDB/updatePassword.php")
-    Call<ServerResponse> performPassword(@Query("id") int id, @Query("password") String password);
+    Call<ServerResponse> performPassword(@Query("idCustomer") int id, @Query("passwordCustomer") String password);
 
     @GET("HealthSolutionsDB/updateDob.php")
-    Call<ServerResponse> performDob(@Query("id") int id, @Query("dob") String dob);
+    Call<ServerResponse> performDob(@Query("idCustomer") int id, @Query("dobCustomer") String dob);
+
+    @GET("HealthSolutionsDB/insertAddress.php")
+    Call<ServerResponse> performAddress(@Query("idCustomer") int id, @Query("contentAddress") String address,
+                                        @Query("isDefault") boolean isDefault);
+
+    @GET("HealthSolutionsDB/updateAddress.php")
+    Call<ServerResponse> updateAddress(@Query("idCustomer") int id, @Query("contentAddress") String address,
+                                        @Query("isDefault") boolean isDefault);
+
+    @GET("HealthSolutionsDB/UploadPicture.php")
+    Call<ServerResponse> uploadPicture(@Query("idCustomer") int id, @Query("avatarCustomer") String avatar);
+
+    @GET("HealthSolutionsDB/UploadPicture.php")
+    Call<ServerResponse> forgotPassword(@Query("emailCustomer") String email, @Query("passwordCustomer") String password);
+
+    @GET("HealthSolutionsDB/getEmail.php")
+    Call<ServerResponse> getValidateEmail(@Query("emailCustomer") String email);
+
+    @GET("HealthSolutionsDB/deleteAddress.php")
+    Call<ServerResponse> deleteAddress(@Query("idCustomer") int id, @Query("idAddress") int idAddress);
 
     @GET("HealthSolutionsDB/ProductList.php")
     Call<ServerResponse> performGetList();
 
-    @GET("HealthSolutionsDB/insertAddress.php")
-    Call<ServerResponse> performAddress(@Query("id") int id, @Query("_address") String address,
-                                        @Query("_isDefault") boolean isDefault);
-
-    @GET("HealthSolutionsDB/updateAddress.php")
-    Call<ServerResponse> updateAddress(@Query("id") int id, @Query("_address") String address,
-                                        @Query("_isDefault") boolean isDefault);
-
     @GET("HealthSolutionsDB/getListAddress.php")
-    Call<ServerResponse> performGetAddressList(@Query("id") int id);
+    Call<ServerResponse> performGetAddressList(@Query("idCustomer") int id);
 
     @GET("HealthSolutionsDB/getIdProduct.php")
-    Call<ServerResponse> performGetIdProduct(@Query("Ids") int Ids);
+    Call<ServerResponse> performGetIdProduct(@Query("idProduct") int idProduct);
 
 }

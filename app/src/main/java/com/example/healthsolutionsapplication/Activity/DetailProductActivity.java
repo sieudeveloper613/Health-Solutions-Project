@@ -1,11 +1,7 @@
 package com.example.healthsolutionsapplication.Activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.bumptech.glide.Glide;
 import com.example.healthsolutionsapplication.Constant.Constants;
 import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.R;
@@ -23,14 +20,8 @@ import com.example.healthsolutionsapplication.Service.APIConnect;
 import com.example.healthsolutionsapplication.Service.RetrofitClient;
 import com.example.healthsolutionsapplication.Service.ServerResponse;
 import com.google.android.material.button.MaterialButton;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,18 +30,17 @@ import retrofit2.Response;
 
 public class DetailProductActivity extends AppCompatActivity implements View.OnClickListener{
     // View and ViewGroup
-    String getNameProduct, getPriceProduct, getImageProduct, getCategoryProduct,
-            getBranchProduct, getOriginProduct, getTypeProduct;
     TextView tvNameProduct, tvPriceProduct, tvCategoryProduct,
-            tvTypeProduct, tvOriginProduct, tvBranchProduct;
-    LinearLayout imgProduct;
+             tvTypeProduct, tvOriginProduct, tvBranchProduct;
+    ImageView imgProduct;
     CardView cardBackPressed;
-    MaterialButton btnAdProduct;
-
+    MaterialButton btnAddProduct;
 
     // Object and Reference here
     Product product;
-    int ids;
+    int idProduct;
+    String getNameProduct, getPriceProduct, getTypeProduct, getCategoryProduct,
+           getBranchProduct, getOriginProduct, getImageProduct;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,9 +52,9 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
 
         // set method
         Intent intent = getIntent();
-        ids = intent.getIntExtra("product_Ids", 0);
+        idProduct = intent.getIntExtra("idProduct", 0);
 
-        if(ids != 0){
+        if(idProduct != 0){
             getDetail();
         }
 //        Intent intent = getIntent();
@@ -80,21 +70,21 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
     }
     private void getDetail() {
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
-                                        .performGetIdProduct(ids);
+                                        .performGetIdProduct(idProduct);
         callback.enqueue(new Callback<ServerResponse>() {
             @Override
             public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                 if(response.code() == 200){
-                    if(response.body().getStatus().equals("success")){
-                        if (response.body().getResult() == 1){
-                            product = response.body().getProduct1();
-                            tvNameProduct.setText(product.getName());
-                            tvPriceProduct.setText(String.valueOf(product.getPrice()));
-                            //tvCategoryProduct.setText(product.getCategoryId());
+                    if(response.body().getStatus().equals(Constants.SUCCESS)){
+                        if (response.body().getResult() == Constants.RESULT_1){
+                            product = response.body().getProduct();
+                            tvNameProduct.setText(product.getNameProduct());
+                            tvPriceProduct.setText(String.valueOf(product.getPriceProduct()));
+                            tvCategoryProduct.setText(product.getNameCategory());
                             tvTypeProduct.setText(product.getTypeProduct());
-                            tvOriginProduct.setText(product.getWhereProduct());
+                            tvOriginProduct.setText(product.getOriginProduct());
                             tvBranchProduct.setText(product.getBranchProduct());
-                            Picasso.get().load(product.getImage()).into((Target) imgProduct);
+                            Glide.with(DetailProductActivity.this).load(product.getImageProduct()).into(imgProduct);
                         }
                     }
                 }
@@ -115,11 +105,11 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
         tvTypeProduct = findViewById(R.id.tv_typeProduct);
         tvOriginProduct = findViewById(R.id.tv_originProduct);
         tvBranchProduct = findViewById(R.id.tv_branchProduct);
-        imgProduct = findViewById(R.id.img_detail);
+        imgProduct = findViewById(R.id.img_detailProduct);
         cardBackPressed = findViewById(R.id.card_backPressed);
-        btnAdProduct = findViewById(R.id.btn_addProduct);
+        btnAddProduct = findViewById(R.id.btn_addProduct);
 
-
+        cardBackPressed.setOnClickListener(this);
     }
 
     @Override

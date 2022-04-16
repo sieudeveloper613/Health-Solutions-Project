@@ -1,11 +1,8 @@
 package com.example.healthsolutionsapplication.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -31,9 +29,14 @@ import retrofit2.Response;
 
 
 public class FullNameActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     EditText edChangeFullName;
     ImageView imgDeleteFullName;
     MaterialButton btnSaveFullName;
+
+    // Object and Reference
+    ToastGenerate toastGenerate;
+    SharedPreferences sharedPref;
     int idCustomer;
     Customer customer;
 
@@ -41,45 +44,19 @@ public class FullNameActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_name);
-
         // setting status bar and action bar
         changeStatusBarColor();
         customToolBar("Họ và Tên");
 
+        // define Object and Reference
+        toastGenerate = new ToastGenerate(FullNameActivity.this);
+
         // set id from view
         initView();
 
-        SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        customer = new Customer();
-        idCustomer = sharedPref.getInt("getId", customer.getId());
-        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class).getIdCustomer(idCustomer);
-        callback.enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if(response.code() == 200){
-                    if (response.body().getStatus().equals("success")){
-                        if (response.body().getResult() == 1){
-                            customer = response.body().getCustomer();
-                            edChangeFullName.setText(customer.getName());
+        // define method
+        getNameEdit();
 
-                        }else{
-                            Toast.makeText(FullNameActivity.this, "Can't get Name from database", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }else{
-                        Toast.makeText(FullNameActivity.this, "get Name Failed", Toast.LENGTH_SHORT).show();
-                    }
-
-                }else{
-                    Toast.makeText(FullNameActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-
-            }
-        });
 
     }
 
@@ -129,10 +106,21 @@ public class FullNameActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private void getNameEdit(){
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        customer = new Customer();
+        String getName = sharedPref.getString("getName", customer.getName());
+        edChangeFullName.setText(getName);
+    }
+
     private void performChangeName(){
+    sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+    customer = new Customer();
+    idCustomer = sharedPref.getInt("getId", customer.getId());
     String changeName = edChangeFullName.getText().toString();
+
         if (changeName.isEmpty() && idCustomer != 0){
-            Toast.makeText(FullNameActivity.this, "Please fill Your Name", Toast.LENGTH_SHORT).show();
+            toastGenerate.createToastMessage("Tên không được để trống", 2);
         }else{
             Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                     .performName(idCustomer, changeName);
@@ -140,30 +128,21 @@ public class FullNameActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                     if (response.code() == 200){
-                        if (response.body().getStatus().equals("success")){
-                            if (response.body().getResult() == 1){
-                                Toast.makeText(FullNameActivity.this, "Your Name is Changed", Toast.LENGTH_SHORT).show();
-                                // String account = response.body().getCustomer().getAccount();
+                        if (response.body().getStatus().equals(Constants.SUCCESS)){
+                            if (response.body().getResult() == Constants.RESULT_1){
+                                toastGenerate.createToastMessage("Cật nhập tên thành công", 1);
                                 edChangeFullName.setText("");
 
-                                Customer customer = response.body().getCustomer();
-                                String name = customer.getName();
-                                SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPref.edit();
-                                editor.putString("getName", name);
-                                editor.commit();
-                                Log.d("name", name);
-                                Intent intent = new Intent(FullNameActivity.this, ChangeInformationActivity.class);
-                                startActivity(intent);
-
                             }else{
-                                Toast.makeText(FullNameActivity.this, "Failed...", Toast.LENGTH_SHORT).show();
+                                toastGenerate.createToastMessage("Cập nhật tên thất bại", 2);
                             }
+
                         }else{
-                            Toast.makeText(FullNameActivity.this, "Change Name Failed...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                         }
+
                     }else{
-                        Toast.makeText(FullNameActivity.this, "Something is wrong...", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("System Error", 0);
                     }
                 }
 

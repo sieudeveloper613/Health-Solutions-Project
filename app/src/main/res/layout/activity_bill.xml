@@ -57,29 +57,14 @@
                 android:layout_marginTop="15dp"/>
             <LinearLayout
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:weightSum="5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_bill_product"
-                    android:layout_width="0dp"
-                    android:layout_weight="4"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_regular"
-                    android:text="Máy đo nhịp tim cao cấp Nhật Bản"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"
-                    android:maxLines="1"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_semi_bold"
-                    android:textSize="16dp"
-                    android:text="2"
-                    android:textColor="@color/black"
-                    android:gravity="right" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
@@ -103,6 +88,7 @@
                     android:textColor="@color/deep_blue"
                     />
                 <TextView
+                    android:id="@+id/tv_billTotal"
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"

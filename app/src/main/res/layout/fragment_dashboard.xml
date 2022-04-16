@@ -26,6 +26,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <LinearLayout
+                android:id="@+id/dashboard_life"
                 android:layout_width="70dp"
                 android:layout_height="84dp"
                 android:layout_margin="10dp"
@@ -44,6 +45,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/dashboard_health"
                 android:layout_width="70dp"
                 android:layout_height="84dp"
                 android:layout_margin="10dp"
@@ -62,6 +64,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/dashboard_boby"
                 android:layout_width="70dp"
                 android:layout_height="84dp"
                 android:layout_margin="10dp"
@@ -80,6 +83,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/dashboard_store"
                 android:layout_width="70dp"
                 android:layout_height="84dp"
                 android:layout_margin="10dp"

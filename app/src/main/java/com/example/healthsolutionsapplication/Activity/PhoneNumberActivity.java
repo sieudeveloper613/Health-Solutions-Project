@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -29,10 +31,15 @@ import retrofit2.Response;
 
 
 public class PhoneNumberActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     EditText edChangePhone;
     ImageView imgDeletePhone;
     MaterialButton btnSavePhone;
+
+    // Object and Reference
+    SharedPreferences sharedPref;
     Customer customer;
+    ToastGenerate toastGenerate;
     int idCustomer;
 
     @Override
@@ -43,6 +50,9 @@ public class PhoneNumberActivity extends AppCompatActivity implements View.OnCli
         changeStatusBarColor();
         customToolBar("Số điện thoại");
 
+        // define Object and Reference
+        toastGenerate = new ToastGenerate(PhoneNumberActivity.this);
+
         // set id from view
         initView();
 
@@ -51,15 +61,7 @@ public class PhoneNumberActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void initView() {
-        edChangePhone = findViewById(R.id.ed_changePhoneNumber);
-        imgDeletePhone = findViewById(R.id.img_deletePhoneNumber);
-        btnSavePhone = findViewById(R.id.btn_savePhoneNumber);
 
-        // set event for view
-        btnSavePhone.setOnClickListener(this::onClick);
-        imgDeletePhone.setOnClickListener(this::onClick);
-    }
 
     private void changeStatusBarColor(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -84,45 +86,47 @@ public class PhoneNumberActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
+    private void initView() {
+        edChangePhone = findViewById(R.id.ed_changePhoneNumber);
+        imgDeletePhone = findViewById(R.id.img_deletePhoneNumber);
+        btnSavePhone = findViewById(R.id.btn_savePhoneNumber);
+
+        // set event for view
+        btnSavePhone.setOnClickListener(this::onClick);
+        imgDeletePhone.setOnClickListener(this::onClick);
+    }
+
     private void performChangePhone() {
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        customer = new Customer();
+        idCustomer = sharedPref.getInt("getId", customer.getId());
         String changePhone = edChangePhone.getText().toString();
         if (changePhone.isEmpty() && idCustomer != 0) {
-            Toast.makeText(PhoneNumberActivity.this, "Please fill Your Phone Number", Toast.LENGTH_SHORT).show();
-        } else {
+            toastGenerate.createToastMessage("Nhập số điện thoại", 2);
+
+        } else if(changePhone.length() != 10) {
+            toastGenerate.createToastMessage("Độ dài số điện thoại phải bằng 10", 2);
+
+        }else{
             Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                     .performPhone(idCustomer, changePhone);
             callback.enqueue(new Callback<ServerResponse>() {
                 @Override
                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                     if (response.code() == 200) {
-                        if (response.body().getStatus().equals("success")) {
-                            if (response.body().getResult() == 1) {
-                                if(edChangePhone.getText().toString().length() == 10){
-                                    Toast.makeText(PhoneNumberActivity.this, "Changed - Valid Phone Number", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "InValid Phone Number.", Toast.LENGTH_SHORT).show();
-                                }
-                                // String account = response.body().getCustomer().getAccount();
-                                // edChangeEmail.setText("");
+                        if (response.body().getStatus().equals(Constants.SUCCESS)) {
+                            if (response.body().getResult() == Constants.RESULT_1) {
+                                    toastGenerate.createToastMessage("Cập nhật thành công", 1);
 
-//                                Customer customer = response.body().getCustomer();
-//                                String name = customer.getName();
-//                                SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-//                                SharedPreferences.Editor editor = sharedPref.edit();
-//                                editor.putString("getName", name);
-//                                editor.commit();
-//                                Log.d("name", name);
-//                                Intent intent = new Intent(EmailActivity.this, ChangeInformationActivity.class);
-//                                startActivity(intent);
 
                             } else {
-                                Toast.makeText(PhoneNumberActivity.this, "Failed...", Toast.LENGTH_SHORT).show();
+                                toastGenerate.createToastMessage("Cập nhật thất bại", 2);
                             }
                         } else {
-                            Toast.makeText(PhoneNumberActivity.this, "Change Email Failed...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                         }
                     } else {
-                        Toast.makeText(PhoneNumberActivity.this, "Something is wrong...", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("System Error...",0);
                     }
                 }
 
@@ -135,38 +139,10 @@ public class PhoneNumberActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void getPhoneEdit(){
-        SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         customer = new Customer();
-        idCustomer = sharedPref.getInt("getId", customer.getId());
-
-        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class).getIdCustomer(idCustomer);
-        callback.enqueue(new Callback<ServerResponse>() {
-            @Override
-            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
-                if(response.code() == 200){
-                    if (response.body().getStatus().equals("success")){
-                        if (response.body().getResult() == 1){
-                            customer = response.body().getCustomer();
-                            edChangePhone.setText(String.valueOf(customer.getPhone()));
-
-                        }else{
-                            Toast.makeText(PhoneNumberActivity.this, "Can't get Phone Number from database", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }else{
-                        Toast.makeText(PhoneNumberActivity.this, "get Phone Number Failed", Toast.LENGTH_SHORT).show();
-                    }
-
-                }else{
-                    Toast.makeText(PhoneNumberActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ServerResponse> call, Throwable t) {
-
-            }
-        });
+        String getPhone = sharedPref.getString("getPhone", customer.getPhone());
+        edChangePhone.setText(getPhone);
     }
 
     @Override

@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -33,7 +35,7 @@ import retrofit2.Response;
 
 
 public class EmailActivity extends AppCompatActivity implements View.OnClickListener{
-    // View
+    // View and ViewGroup
     EditText edChangeEmail;
     ImageView imgDeleteEmail;
     MaterialButton btnSaveEmail;
@@ -42,6 +44,7 @@ public class EmailActivity extends AppCompatActivity implements View.OnClickList
     int idCustomer;
     Customer customer;
     SharedPreferences sharedPref;
+    ToastGenerate toastGenerate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +54,15 @@ public class EmailActivity extends AppCompatActivity implements View.OnClickList
         // setting status bar and action bar
         changeStatusBarColor();
         customToolBar("Email");
-        
-        // set id from view
+
+        // define object and Reference
+        toastGenerate = new ToastGenerate(EmailActivity.this);
+
+        // define id for view
         initView();
 
 
-        // set method
+        // define method
         getEmailEdit();
 
     }
@@ -115,12 +121,12 @@ public class EmailActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void performChangeEmail() {
-        SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         idCustomer = sharedPref.getInt("getId", customer.getId());
         String changeEmail = edChangeEmail.getText().toString();
 
         if (changeEmail.isEmpty() && idCustomer != 0) {
-            Toast.makeText(EmailActivity.this, "Please fill Your Email", Toast.LENGTH_SHORT).show();
+            toastGenerate.createToastMessage("Vui lòng nhập Email", 2);
         } else {
             Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                     .performEmail(idCustomer, changeEmail);
@@ -128,34 +134,22 @@ public class EmailActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                     if (response.code() == 200) {
-                        if (response.body().getStatus().equals("success")) {
-                            if (response.body().getResult() == 1) {
+                        if (response.body().getStatus().equals(Constants.SUCCESS)) {
+                            if (response.body().getResult() == Constants.RESULT_1) {
                                 if(isValidEmailId(edChangeEmail.getText().toString().trim())){
-                                    Toast.makeText(EmailActivity.this, "Changed - Valid Email Address", Toast.LENGTH_SHORT).show();
+                                    toastGenerate.createToastMessage("Cập nhật Email thành công", 1);
                                 }else{
-                                    Toast.makeText(getApplicationContext(), "InValid Email Address.", Toast.LENGTH_SHORT).show();
+                                    toastGenerate.createToastMessage("Email sai định dạng", 2);
                                 }
-                                // String account = response.body().getCustomer().getAccount();
-                                // edChangeEmail.setText("");
-
-//                                Customer customer = response.body().getCustomer();
-//                                String name = customer.getName();
-//                                SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-//                                SharedPreferences.Editor editor = sharedPref.edit();
-//                                editor.putString("getName", name);
-//                                editor.commit();
-//                                Log.d("name", name);
-//                                Intent intent = new Intent(EmailActivity.this, ChangeInformationActivity.class);
-//                                startActivity(intent);
 
                             } else {
-                                Toast.makeText(EmailActivity.this, "Failed...", Toast.LENGTH_SHORT).show();
+                                toastGenerate.createToastMessage("Cập nhật Email thất bại", 2);
                             }
                         } else {
-                            Toast.makeText(EmailActivity.this, "Change Email Failed...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Lỗi Cập nhật", 2);
                         }
                     } else {
-                        Toast.makeText(EmailActivity.this, "Something is wrong...", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("System Error", 0);
                     }
                 }
 

@@ -11,35 +11,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.healthsolutionsapplication.Activity.ToastActivity;
 import com.example.healthsolutionsapplication.Adapter.HomeAdapter;
 import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
 import com.example.healthsolutionsapplication.Service.RetrofitClient;
 import com.example.healthsolutionsapplication.Service.ServerResponse;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
     RecyclerView rcv;
-    List<Product> mProducts;
+    List<Product> productList;
     HomeAdapter mHomeAdapter;
+    ToastGenerate toastGenerate;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        toastGenerate = new ToastGenerate(getContext());
         rcv =  view.findViewById(R.id.rv_bestPriceToday);
         getListProduct();
         return view;
@@ -53,36 +52,31 @@ public class HomeFragment extends Fragment {
            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                ServerResponse resp = response.body();
                if (response.code() == 200){
-                   if (resp.getStatus().equals("success")){
-                       if (resp.getResult() == 1){
-                           mProducts = new ArrayList<>();
-                           mProducts = resp.getProduct();
+                   if (resp.getStatus().equals(Constants.SUCCESS)){
+                       if (resp.getResult() == Constants.RESULT_1){
+                           productList = new ArrayList<>();
+                           productList = resp.getProductList();
                            rcv.setHasFixedSize(true);
                            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
                            linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                           mHomeAdapter = new HomeAdapter(getContext(), mProducts);
+                           mHomeAdapter = new HomeAdapter(getContext(), productList);
                            rcv.setLayoutManager(linearLayoutManager);
                            rcv.setAdapter(mHomeAdapter);
-                           Toast.makeText(getContext(), mProducts.size()+" - get List successful", Toast.LENGTH_SHORT).show();
-
+                           toastGenerate.createToastMessage("Tải danh sách thành công", 1);
                        }else{
-                           Toast.makeText(getContext(), "get List Failed", Toast.LENGTH_SHORT).show();
-                       }
+                           toastGenerate.createToastMessage("Tải danh sách thất bại", 2);                       }
 
                    }else{
-                       Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
-
+                       toastGenerate.createToastMessage("Lỗi cập nhật", 2);
                    }
 
                }else{
-                   Toast.makeText(getContext(), "Something went Wrongs", Toast.LENGTH_SHORT).show();
-
+                   toastGenerate.createToastMessage("System Error", 2);
                }
            }
            @Override
            public void onFailure(Call<ServerResponse> call, Throwable t) {
-               Toast.makeText(getContext(), "Không lấy được dữ liệu", Toast.LENGTH_SHORT).show();
-
+               toastGenerate.createToastMessage(t.getMessage(), 0);
            }
        });
     }

@@ -13,9 +13,9 @@ public class ServerResponse {
     @Expose
     private Customer customer;
 
-    @SerializedName("product")
+    @SerializedName("productList")
     @Expose
-    private List<Product> product;
+    private List<Product> productList;
 
     @SerializedName("addressList")
     @Expose
@@ -25,17 +25,9 @@ public class ServerResponse {
     @Expose
     private Address address;
 
-    public Product getProduct1() {
-        return product1;
-    }
-
-    public void setProduct1(Product product1) {
-        this.product1 = product1;
-    }
-
-    @SerializedName("product1")
+    @SerializedName("product")
     @Expose
-    private Product product1;
+    private Product product;
 
     @SerializedName("status")
     @Expose
@@ -69,12 +61,20 @@ public class ServerResponse {
         this.customer = customer;
     }
 
-    public List<Product> getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(List<Product> product) {
+    public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
     public String getStatus() {

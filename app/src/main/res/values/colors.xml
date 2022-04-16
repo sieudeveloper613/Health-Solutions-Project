@@ -20,4 +20,9 @@
     <color name="green">#9EEB52</color>
     <color name="blue">#0088FF</color>
     <color name="transparent">#00000000</color>
+    <color name="sort_red">#F47C7C</color>
+    <color name="sort_yellow">#FFF59C</color>
+    <color name="sort_green">#A6FFA9</color>
+    <color name="dark_green">#00C311</color>
+    <color name="dark_yellow">#D2D000</color>
 </resources>

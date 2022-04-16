@@ -23,9 +23,16 @@ import com.google.android.material.card.MaterialCardView;
 
 
 public class ChangeInformationActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     MaterialCardView cardFullName, cardDob, cardGender, cardPhoneNumber, cardAddress, cardEmail;
-    TextView tvShowEditName, tvShowEditEmail, tvShowEditPhone;
-    ServerResponse response;
+    TextView tvShowEditName, tvShowEditEmail, tvShowEditPhone,
+             tvShowEditGender, tvShowEditDob, tvShowEditAddress;
+
+
+    // Object and Reference
+    SharedPreferences sharedPref;
+    Customer customer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,39 +40,17 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         // setting status bar and action bar
         changeStatusBarColor();
         customToolBar("Thay đổi thông tin");
+
         // define id for view
-        cardFullName = findViewById(R.id.card_moveToFullName);
-        cardDob = findViewById(R.id.card_moveToDob);
-        cardGender = findViewById(R.id.card_moveToGender);
-        cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
-        cardAddress = findViewById(R.id.card_moveToAddress);
-        cardEmail = findViewById(R.id.card_moveToEmail);
+        initView();
 
-        tvShowEditName = findViewById(R.id.tv_showEditName);
-        tvShowEditEmail = findViewById(R.id.tv_showEditEmail);
-        tvShowEditPhone = findViewById(R.id.tv_showEditPhoneNumber);
-
-            Customer customer = new Customer();
-            SharedPreferences sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-            String getNameCustomer = sharedPref.getString("getName", customer.getName());
-            String getEmailCustomer = sharedPref.getString("getEmail", customer.getEmail());
-            String getPhoneCustomer = sharedPref.getString("getPhone", customer.getPhone());
-            Toast.makeText(ChangeInformationActivity.this, "Success : " + getNameCustomer, Toast.LENGTH_SHORT).show();
-            tvShowEditName.setText(getNameCustomer);
-            tvShowEditEmail.setTextColor(Color.BLACK);
-            tvShowEditEmail.setText(getEmailCustomer);
-            tvShowEditPhone.setText(getPhoneCustomer);
-
-
-
-
-        // define event for view
-        cardFullName.setOnClickListener(this);
-        cardDob.setOnClickListener(this);
-        cardGender.setOnClickListener(this);
-        cardPhoneNumber.setOnClickListener(this);
-        cardAddress.setOnClickListener(this);
-        cardEmail.setOnClickListener(this);
+        // define method
+        getEditName();
+        getEditPhone();
+        getEditDob();
+        getEditGender();
+        getEditEmail();
+        getEditAddress();
 
     }
 
@@ -92,6 +77,30 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         });
     }
 
+    private void initView(){
+        cardFullName = findViewById(R.id.card_moveToFullName);
+        cardDob = findViewById(R.id.card_moveToDob);
+        cardGender = findViewById(R.id.card_moveToGender);
+        cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
+        cardAddress = findViewById(R.id.card_moveToAddress);
+        cardEmail = findViewById(R.id.card_moveToEmail);
+
+        tvShowEditName = findViewById(R.id.tv_showEditName);
+        tvShowEditEmail = findViewById(R.id.tv_showEditEmail);
+        tvShowEditPhone = findViewById(R.id.tv_showEditPhoneNumber);
+        tvShowEditGender = findViewById(R.id.tv_showEditGender);
+        tvShowEditDob = findViewById(R.id.tv_showEditDob);
+        tvShowEditAddress = findViewById(R.id.tv_showEditAddress);
+
+        // define event for view
+        cardFullName.setOnClickListener(this);
+        cardDob.setOnClickListener(this);
+        cardGender.setOnClickListener(this);
+        cardPhoneNumber.setOnClickListener(this);
+        cardAddress.setOnClickListener(this);
+        cardEmail.setOnClickListener(this);
+
+    }
 
     @Override
     public void onClick(View view) {
@@ -120,5 +129,62 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
                 startActivity(new Intent(ChangeInformationActivity.this, EmailActivity.class));
                 break;
         }
+    }
+
+    private void getEditName(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String getNameCustomer = sharedPref.getString("getName", customer.getName());
+        tvShowEditName.setText(getNameCustomer);
+        tvShowEditName.setTextColor(Color.BLACK);
+    }
+
+    private void getEditDob(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String getDobCustomer = sharedPref.getString("getDob", customer.getDob());
+        tvShowEditDob.setText(getDobCustomer);
+        tvShowEditDob.setTextColor(Color.BLACK);
+    }
+
+    private void getEditGender(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        int getGenderCustomer = sharedPref.getInt("getGender", customer.getGender());
+
+        if (getGenderCustomer == 0){
+            tvShowEditGender.setText("Nam");
+            tvShowEditGender.setTextColor(Color.BLACK);
+        }else if(getGenderCustomer == 1){
+            tvShowEditGender.setText("Nữ");
+            tvShowEditGender.setTextColor(Color.BLACK);
+        }else if (getGenderCustomer == 2){
+            tvShowEditGender.setText("Khác");
+            tvShowEditGender.setTextColor(Color.BLACK);
+        }
+    }
+
+    private void getEditPhone(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String getPhoneNumberCustomer = sharedPref.getString("getPhone", customer.getPhone());
+        tvShowEditPhone.setText(getPhoneNumberCustomer);
+        tvShowEditPhone.setTextColor(Color.BLACK);
+    }
+
+    private void getEditAddress(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+//        int getAddressCustomer = sharedPref.getInt("getAddress", customer.getIdAddress());
+//        tvShowFullName.setText(getAddressCustomer);
+//        tvShowEditAddress.setTextColor(Color.BLACK);
+    }
+
+    private void getEditEmail(){
+        customer = new Customer();
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String getEmailCustomer = sharedPref.getString("getEmail", customer.getEmail());
+        tvShowEditEmail.setText(getEmailCustomer);
+        tvShowEditEmail.setTextColor(Color.BLACK);
     }
 }

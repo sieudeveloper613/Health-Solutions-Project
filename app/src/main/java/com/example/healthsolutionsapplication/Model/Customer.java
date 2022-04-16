@@ -4,34 +4,42 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Customer {
-    @SerializedName("id")
+    @SerializedName("idCustomer")
     @Expose
     private int id;
-    @SerializedName("name")
+
+    @SerializedName("nameCustomer")
     @Expose
     private String name;
-    @SerializedName("account")
+    @SerializedName("accountCustomer")
     @Expose
     private String account;
-    @SerializedName("password")
+
+    @SerializedName("passwordCustomer")
     @Expose
     private String password;
-    @SerializedName("phone")
+
+    @SerializedName("phoneCustomer")
     @Expose
     private String phone;
-    @SerializedName("dob")
+
+    @SerializedName("dobCustomer")
     @Expose
-    private Object dob;
-    @SerializedName("email")
+    private String dob;
+
+    @SerializedName("emailCustomer")
     @Expose
     private String email;
-    @SerializedName("gender")
+
+    @SerializedName("genderCustomer")
     @Expose
     private int gender;
-    @SerializedName("address")
+
+    @SerializedName("idAddress")
     @Expose
-    private String address;
-    @SerializedName("avatar")
+    private int idAddress;
+
+    @SerializedName("avatarCustomer")
     @Expose
     private String avatar;
 
@@ -75,11 +83,11 @@ public class Customer {
         this.phone = phone;
     }
 
-    public Object getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Object dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -99,12 +107,12 @@ public class Customer {
         this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public int getIdAddress() {
+        return idAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setIdAddress(int idAddress) {
+        this.idAddress = idAddress;
     }
 
     public String getAvatar() {

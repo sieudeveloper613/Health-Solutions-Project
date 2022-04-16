@@ -55,10 +55,10 @@
                     android:id="@+id/tv_showEditName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đinh Thị Hoài Thu"
+                    android:text="Thêm tên"
                     android:textSize="18dp"
                     android:fontFamily="@font/quicksand_medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/deep_grey"/>
             </LinearLayout>
 
             <ImageView
@@ -106,6 +106,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditDob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Thêm ngày tháng năm sinh"
@@ -159,12 +160,13 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nữ"
+                    android:text="Thêm giới tính"
                     android:textSize="18dp"
                     android:fontFamily="@font/quicksand_medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/deep_grey"/>
             </LinearLayout>
 
             <ImageView
@@ -215,11 +217,11 @@
                     android:id="@+id/tv_showEditPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0123456789"
+                    android:text="Thêm số điện thoại"
                     android:letterSpacing="0.05"
                     android:textSize="18dp"
                     android:fontFamily="@font/quicksand_medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/deep_grey"/>
             </LinearLayout>
 
             <ImageView
@@ -267,13 +269,14 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/tv_showEditAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/delivering_address"
+                    android:text="Thêm địa chỉ nhận hàng"
                     android:textSize="18dp"
                     android:maxLines="1"
                     android:fontFamily="@font/quicksand_medium"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/deep_grey"/>
             </LinearLayout>
 
             <ImageView

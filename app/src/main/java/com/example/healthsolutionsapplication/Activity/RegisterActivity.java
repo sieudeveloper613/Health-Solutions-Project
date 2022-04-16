@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Constant.ToastGenerate;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
 import com.example.healthsolutionsapplication.Service.RetrofitClient;
@@ -22,21 +24,26 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+    // View and ViewGroup
     EditText edResFullName, edResPhoneNumber, edResAccount, edResPassword, edResRePassword;
     MaterialButton btnRegister;
     TextView tvReturn;
+
+    // Object and Reference
+    ToastGenerate toastGenerate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         changeStatusBarColor();
-        init();
-
+        toastGenerate = new ToastGenerate(RegisterActivity.this);
+        // define id for view
+        initView();
 
     }
 
-    private void init(){
+    private void initView(){
         edResFullName = findViewById(R.id.ed_resFullName);
         edResAccount = findViewById(R.id.ed_resAccount);
         edResPhoneNumber = findViewById(R.id.ed_resPhoneNumber);
@@ -62,8 +69,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_return:
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                finish();
+                onBackPressed();
                 break;
 
             case R.id.btn_register:
@@ -79,12 +85,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String password = edResPassword.getText().toString();
         String phoneNumber = edResPhoneNumber.getText().toString();
         String rePassword = edResRePassword.getText().toString();
+
         if (fullName.isEmpty() && account.isEmpty() && phoneNumber.isEmpty()
                                     && password.isEmpty() && rePassword.isEmpty()){
-            Toast.makeText(RegisterActivity.this, "Please fill EditText", Toast.LENGTH_SHORT).show();
+                toastGenerate.createToastMessage("Không được để trống",2);
 
         } else if(!password.equals(rePassword)) {
-            Toast.makeText(RegisterActivity.this, "Password is not same", Toast.LENGTH_SHORT).show();
+            toastGenerate.createToastMessage("Mật khẩu không giống nhau",2);
 
         }else{
             Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
@@ -93,9 +100,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
                     if (response.code() == 200){
-                        if (response.body().getStatus().equals("success")){
-                            if (response.body().getResult() == 1){
-                                Toast.makeText(RegisterActivity.this, "Registration success. Now you can login", Toast.LENGTH_SHORT).show();
+                        if (response.body().getStatus().equals(Constants.SUCCESS)){
+                            if (response.body().getResult() == Constants.RESULT_1){
+
+                                toastGenerate.createToastMessage("Đăng ký thành công",1);
                                 // String account = response.body().getCustomer().getAccount();
                                 Intent intent = new Intent();
                                 // intent.putExtra("account", account);
@@ -103,13 +111,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 startActivity(intent);
                                 finish();
                             }else{
-                                Toast.makeText(RegisterActivity.this, "User already exists...", Toast.LENGTH_SHORT).show();
+                                toastGenerate.createToastMessage("Tài khoảng đã tồn tại",2);
                             }
                         }else{
-                            Toast.makeText(RegisterActivity.this, "Registration Failed...", Toast.LENGTH_SHORT).show();
+                            toastGenerate.createToastMessage("Tài khoảng đã tồn tại",2);
                         }
                     }else{
-                        Toast.makeText(RegisterActivity.this, "Something is wrong...", Toast.LENGTH_SHORT).show();
+                        toastGenerate.createToastMessage("System Error",0);
                     }
                 }
 
