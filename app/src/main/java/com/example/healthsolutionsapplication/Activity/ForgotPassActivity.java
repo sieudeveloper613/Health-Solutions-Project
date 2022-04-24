@@ -44,6 +44,7 @@ public class ForgotPassActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_pass);
+//        getSupportActionBar().hide();
         changeStatusBarColor();
 
         // define Reference
@@ -81,7 +82,7 @@ public class ForgotPassActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_return:
-                onBackPressed();
+                startActivity(new Intent(ForgotPassActivity.this, LoginActivity.class));
 
                 break;
 

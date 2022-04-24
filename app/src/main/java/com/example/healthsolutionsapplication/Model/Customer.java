@@ -35,9 +35,9 @@ public class Customer {
     @Expose
     private int gender;
 
-    @SerializedName("idAddress")
+    @SerializedName("mainAddress")
     @Expose
-    private int idAddress;
+    private String mainAddress;
 
     @SerializedName("avatarCustomer")
     @Expose
@@ -107,12 +107,12 @@ public class Customer {
         this.gender = gender;
     }
 
-    public int getIdAddress() {
-        return idAddress;
+    public String getMainAddress() {
+        return mainAddress;
     }
 
-    public void setIdAddress(int idAddress) {
-        this.idAddress = idAddress;
+    public void setMainAddress(String mainAddress) {
+        this.mainAddress = mainAddress;
     }
 
     public String getAvatar() {

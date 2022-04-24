@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.LoginActivity">\
+    android:background="@color/white"
+    tools:context=".Activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,52 +24,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/quicksand_bold"
             android:text="Đăng nhập"
             android:textColor="@color/black"
             android:textSize="24dp"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="10dp"
-            />
+            android:textStyle="bold" />
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="550dp"
         android:layout_gravity="bottom"
         android:background="@drawable/bg_login_screen"
         android:orientation="vertical">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_google"
-            android:layout_width="300dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/ic_google"
-            android:fontFamily="@font/quicksand_semi_bold"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="Đăng nhập Với Google"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            app:cornerRadius="30dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/quicksand_semi_bold"
-            android:text="Hoặc"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
 
         <EditText
             android:id="@+id/ed_getAccount"
@@ -81,9 +53,10 @@
             android:drawablePadding="10dp"
             android:fontFamily="@font/quicksand_medium"
             android:hint="Tài khoản"
+            android:textColorHint="@color/deep_grey"
             android:inputType="text"
             android:padding="8dp"
-            android:textColor="@color/deep_grey" />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/ed_getPassword"
@@ -96,9 +69,10 @@
             android:drawablePadding="10dp"
             android:fontFamily="@font/quicksand_medium"
             android:hint="Mật khẩu"
+            android:textColorHint="@color/deep_grey"
             android:inputType="textPassword"
             android:padding="8dp"
-            android:textColor="@color/deep_grey" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_forgotPassword"
@@ -123,6 +97,34 @@
             android:text="Đăng nhập"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textSize="18dp"
+            app:cornerRadius="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:text="Hoặc"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_google"
+            android:layout_width="300dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_google"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Đăng nhập Với Google"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
             android:textSize="18dp"
             app:cornerRadius="30dp" />
 

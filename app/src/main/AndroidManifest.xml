@@ -19,11 +19,32 @@
         android:theme="@style/Theme.HealthSolutionsApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.DetailNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MoreSaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CategoryHouseholdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CategoryHealthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CategoryBabyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CategoryStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SearchingActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ToastActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".Activity.BillActivity"
             android:exported="false" />
@@ -49,7 +70,7 @@
             android:parentActivityName=".Activity.ChangeInformationActivity" />
         <activity
             android:name=".Activity.HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.DetailProductActivity"
             android:exported="false" />
@@ -62,11 +83,10 @@
         <activity
             android:name=".Activity.ForgotPassActivity"
             android:exported="false"
-            android:parentActivityName=".Activity.LoginActivity"/>
+            android:parentActivityName=".Activity.LoginActivity" />
         <activity
             android:name=".Activity.RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
@@ -76,7 +96,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.ChangePasswordActivity"
             android:exported="false"

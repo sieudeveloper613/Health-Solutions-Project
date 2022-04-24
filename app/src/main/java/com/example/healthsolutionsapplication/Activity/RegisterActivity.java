@@ -36,8 +36,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+//        getSupportActionBar().hide();
         changeStatusBarColor();
         toastGenerate = new ToastGenerate(RegisterActivity.this);
+        
         // define id for view
         initView();
 
@@ -69,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_return:
-                onBackPressed();
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 break;
 
             case R.id.btn_register:

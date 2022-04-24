@@ -2,7 +2,10 @@ package com.example.healthsolutionsapplication.Service;
 
 import com.example.healthsolutionsapplication.Model.Address;
 import com.example.healthsolutionsapplication.Model.Customer;
+import com.example.healthsolutionsapplication.Model.Feedback;
+import com.example.healthsolutionsapplication.Model.Knowledge;
 import com.example.healthsolutionsapplication.Model.Product;
+import com.example.healthsolutionsapplication.Model.Type;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -28,6 +31,22 @@ public class ServerResponse {
     @SerializedName("product")
     @Expose
     private Product product;
+
+    @SerializedName("feedback")
+    @Expose
+    private Feedback feedback;
+
+    @SerializedName("feedbackList")
+    @Expose
+    private List<Feedback> feedbackList = null;
+
+    @SerializedName("typeList")
+    @Expose
+    private List<Type> typeList = null;
+
+    @SerializedName("knowledgeList")
+    @Expose
+    private List<Knowledge> knowledgeList = null;
 
     @SerializedName("status")
     @Expose
@@ -75,6 +94,38 @@ public class ServerResponse {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public Feedback getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(Feedback feedback) {
+        this.feedback = feedback;
+    }
+
+    public List<Feedback> getFeedbackList() {
+        return feedbackList;
+    }
+
+    public void setFeedbackList(List<Feedback> feedbackList) {
+        this.feedbackList = feedbackList;
+    }
+
+    public List<Knowledge> getKnowledgeList() {
+        return knowledgeList;
+    }
+
+    public void setKnowledgeList(List<Knowledge> knowledgeList) {
+        this.knowledgeList = knowledgeList;
+    }
+
+    public List<Type> getTypeList() {
+        return typeList;
+    }
+
+    public void setTypeList(List<Type> typeList) {
+        this.typeList = typeList;
     }
 
     public String getStatus() {

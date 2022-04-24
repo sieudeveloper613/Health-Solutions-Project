@@ -39,6 +39,7 @@ public class ConfigChangePassActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config_change_pass);
+        //getSupportActionBar().hide();
         changeStatusBarColor();
 
         // Define Reference

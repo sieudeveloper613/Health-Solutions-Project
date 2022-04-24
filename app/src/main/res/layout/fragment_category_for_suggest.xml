@@ -7,16 +7,12 @@
     android:background="@color/white"
     tools:context=".Fragment.CategoryForSuggestFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Suggested Fragment"
-        android:gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_suggest"
+        android:id="@+id/rv_itemSuggest"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"/>
 
 
 </LinearLayout>

@@ -4,11 +4,17 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Address {
-    private Customer customer;
-
     @SerializedName("idAddress")
     @Expose
     private int idAddress;
+
+    @SerializedName("nameReceiver")
+    @Expose
+    private String nameReceiver;
+
+    @SerializedName("phoneReceiver")
+    @Expose
+    private String phoneReceiver;
 
     @SerializedName("contentAddress")
     @Expose
@@ -18,20 +24,28 @@ public class Address {
     @Expose
     private boolean isDefault;
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public int getIdAddress() {
         return idAddress;
     }
 
     public void setIdAddress(int idAddress) {
         this.idAddress = idAddress;
+    }
+
+    public String getNameReceiver() {
+        return nameReceiver;
+    }
+
+    public void setNameReceiver(String nameReceiver) {
+        this.nameReceiver = nameReceiver;
+    }
+
+    public String getPhoneReceiver() {
+        return phoneReceiver;
+    }
+
+    public void setPhoneReceiver(String phoneReceiver) {
+        this.phoneReceiver = phoneReceiver;
     }
 
     public String getContentAddress() {

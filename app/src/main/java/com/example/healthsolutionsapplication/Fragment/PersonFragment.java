@@ -18,14 +18,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.healthsolutionsapplication.Activity.QuoteActivity;
 import com.example.healthsolutionsapplication.Activity.UploadAvatarActivity;
+import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 
 public class PersonFragment extends Fragment implements View.OnClickListener{
-    MaterialCardView cardRollCallToday, cardQuoteToday;
-    TextView tvNameCustomer;
+    MaterialCardView cardUploadAvatar, cardQuoteToday;
+    TextView tvNameCustomer, tvEmailCustomer;
     ShapeableImageView imgAvatarCustomer;
 
     @Nullable
@@ -35,19 +36,21 @@ public class PersonFragment extends Fragment implements View.OnClickListener{
         customToolBar(view, "Thông tin cá nhân");
 
         // define id for view
-        cardRollCallToday = view.findViewById(R.id.card_uploadAvatar);
+        cardUploadAvatar = view.findViewById(R.id.card_uploadAvatar);
         cardQuoteToday = view.findViewById(R.id.card_quoteToday);
         tvNameCustomer = view.findViewById(R.id.tv_nameCustomer);
+        tvEmailCustomer = view.findViewById(R.id.tv_emailCustomer);
         imgAvatarCustomer = view.findViewById(R.id.img_avatarCustomer);
 
         SharedPreferences sharedPref = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        Customer customer = new Customer();
         String getNameCustomer = sharedPref.getString("getName", "");
-//        String name = sharedPref.getString("name", "");
-//        boolean active = sharedPref.getBoolean("active", false);
+        String getEmailCustmer = sharedPref.getString("getEmail", customer.getEmail());
         tvNameCustomer.setText(getNameCustomer);
+        tvEmailCustomer.setText(getEmailCustmer);
 
         // define event
-        cardRollCallToday.setOnClickListener(this);
+        cardUploadAvatar.setOnClickListener(this);
         cardQuoteToday.setOnClickListener(this);
 
         // set up fragment in PersonFragment

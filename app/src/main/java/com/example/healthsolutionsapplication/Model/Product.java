@@ -24,7 +24,7 @@ public class Product {
     @Expose
     private String nameCategory;
 
-    @SerializedName("typeProduct")
+    @SerializedName("nameType")
     @Expose
     private String typeProduct;
 
@@ -39,6 +39,10 @@ public class Product {
     @SerializedName("imageProduct")
     @Expose
     private String imageProduct;
+
+    @SerializedName("contentProduct")
+    @Expose
+    private String contentProduct;
 
     public int getIdProduct() {
         return idProduct;
@@ -110,5 +114,13 @@ public class Product {
 
     public void setImageProduct(String imageProduct) {
         this.imageProduct = imageProduct;
+    }
+
+    public String getContentProduct() {
+        return contentProduct;
+    }
+
+    public void setContentProduct(String contentProduct) {
+        this.contentProduct = contentProduct;
     }
 }

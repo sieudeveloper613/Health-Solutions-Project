@@ -37,6 +37,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_regular"
+            android:text="Tên người nhận"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ed_nameReceiverAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:inputType="text"
+            android:hint="Nhập họ tên người nhận"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
+            android:text="Số điện thoại nhận hàng"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/ed_phoneReceiverAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:inputType="text"
+            android:hint="Nhập số điện thoại người nhận"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_regular"
             android:text="Địa chỉ nhận hàng"
             android:textColor="@color/black"
             android:textSize="14dp"

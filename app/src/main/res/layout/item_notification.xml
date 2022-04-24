@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/portrait_person"
+        app:shapeAppearanceOverlay="@style/circle_image"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="10dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="5dp"
+        android:translationZ="5dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginLeft="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_titleNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="Phản hồi nội dung ý kiến..."
+                android:textSize="18dp"
+                android:textColor="@color/deep_blue"
+                android:lines="1"/>
+
+            <TextView
+                android:id="@+id/tv_titleFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Phản hồi nội dung ý kiến..."
+                android:textSize="14dp"
+                android:textColor="@color/deep_grey"
+                android:lines="2"
+                android:layout_marginTop="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_detailNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Nhấn để xem chi tiết"
+                android:textSize="12dp"
+                android:textColor="@color/red"
+                android:gravity="right"
+                android:layout_marginTop="6dp"/>
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

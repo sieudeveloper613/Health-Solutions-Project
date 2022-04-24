@@ -43,7 +43,7 @@ import retrofit2.Response;
 
 public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     final int EMPTY_VIEW = 77777;
-    private List<Address> mList;
+    private static List<Address> mList;
     private static Context context;
 
     public DeliveryAddressAdapter(List<Address> mList, Context context){
@@ -68,7 +68,7 @@ public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Address address = mList.get(position);
+
 
         if (getItemViewType(position) == EMPTY_VIEW) {
             EmptyView emptyView = (EmptyView) holder;
@@ -78,37 +78,36 @@ public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                             IconicsDrawable(context.getApplicationContext()).icon(FontAwesome.Icon.faw_ticket).sizeDp(48).color(Color.DKGRAY),
                     null, null);
         } else {
+            Address address = mList.get(position);
             ViewHolder viewHolder = (ViewHolder) holder;
             // Bind data to itemView
-            SharedPreferences sharedPref = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-            Customer customer = new Customer();
-            String customerName = sharedPref.getString("getName", customer.getName());
-            String customerPhone = sharedPref.getString("getPhone", customer.getPhone());
-            viewHolder.tvFullNameReceiver.setText(customerName);
-            viewHolder.tvPhoneNumberReceiver.setText(customerPhone);
+            viewHolder.tvFullNameReceiver.setText(address.getNameReceiver());
+            viewHolder.tvPhoneNumberReceiver.setText(address.getPhoneReceiver());
             viewHolder.tvAddressReceiver.setText(address.getContentAddress());
-            if (address.isDefault() == true){
-                viewHolder.tvDefaultAddress.setText("Địa chỉ mặt định");
-            }else{
-                viewHolder.tvDefaultAddress.setText("");
-            }
+            viewHolder.tvDefaultAddress.setText(address.isDefault() == true ? "Địa chỉ mặt định" : "");
         }
     }
 
 
     @Override
     public int getItemCount() {
-        return mList.size() > 0 ? mList.size() : 0;
+        return mList.size() > 0 ? mList.size() : 1;
     }
 
     @Override
     public int getItemViewType(int position) {
         if (mList.size() == 0) {
             return EMPTY_VIEW;
+        }else{
+            return super.getItemViewType(position);
         }
-        return super.getItemViewType(position);
+
     }
 
+    @Override
+    public long getItemId(int position) {
+        return new Address().getIdAddress();
+    }
 
     public static class EmptyView extends RecyclerView.ViewHolder {
         TextView tvPrimaryNothing, tvSecondaryNothing;
@@ -140,6 +139,7 @@ public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                         public boolean onMenuItemClick(MenuItem item) {
                             switch (item.getItemId()){
                                 case id.action_selectAddress:
+
                                     return true;
 
                                 case id.action_updateAddress:
@@ -185,12 +185,12 @@ public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     static void performDeleteAddress(){
-        ToastGenerate toastGenerate = new ToastGenerate(context);
         SharedPreferences sharedPref = context.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        Address address = new Address();
-        Customer customer = new Customer();
-        int idCustomer = sharedPref.getInt("getId", customer.getId());
-        int idAddress = sharedPref.getInt("getIdAddress", address.getIdAddress());
+        int idCustomer = sharedPref.getInt("getId", new Customer().getId());
+        int idAddress = mList.get(sharedPref.getInt("getIdAddress", new Address().getIdAddress())).getIdAddress();
+        //Toast.makeText(context, "Id :" + idCustomer + " - Id Address:" +idAddress, Toast.LENGTH_SHORT).show();
+        ToastGenerate toastGenerate = new ToastGenerate(context);
+
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                                         .deleteAddress(idCustomer, idAddress);
         callback.enqueue(new Callback<ServerResponse>() {
@@ -220,7 +220,6 @@ public class DeliveryAddressAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             }
         });
     }
-
 
 
 

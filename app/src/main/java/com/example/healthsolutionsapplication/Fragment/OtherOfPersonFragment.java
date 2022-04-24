@@ -17,27 +17,33 @@ import com.example.healthsolutionsapplication.R;
 import com.google.android.material.card.MaterialCardView;
 
 public class OtherOfPersonFragment extends Fragment implements View.OnClickListener{
-    MaterialCardView cardPurchasedProduct, cardFeedbackToUs, cardInfoAboutUs, cardLogout;
+    // View and ViewGroup
+    MaterialCardView cardPurchasedHistory, cardFeedbackToUs, cardInfoAboutUs, cardLogout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_other_of_person, container, false);
-        init(view);
+
+        // Define id for View
+        initView(view);
+
+        // Define method
         eventForView();
+
         return view;
     }
 
-    private void init(View view){
-        cardPurchasedProduct = view.findViewById(R.id.card_purchasedProduct);
+    private void initView(View view){
+        cardPurchasedHistory= view.findViewById(R.id.card_purchasedHistory);
         cardFeedbackToUs = view.findViewById(R.id.card_feedbackToUs);
         cardInfoAboutUs = view.findViewById(R.id.card_infoAboutUs);
         cardLogout = view.findViewById(R.id.card_logout);
     }
 
     private void eventForView(){
-        cardPurchasedProduct.setOnClickListener(this::onClick);
+        cardPurchasedHistory.setOnClickListener(this::onClick);
         cardFeedbackToUs.setOnClickListener(this::onClick);
         cardInfoAboutUs.setOnClickListener(this::onClick);
         cardLogout.setOnClickListener(this::onClick);
@@ -46,7 +52,7 @@ public class OtherOfPersonFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.card_purchasedProduct:
+            case R.id.card_purchasedHistory:
                 startActivity(new Intent(getContext(), PurchasedProductActivity.class));
                 break;
 

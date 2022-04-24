@@ -31,7 +31,7 @@ import retrofit2.Response;
 public class DetailProductActivity extends AppCompatActivity implements View.OnClickListener{
     // View and ViewGroup
     TextView tvNameProduct, tvPriceProduct, tvCategoryProduct,
-             tvTypeProduct, tvOriginProduct, tvBranchProduct;
+             tvTypeProduct, tvOriginProduct, tvBranchProduct, tvDescriptionProduct;
     ImageView imgProduct;
     CardView cardBackPressed;
     MaterialButton btnAddProduct;
@@ -79,11 +79,12 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
                         if (response.body().getResult() == Constants.RESULT_1){
                             product = response.body().getProduct();
                             tvNameProduct.setText(product.getNameProduct());
-                            tvPriceProduct.setText(String.valueOf(product.getPriceProduct()));
+                            tvPriceProduct.setText(String.valueOf(product.getPriceProduct()) + " đ");
                             tvCategoryProduct.setText(product.getNameCategory());
                             tvTypeProduct.setText(product.getTypeProduct());
                             tvOriginProduct.setText(product.getOriginProduct());
                             tvBranchProduct.setText(product.getBranchProduct());
+                            tvDescriptionProduct.setText(product.getContentProduct());
                             Glide.with(DetailProductActivity.this).load(product.getImageProduct()).into(imgProduct);
                         }
                     }
@@ -105,6 +106,7 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
         tvTypeProduct = findViewById(R.id.tv_typeProduct);
         tvOriginProduct = findViewById(R.id.tv_originProduct);
         tvBranchProduct = findViewById(R.id.tv_branchProduct);
+        tvDescriptionProduct = findViewById(R.id.tv_descriptionProduct);
         imgProduct = findViewById(R.id.img_detailProduct);
         cardBackPressed = findViewById(R.id.card_backPressed);
         btnAddProduct = findViewById(R.id.btn_addProduct);

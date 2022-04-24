@@ -11,7 +11,7 @@
     <string name="action_home">Trang chủ</string>
     <string name="action_type">Doanh mục</string>
     <string name="action_cart">Giỏ hàng</string>
-    <string name="action_mess">Tin nhắn</string>
+    <string name="action_notification">Thông báo</string>
     <string name="action_user">Cá nhân</string>
     <string name="content_quotes">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         In aenean eu tristique gravida lectus blandit etiam pulvinar massa.

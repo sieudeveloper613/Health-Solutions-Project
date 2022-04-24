@@ -36,13 +36,14 @@ import retrofit2.Response;
 
 public class DeliveryAddressAddingActivity extends AppCompatActivity implements View.OnClickListener{
     // View and ViewGroup
-    EditText edHouseNumber, edWard, edDistrict, edCity;
+    EditText edHouseNumber, edWard, edDistrict, edCity, edNameReceiver, edPhoneReceiver;
     CheckBox cbAddressDefault;
     MaterialButton btnSaveAddress;
 
     // Object and Reference
     int idCustomer;
     boolean isDefault;
+    String name, phone;
     Customer customer;
     SharedPreferences sharedPref;
     ToastGenerate toastGenerate;
@@ -97,6 +98,8 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
     }
 
     private void initView() {
+        edNameReceiver = findViewById(R.id.ed_nameReceiverAddress);
+        edPhoneReceiver = findViewById(R.id.ed_phoneReceiverAddress);
         edHouseNumber = findViewById(R.id.ed_houseNumber);
         edWard = findViewById(R.id.ed_ward);
         edDistrict = findViewById(R.id.ed_district);
@@ -114,6 +117,8 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
         getAddress += edDistrict.getText().toString() + ", ";
         getAddress += edCity.getText().toString();
         String finalGetAddress = getAddress;
+        name = edNameReceiver.getText().toString();
+        phone = edPhoneReceiver.getText().toString();
         isDefault = cbAddressDefault.isChecked();
 
         sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
@@ -121,7 +126,7 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
         idCustomer = sharedPref.getInt("getId", customer.getId());
 
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
-                                        .performAddress(idCustomer, finalGetAddress, isDefault);
+                                        .insertAddress(idCustomer, name, phone, finalGetAddress, isDefault);
 
         callback.enqueue(new Callback<ServerResponse>() {
             @Override
@@ -132,25 +137,19 @@ public class DeliveryAddressAddingActivity extends AppCompatActivity implements 
                         if (serverResponse.getResult() == Constants.RESULT_1){
                             if (cbAddressDefault.isChecked() == true){
                                 isDefault = true;
-                                sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPref.edit();
-
-                                int idAddress = response.body().getAddress().getIdAddress();
-                                editor.putInt("getIdCustomerAddress", idCustomer);
-                                editor.putInt("getIdAddress", idAddress);
-                                editor.commit();
 
                                 toastGenerate.createToastMessage("Thêm thành công", 1);
-                                Intent intent = new Intent(getApplicationContext(), DeliveryAddressActivity.class);
-                                startActivity(intent);
 
                             }else if(cbAddressDefault.isChecked() == false){
                                 isDefault = false;
 
                                 toastGenerate.createToastMessage("Thêm thành công", 1);
-                                Intent intent = new Intent(getApplicationContext(), DeliveryAddressActivity.class);
-                                startActivity(intent);
                             }
+
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            int idAddress = response.body().getAddress().getIdAddress();
+                            editor.putInt("getIdAddress", idAddress);
+                            editor.commit();
 
                         }else{
                             toastGenerate.createToastMessage("Thêm thất bại", 2);

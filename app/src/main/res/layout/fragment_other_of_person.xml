@@ -8,7 +8,7 @@
     tools:context=".Fragment.OtherOfPersonFragment">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_purchasedProduct"
+        android:id="@+id/card_purchasedHistory"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         app:contentPaddingLeft="20dp"

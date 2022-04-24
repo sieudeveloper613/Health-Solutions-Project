@@ -3,20 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".Fragment.CategoryForSuggestFragment">
+    tools:context=".Fragment.CategoryForBabyFragment">
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_itemBaby"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mommy and baby Fragment"
-        android:gravity="center"/>
+        app:contentPadding="10dp"
+        android:backgroundTint="@color/deep_blue"
+        android:elevation="10dp"
+        android:translationZ="10dp"
+        android:layout_marginLeft="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1.6"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_semi_bold"
+                android:text="Mẹ và Bé"
+                android:textSize="16dp"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_white"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_suggest"
+        android:id="@+id/rv_Itembaby"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        />
 
 
 </LinearLayout>

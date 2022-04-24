@@ -24,9 +24,10 @@ import com.google.android.material.card.MaterialCardView;
 
 public class ChangeInformationActivity extends AppCompatActivity implements View.OnClickListener{
     // View and ViewGroup
-    MaterialCardView cardFullName, cardDob, cardGender, cardPhoneNumber, cardAddress, cardEmail;
+    MaterialCardView cardFullName, cardDob, cardGender, cardPhoneNumber, cardMainAddress, cardAddress, cardEmail;
     TextView tvShowEditName, tvShowEditEmail, tvShowEditPhone,
-             tvShowEditGender, tvShowEditDob, tvShowEditAddress;
+             tvShowEditGender, tvShowEditDob, tvShowEditAddress,
+             tvShowEditMainAddress;
 
 
     // Object and Reference
@@ -50,7 +51,7 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         getEditDob();
         getEditGender();
         getEditEmail();
-        getEditAddress();
+        getEditMainAddress();
 
     }
 
@@ -84,13 +85,15 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         cardPhoneNumber = findViewById(R.id.card_moveToPhoneNumber);
         cardAddress = findViewById(R.id.card_moveToAddress);
         cardEmail = findViewById(R.id.card_moveToEmail);
+        cardMainAddress = findViewById(R.id.card_moveToMainAddress);
 
         tvShowEditName = findViewById(R.id.tv_showEditName);
         tvShowEditEmail = findViewById(R.id.tv_showEditEmail);
         tvShowEditPhone = findViewById(R.id.tv_showEditPhoneNumber);
         tvShowEditGender = findViewById(R.id.tv_showEditGender);
         tvShowEditDob = findViewById(R.id.tv_showEditDob);
-        tvShowEditAddress = findViewById(R.id.tv_showEditAddress);
+//        tvShowEditAddress = findViewById(R.id.tv_showEditAddress);
+        tvShowEditMainAddress = findViewById(R.id.tv_showEditMainAddress);
 
         // define event for view
         cardFullName.setOnClickListener(this);
@@ -99,6 +102,7 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         cardPhoneNumber.setOnClickListener(this);
         cardAddress.setOnClickListener(this);
         cardEmail.setOnClickListener(this);
+        cardMainAddress.setOnClickListener(this);
 
     }
 
@@ -128,6 +132,9 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
             case R.id.card_moveToEmail:
                 startActivity(new Intent(ChangeInformationActivity.this, EmailActivity.class));
                 break;
+
+            case R.id.card_moveToMainAddress:
+                startActivity(new Intent(ChangeInformationActivity.this, AddressActivity.class));
         }
     }
 
@@ -172,12 +179,12 @@ public class ChangeInformationActivity extends AppCompatActivity implements View
         tvShowEditPhone.setTextColor(Color.BLACK);
     }
 
-    private void getEditAddress(){
+    private void getEditMainAddress(){
         customer = new Customer();
         sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-//        int getAddressCustomer = sharedPref.getInt("getAddress", customer.getIdAddress());
-//        tvShowFullName.setText(getAddressCustomer);
-//        tvShowEditAddress.setTextColor(Color.BLACK);
+        String getAddressCustomer = sharedPref.getString("getMainAddress", customer.getMainAddress());
+        tvShowEditMainAddress.setText(getAddressCustomer);
+        tvShowEditMainAddress.setTextColor(Color.BLACK);
     }
 
     private void getEditEmail(){

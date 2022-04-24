@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_shopping_cart"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/action_mess"
-        android:title="@string/action_mess"
-        android:icon="@drawable/ic_chat_outline"
+    <item android:id="@+id/action_notification"
+        android:title="@string/action_notification"
+        android:icon="@drawable/ic_baseline_notifications_none"
         app:showAsAction="always"/>
 
     <item android:id="@+id/action_user"

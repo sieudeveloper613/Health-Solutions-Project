@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,6 +40,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+//        Toolbar toolbar = getSupportActionBar().hide();
+//        getSupportActionBar().hide();hide
         changeStatusBarColor();
         toastGenerate = new ToastGenerate(LoginActivity.this);
         // set id from view
@@ -94,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 String phone = response.body().getCustomer().getPhone();
                                 int gender = response.body().getCustomer().getGender();
                                 String dob = response.body().getCustomer().getDob();
-                                int idAddress = response.body().getCustomer().getIdAddress();
+                                String mainAddress = response.body().getCustomer().getMainAddress();
                                 String password = response.body().getCustomer().getPassword();
                                 String avatar = response.body().getCustomer().getAvatar();
                                 editor.putInt("getId", id);
@@ -103,7 +106,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 editor.putString("getPhone", phone);
                                 editor.putInt("getGender", gender);
                                 editor.putString("getDob", dob);
-                                editor.putInt("getIdAddress", idAddress);
+                                editor.putString("getMainAddress", mainAddress);
                                 editor.putString("getPassword", password);
                                 editor.putString("getAvatar", avatar);
                                 editor.commit();

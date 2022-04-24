@@ -3,6 +3,7 @@ package com.example.healthsolutionsapplication.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.healthsolutionsapplication.Activity.ChangeInformationActivity;
 
 import com.example.healthsolutionsapplication.Activity.ChangePasswordActivity;
+import com.example.healthsolutionsapplication.Model.Address;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.R;
 
@@ -86,15 +88,16 @@ public class InfoOfClientFragment extends Fragment implements View.OnClickListen
         customer = new Customer();
         sharedPref = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         String getPhoneNumberCustomer = sharedPref.getString("getPhone", customer.getPhone());
-        tvShowFullName.setText(getPhoneNumberCustomer);
+        tvShowPhone.setText(getPhoneNumberCustomer);
     }
 
     private void getAddress(){
         customer = new Customer();
         sharedPref = getContext().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-//        int getAddressCustomer = sharedPref.getInt("getAddress", customer.getIdAddress());
-//        tvShowFullName.setText(getAddressCustomer);
+        String getAddressCustomer = sharedPref.getString("getMainAddress", customer.getMainAddress());
+        tvShowAddress.setText(String.valueOf(getAddressCustomer));
     }
+
 
     @Override
     public void onClick(View view) {

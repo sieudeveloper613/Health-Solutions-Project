@@ -1,22 +1,17 @@
 package com.example.healthsolutionsapplication.Activity;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.healthsolutionsapplication.Fragment.CartFragment;
-import com.example.healthsolutionsapplication.Fragment.ChatFragment;
+import com.example.healthsolutionsapplication.Fragment.NotificationFragment;
 import com.example.healthsolutionsapplication.Fragment.CategoryFragment;
 import com.example.healthsolutionsapplication.Fragment.PersonFragment;
 import com.example.healthsolutionsapplication.Fragment.HomeFragment;
@@ -30,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+//        getSupportActionBar().hide();
         changeStatusBarColor();
 
         loadFragment(new HomeFragment());
@@ -53,8 +49,8 @@ public class HomeActivity extends AppCompatActivity {
                         loadFragment(cartFragment);
                         return true;
 
-                    case R.id.action_mess:
-                        ChatFragment chatFragment = new ChatFragment();
+                    case R.id.action_notification:
+                        NotificationFragment chatFragment = new NotificationFragment();
                         loadFragment(chatFragment);
                         return true;
 
