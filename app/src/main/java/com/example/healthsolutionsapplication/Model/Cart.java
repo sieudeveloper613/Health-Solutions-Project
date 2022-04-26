@@ -1,27 +1,55 @@
 package com.example.healthsolutionsapplication.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Cart {
-    private int imageProduct;
+    @SerializedName("idCart")
+    @Expose
+    private int idCart;
+
+    @SerializedName("idCustomer")
+    @Expose
+    private int idCustomer;
+
+    @SerializedName("idProduct")
+    @Expose
+    private int idProduct;
+
+    @SerializedName("nameProduct")
+    @Expose
     private String nameProduct;
-    private int priceProduct, amountProduct, total;
 
-    public Cart() {
+    @SerializedName("priceProduct")
+    @Expose
+    private double priceProduct;
+
+    @SerializedName("imageProduct")
+    @Expose
+    private String imageProduct;
+
+    public int getIdCart() {
+        return idCart;
     }
 
-    public Cart(int imageProduct, String nameProduct, int priceProduct, int amountProduct, int total) {
-        this.imageProduct = imageProduct;
-        this.nameProduct = nameProduct;
-        this.priceProduct = priceProduct;
-        this.amountProduct = amountProduct;
-        this.total = total;
+    public void setIdCart(int idCart) {
+        this.idCart = idCart;
     }
 
-    public int getImageProduct() {
-        return imageProduct;
+    public int getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setImageProduct(int imageProduct) {
-        this.imageProduct = imageProduct;
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
+    public int getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
     }
 
     public String getNameProduct() {
@@ -32,27 +60,19 @@ public class Cart {
         this.nameProduct = nameProduct;
     }
 
-    public int getPriceProduct() {
+    public double getPriceProduct() {
         return priceProduct;
     }
 
-    public void setPriceProduct(int priceProduct) {
+    public void setPriceProduct(double priceProduct) {
         this.priceProduct = priceProduct;
     }
 
-    public int getAmountProduct() {
-        return amountProduct;
+    public String getImageProduct() {
+        return imageProduct;
     }
 
-    public void setAmountProduct(int amountProduct) {
-        this.amountProduct = amountProduct;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
+    public void setImageProduct(String imageProduct) {
+        this.imageProduct = imageProduct;
     }
 }

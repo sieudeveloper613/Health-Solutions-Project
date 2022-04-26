@@ -150,7 +150,11 @@ public class DeliveryAddressActivity extends AppCompatActivity implements View.O
                                 recyclerView.setLayoutManager(linearLayoutManager);
                                 addressAdapter = new DeliveryAddressAdapter(list, DeliveryAddressActivity.this);
                                 recyclerView.setAdapter(addressAdapter);
-
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        addressAdapter.notifyDataSetChanged();
+                                    }
+                                });
 
                         }else{
                             toastGenerate.createToastMessage("Lấy địa chỉ thất bại", 2);

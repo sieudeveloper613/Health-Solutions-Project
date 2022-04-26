@@ -1,6 +1,7 @@
 package com.example.healthsolutionsapplication.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.example.healthsolutionsapplication.Constant.Constants;
+import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
@@ -37,10 +39,9 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
     MaterialButton btnAddProduct;
 
     // Object and Reference here
+    SharedPreferences sharedPref;
     Product product;
-    int idProduct;
-    String getNameProduct, getPriceProduct, getTypeProduct, getCategoryProduct,
-           getBranchProduct, getOriginProduct, getImageProduct;
+    int idProduct, idCustomer;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,17 +58,10 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
         if(idProduct != 0){
             getDetail();
         }
-//        Intent intent = getIntent();
-//        ids = intent.getIntExtra("product_Ids", 0);
-//        getNameProduct = intent.getStringExtra("product_name");
-//        getPriceProduct = String.valueOf(intent.getDoubleExtra("product_price", 0));
-//        getCategoryProduct = intent.getStringExtra("product_category");
-//        getBranchProduct = intent.getStringExtra("product_branch");
-//        getImageProduct = intent.getStringExtra("product_img");
-//        getOriginProduct = intent.getStringExtra("product_where");
-//        getTypeProduct = intent.getStringExtra("product_type");
 
     }
+    
+    
     private void getDetail() {
         Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
                                         .performGetIdProduct(idProduct);
@@ -110,8 +104,10 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
         imgProduct = findViewById(R.id.img_detailProduct);
         cardBackPressed = findViewById(R.id.card_backPressed);
         btnAddProduct = findViewById(R.id.btn_addProduct);
-
+        
+        // Set event
         cardBackPressed.setOnClickListener(this);
+        btnAddProduct.setOnClickListener(this::onClick);
     }
 
     @Override
@@ -123,11 +119,43 @@ public class DetailProductActivity extends AppCompatActivity implements View.OnC
             break;
 
             case R.id.btn_addProduct:
-                Toast.makeText(DetailProductActivity.this, "updating...", Toast.LENGTH_SHORT).show();
+                insertProduct();
                 break;
 
             default:
                 Toast.makeText(DetailProductActivity.this, "Wrong Clicked", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void insertProduct() {
+        sharedPref = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        idCustomer = sharedPref.getInt("getId", new Customer().getId());
+        Intent intent = getIntent();
+        idProduct = intent.getIntExtra("idProduct", 0);
+        String name = product.getNameProduct();
+        double price = product.getPriceProduct();
+        String image = product.getImageProduct();
+        
+        Call<ServerResponse> callback = RetrofitClient.getClient().create(APIConnect.class)
+                                        .insertProductIntoCart(idCustomer, idProduct, name, price, image);
+        callback.enqueue(new Callback<ServerResponse>() {
+            @Override
+            public void onResponse(Call<ServerResponse> call, Response<ServerResponse> response) {
+                if(response.code() == 200){
+                    if(response.body().getStatus().equals(Constants.SUCCESS)){
+                        if(response.body().getResult() == Constants.RESULT_1){
+                            Toast.makeText(DetailProductActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(DetailProductActivity.this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ServerResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

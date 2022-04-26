@@ -121,6 +121,24 @@ public interface APIConnect {
 
 
 
+    // CART ----------------------------------------------------------------------------------------
+
+    @GET("HealthSolutionsDB/insertProductIntoCart.php")
+    Call<ServerResponse> insertProductIntoCart(@Query("idCustomer") int id,
+                                               @Query("idProduct") int idProduct,
+                                               @Query("nameProduct") String name,
+                                               @Query("priceProduct") double price,
+                                               @Query("imageProduct") String image);
+
+    @GET("HealthSolutionsDB/selectCartByCustomer.php")
+    Call<ServerResponse> selectCartByCustomer(@Query("idCustomer") int id);
+
+    @GET("HealthSolutionsDB/deleteProductInCart.php")
+    Call<ServerResponse> deleteProductInCart(@Query("idCustomer") int id, @Query("idCart") int idCart);
+
+    @GET("HealthSolutionsDB/deleteAllCart.php")
+    Call<ServerResponse> deleteAllCart(@Query("idCustomer") int id);
+
 
     // FEEDBACK ------------------------------------------------------------------------------------
 
@@ -132,8 +150,13 @@ public interface APIConnect {
 
 
 
-    // RESPONSE ------------------------------------------------------------------------------------
+    // NOTIFICATION --------------------------------------------------------------------------------
 
+    @GET("HealthSolutionsDB/selectIdNotification.php")
+    Call<ServerResponse> selectIdNotification(@Query("idCustomer") int id);
+
+    @GET("HealthSolutionsDB/selectNotificationById.php")
+    Call<ServerResponse> selectNotificationById(@Query("idNotification") int id);
 
 
     // QUOTES --------------------------------------------------------------------------------------

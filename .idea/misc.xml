@@ -59,7 +59,7 @@
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_confirm_bill.xml" value="0.182518115942029" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_delivery_address.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_delivery_address_adding.xml" value="0.22" />
-        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_detail_notification.xml" value="0.18297101449275363" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_detail_notification.xml" value="0.22" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_detail_product.xml" value="0.14" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dia_chi_nhan_hang.xml" value="0.1716485507246377" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/activity_dia_chi_nhan_hang_them.xml" value="0.25" />
@@ -108,11 +108,13 @@
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_info_of_client.xml" value="0.18614130434782608" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_info_of_client_frament.xml" value="0.21041666666666667" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_newest.xml" value="0.25" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_notification.xml" value="0.18297101449275363" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_other_of_person.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_person.xml" value="0.21" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_quote.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/fragment_suggest_today.xml" value="0.33" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_best_price_today.xml" value="0.5" />
+        <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_cart.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_notification.xml" value="0.21" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_product.xml" value="0.25" />
         <entry key="..\:/Health Solutions Project/Health Solutions Application/app/src/main/res/layout/item_review.xml" value="0.17074275362318841" />

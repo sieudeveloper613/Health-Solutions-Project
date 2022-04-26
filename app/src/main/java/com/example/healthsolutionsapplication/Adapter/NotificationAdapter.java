@@ -37,13 +37,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
-        SharedPreferences sharedPref = context.getSharedPreferences("MyPreferences", context.MODE_PRIVATE);
-        String titleFeedback = sharedPref.getString("titleFeedback", new Feedback().getTitleFeedback());
         Notification notification = notificationList.get(position);
         if (notification != null){
-            holder.tvTitle.setText(notification.getTitleFeedback());
-            holder.tvTitleFeedback.setText(titleFeedback);
-            holder.tvDetail.setOnClickListener(new View.OnClickListener() {
+            holder.tvTitle.setText(notification.getTitleNotification());
+            holder.tvTitleFeedback.setText(notification.getTitleFeedback());
+            holder.cardNotification.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DetailNotificationActivity.class);

@@ -1,9 +1,11 @@
 package com.example.healthsolutionsapplication.Service;
 
 import com.example.healthsolutionsapplication.Model.Address;
+import com.example.healthsolutionsapplication.Model.Cart;
 import com.example.healthsolutionsapplication.Model.Customer;
 import com.example.healthsolutionsapplication.Model.Feedback;
 import com.example.healthsolutionsapplication.Model.Knowledge;
+import com.example.healthsolutionsapplication.Model.Notification;
 import com.example.healthsolutionsapplication.Model.Product;
 import com.example.healthsolutionsapplication.Model.Type;
 import com.google.gson.annotations.Expose;
@@ -31,6 +33,18 @@ public class ServerResponse {
     @SerializedName("product")
     @Expose
     private Product product;
+
+    @SerializedName("cartList")
+    @Expose
+    private List<Cart> cartList = null;
+
+    @SerializedName("notification")
+    @Expose
+    private Notification notification;
+
+    @SerializedName("notificationList")
+    @Expose
+    private List<Notification> notificationList = null;
 
     @SerializedName("feedback")
     @Expose
@@ -120,12 +134,36 @@ public class ServerResponse {
         this.knowledgeList = knowledgeList;
     }
 
+    public Notification getNotification() {
+        return notification;
+    }
+
+    public void setNotification(Notification notification) {
+        this.notification = notification;
+    }
+
+    public List<Notification> getNotificationList() {
+        return notificationList;
+    }
+
+    public void setNotificationList(List<Notification> notificationList) {
+        this.notificationList = notificationList;
+    }
+
     public List<Type> getTypeList() {
         return typeList;
     }
 
     public void setTypeList(List<Type> typeList) {
         this.typeList = typeList;
+    }
+
+    public List<Cart> getCartList() {
+        return cartList;
+    }
+
+    public void setCartList(List<Cart> cartList) {
+        this.cartList = cartList;
     }
 
     public String getStatus() {

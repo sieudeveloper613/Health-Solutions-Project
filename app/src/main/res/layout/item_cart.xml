@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="180dp">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <CheckBox
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/cb_selectProductInCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        tools:ignore="TouchTargetSizeCheck" />
+        android:buttonTint="@color/deep_blue" />
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="10dp"
         android:layout_gravity="center_vertical"
         android:layout_width="72dp"
         android:layout_height="72dp">
         <ImageView
+            android:id="@+id/img_productInCart"
             android:src="@drawable/product_pic_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -31,22 +35,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:textFontWeight="500"
-            android:fontFamily="@font/quicksand_medium"
-            android:textSize="16sp"
+            android:id="@+id/tv_nameProductInCart"
+            android:fontFamily="@font/quicksand_semi_bold"
+            android:textSize="16dp"
             android:text="Máy đo nhịp tim cao cấp Nhật Bản..."
-            android:id="@+id/txt_name_product"
-            android:layout_width="200dp"
+            android:textColor="@color/black"
+            android:lines="2"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tv_priceProductInCart"
             android:textFontWeight="500"
             android:fontFamily="@font/quicksand_medium"
             android:textSize="16dp"
             android:textColor="@color/red"
-            android:id="@+id/txt_price"
             android:text="15.000.000 đ"
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
         <LinearLayout
             android:layout_marginLeft="30dp"
             android:orientation="horizontal"
@@ -60,15 +66,19 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <LinearLayout
-            android:layout_marginLeft="130dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_marginTop="10dp">
 
-            <androidx.appcompat.widget.AppCompatButton
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_weight="1.6"
+            android:layout_height="wrap_content"
+            android:paddingLeft="100dp">
+
+            <Button
                 android:id="@+id/btn_minus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -78,11 +88,14 @@
                 android:textColor="@color/black"
                 tools:ignore="TouchTargetSizeCheck" />
             <TextView
+                android:id="@+id/tv_amountProductInCart"
                 android:gravity="center"
-                android:text="0"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/btn_plus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -92,21 +105,21 @@
                 android:textColor="@color/black"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
+
         <TextView
-            android:layout_marginLeft="100dp"
+            android:id="@+id/tv_deleteProductInCart"
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="right"
-            android:textFontWeight="500"
             android:fontFamily="@font/quicksand_medium"
             android:textSize="18dp"
             android:text="Xóa"
-            android:textColor="@color/red"
-            android:id="@+id/txt_delete_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:gravity="center"
+            android:textColor="@color/red" />
     </LinearLayout>
     <View
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@color/black"
         android:layout_width="match_parent"
         android:layout_height="2dp"/>
