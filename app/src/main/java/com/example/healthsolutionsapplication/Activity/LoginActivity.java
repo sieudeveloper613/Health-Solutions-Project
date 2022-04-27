@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthsolutionsapplication.Constant.Constants;
@@ -20,6 +21,13 @@ import com.example.healthsolutionsapplication.R;
 import com.example.healthsolutionsapplication.Service.APIConnect;
 import com.example.healthsolutionsapplication.Service.RetrofitClient;
 import com.example.healthsolutionsapplication.Service.ServerResponse;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.SignInAccount;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 
 import retrofit2.Call;
@@ -35,6 +43,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     // Object and Reference
     ToastGenerate toastGenerate;
     SharedPreferences sharedPref;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +56,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         toastGenerate = new ToastGenerate(LoginActivity.this);
         // set id from view
         initView();
+        ggSG();
 
+    }
+
+    private void ggSG() {
+        gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this, gso);
+        btnGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignIN();
+            }
+        });
+    }
+
+    private void SignIN() {
+        Intent intent = gsc.getSignInIntent();
+        startActivityForResult(intent, 1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                task.getResult(ApiException.class);
+                moveActivi();
+            } catch (Exception e) {
+                Toast.makeText(this, "Some thing went wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void moveActivi() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
     private void changeStatusBarColor(){
@@ -67,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edGetPassword = findViewById(R.id.ed_getPassword);
 
         // set event for view
-        btnGoogle.setOnClickListener(this);
+
         btnLogin.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
