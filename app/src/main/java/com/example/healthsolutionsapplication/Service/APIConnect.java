@@ -1,10 +1,12 @@
 package com.example.healthsolutionsapplication.Service;
 
 import com.example.healthsolutionsapplication.Model.Customer;
+import com.example.healthsolutionsapplication.Model.FileModel;
 
 import java.util.List;
 
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -16,9 +18,10 @@ import retrofit2.http.Query;
 
 public interface APIConnect {
     @Multipart
-    @POST("uploadhinhanh.php")
-    Call<String> UploadPhoto(@Part MultipartBody.Part photo);
-
+    @POST("HealthSolutionsDB/upload_api.php")
+    Call<FileModel> UploadPhoto(@Part MultipartBody.Part avatarCustomer,@Query("idCustomer") int id);
+    @GET("HealthSolutionsDB/get_img.php")
+    Call<ServerResponse> getimg_CS(@Query("idCustomer") int id);
     // CUSTOMER ------------------------------------------------------------------------------------
 
     @GET("HealthSolutionsDB/Register.php")
@@ -121,24 +124,6 @@ public interface APIConnect {
 
 
 
-    // CART ----------------------------------------------------------------------------------------
-
-    @GET("HealthSolutionsDB/insertProductIntoCart.php")
-    Call<ServerResponse> insertProductIntoCart(@Query("idCustomer") int id,
-                                               @Query("idProduct") int idProduct,
-                                               @Query("nameProduct") String name,
-                                               @Query("priceProduct") double price,
-                                               @Query("imageProduct") String image);
-
-    @GET("HealthSolutionsDB/selectCartByCustomer.php")
-    Call<ServerResponse> selectCartByCustomer(@Query("idCustomer") int id);
-
-    @GET("HealthSolutionsDB/deleteProductInCart.php")
-    Call<ServerResponse> deleteProductInCart(@Query("idCustomer") int id, @Query("idCart") int idCart);
-
-    @GET("HealthSolutionsDB/deleteAllCart.php")
-    Call<ServerResponse> deleteAllCart(@Query("idCustomer") int id);
-
 
     // FEEDBACK ------------------------------------------------------------------------------------
 
@@ -149,14 +134,8 @@ public interface APIConnect {
                                         @Query("contentFeedback") String content);
 
 
+    // RESPONSE ------------------------------------------------------------------------------------
 
-    // NOTIFICATION --------------------------------------------------------------------------------
-
-    @GET("HealthSolutionsDB/selectIdNotification.php")
-    Call<ServerResponse> selectIdNotification(@Query("idCustomer") int id);
-
-    @GET("HealthSolutionsDB/selectNotificationById.php")
-    Call<ServerResponse> selectNotificationById(@Query("idNotification") int id);
 
 
     // QUOTES --------------------------------------------------------------------------------------
