@@ -19,7 +19,7 @@ import retrofit2.http.Query;
 public interface APIConnect {
     @Multipart
     @POST("HealthSolutionsDB/upload_api.php")
-    Call<FileModel> UploadPhoto(@Part MultipartBody.Part avatarCustomer,@Query("idCustomer") int id);
+    Call<FileModel> UploadPhoto(@Part MultipartBody.Part avatarCustomer,@Field("idCustomer") int id);
     @GET("HealthSolutionsDB/get_img.php")
     Call<ServerResponse> getimg_CS(@Query("idCustomer") int id);
     // CUSTOMER ------------------------------------------------------------------------------------
